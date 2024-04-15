@@ -9,6 +9,11 @@ body {
   padding-bottom: 120px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+
 .layout_padding2 {
   padding: 45px 0;
 }
@@ -140,6 +145,7 @@ a:focus {
   color: #000000;
   text-align: center;
 }
+
 
 .custom_nav-container .navbar-nav .nav-item:hover .nav-link, .custom_nav-container .navbar-nav .nav-item.active .nav-link {
   color: #0355cc;
@@ -834,16 +840,6 @@ a:focus {
 
 .footer_section a {
   color: inherit;
-}
-
-
-.container {
-  max-width: 400px;
-  margin: 0 auto;
-}
-
-.form-group {
-  margin-bottom: 20px;
 }
 
 /* end footer section*/

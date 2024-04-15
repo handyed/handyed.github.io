@@ -11,10 +11,8 @@
   <meta name="keywords" content="" />
   <meta name="description" content="" />
   <meta name="author" content="" />
-  
 
-  <title>OUR SERVICES</title>
-  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <title>Inance</title>
 
   <!-- slider stylesheet -->
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
@@ -27,27 +25,26 @@
   <link href="css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
-  <link rel="stylesheet" href="additional.css">
 
 </head>
 
-<body style="background-color: #d1e3ff;">
+<body>
   <div class="hero_area">
     <!-- header section strats -->
     <header class="header_section">
       <div class="header_top">
         <div class="container-fluid">
           <div class="contact_nav">
-            <a href="tel:+4407849758600">
+            <a href="">
               <i class="fa fa-phone" aria-hidden="true"></i>
               <span>
-                Call : 07849758600
+                Call : +01 123455678990
               </span>
             </a>
-            <a href="mailto:handyedoffice@gmail.com">
+            <a href="">
               <i class="fa fa-envelope" aria-hidden="true"></i>
               <span>
-                Email : handyedoffice@gmail.com
+                Email : demo@gmail.com
               </span>
             </a>
           </div>
@@ -58,10 +55,9 @@
           <nav class="navbar navbar-expand-lg custom_nav-container ">
             <a class="navbar-brand" href="index.html">
               <span>
-                Services Page
+                Inance
               </span>
             </a>
-            
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class=""> </span>
@@ -70,16 +66,16 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav ">
                 <li class="nav-item ">
-                  <a class="nav-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/about.html"> About</a>
+                  <a class="nav-link" href="about.html"> About</a>
                 </li>
                 <li class="nav-item active">
-                  <a class="nav-link" href="/service.html">Services</a>
+                  <a class="nav-link" href="service.html">Services</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/contact.html">Book</a>
+                  <a class="nav-link" href="contact.html">Contact Us</a>
                 </li>
               </ul>
             </div>
@@ -91,130 +87,25 @@
   </div>
 
   <!-- service section -->
-  <center>
 
   <section class="service_section layout_padding">
     <div class="container ">
       <div class="heading_container heading_center">
-        <h2 style="padding-left: 60px;">Our Services </h2>
+        <h2> Our Services </h2>
       </div>
-        <ul>
-          <li>Painting & Decorating</li>
-          <li>Plumbing</li>
-          <li>Domestic Electrical Installing</li>
-          <li>Cleaning</li>
-          <li>Rental Property Refreshing</li>
-          <li>Contact us for all your household needs.</li>
-        </strong>
-        </ul>
-      </div>
-      <div>
-        <br>
-        <img src="/images/booking.png" alt="bokimg">
-        <h1>Installing Kitchen Furniture</h1>
-        <p>Explore premium kitchen furniture from :<br> HOWDENS</p>
-
-        <div class="gallery-container">
-
-          <div class="gallery-item" data-index="1"><img src="/images/kitchen/Alendale.jpg" alt=""></div>
-          <div class="gallery-item" data-index="2"><img src="/images/kitchen/Chilcomb.jpg" alt=""></div>
-          <div class="gallery-item" data-index="3"><img src="/images/kitchen/Greenwich.jpg" alt=""></div>
-          <div class="gallery-item" data-index="4"><img src="/images/kitchen/Wickes.jpeg" alt=""></div>
-          <div class="gallery-item" data-index="5"><img src="/images/kitchen/Witney.jpg" alt=""></div>
-          <div class="gallery-item" data-index="6"><img src="/images/kitchen/Hockley.jpg" alt=""></div>
-          
-
-        </div>
-        <h3>We offer a wide array of diverse and contemporary kitchen designs. A specialist designer from Howdens will be provided to facilitate a thorough discussion and selection process tailored to your preferences and requirements.</h3>
-          
-    <script>
-            const galleryItems = document.getElementsByClassName("gallery-item");
-            const lightBoxContainer = document.createElement("div");
-            const lightBoxContent = document.createElement("div");
-            const lightBoxImg = document.createElement("img"); // Changed from div to img
-            const lightBoxPrev = document.createElement("div");
-            const lightBoxNext = document.createElement("div");
-
-            lightBoxContainer.classList.add('lightbox');
-            lightBoxContent.classList.add('lightbox-content');
-            lightBoxPrev.classList.add("fa", "fa-angle-left", "lightbox-prev");
-            lightBoxNext.classList.add("fa", "fa-angle-right", "lightbox-next");
-
-            lightBoxContainer.appendChild(lightBoxContent);
-            lightBoxContent.appendChild(lightBoxImg);
-            lightBoxContainer.appendChild(lightBoxPrev);
-            lightBoxContainer.appendChild(lightBoxNext);
-
-            document.body.appendChild(lightBoxContainer);
-
-            let index = 1; 
-
-            function showLightBox(n) {
-                if (n > galleryItems.length) { 
-                    index = 1; 
-                } else if (n < 1) {
-                    index = galleryItems.length; // Corrected typo
-                }
-
-                let imageLocation = galleryItems[index-1].children[0].getAttribute("src");
-                lightBoxImg.setAttribute("src", imageLocation); // Corrected spelling and added quotes
-            }
-
-            function currentImage() {
-                lightBoxContainer.style.display = "block";
-
-                let imageIndex = parseInt(this.getAttribute("data-index")); // Corrected spelling
-                showLightBox(imageIndex);
-            }
-
-            for (let i = 0; i < galleryItems.length; i++) {
-                galleryItems[i].addEventListener("click", currentImage); // Added comma
-            }
-
-            function sliderImage(n) {
-                showLightBox(index += n);
-            }
-
-            function prevImage() {
-                sliderImage(-1);
-            }
-
-            function nextImage() {
-                sliderImage(1);
-            }
-
-            lightBoxPrev.addEventListener("click", prevImage);
-            lightBoxNext.addEventListener("click", nextImage);
-
-            function closeLightBox() {
-                if (this === event.target) {
-                    lightBoxContainer.style.display = "none"; // Corrected spelling
-                }
-            }
-
-            lightBoxContainer.addEventListener("click", closeLightBox); 
-    </script>
-
- 
-
-        
-        
-            
-        
-          
-      <!--
       <div class="row">
         <div class="col-sm-6 col-md-4 mx-auto">
           <div class="box ">
             <div class="img-box">
-              <img src="images/S1.png" alt="brush" />
+              <img src="images/s1.png" alt="" />
             </div>
             <div class="detail-box">
               <h5>
-                Painting & Decorating
+                Maintenance
               </h5>
               <p>
-                Experienced professional painter, enhancing spaces with precision and creativity.
+                when looking at its layout. The point of using Lorem Ipsum is
+                that it has a more-or-less normal
               </p>
             </div>
           </div>
@@ -222,14 +113,15 @@
         <div class="col-sm-6 col-md-4 mx-auto">
           <div class="box ">
             <div class="img-box">
-              <img src="images/s2.png" alt="socket" />
+              <img src="images/s2.png" alt="" />
             </div>
             <div class="detail-box">
               <h5>
                 Electrical
               </h5>
               <p>
-                Domestic electrical installer, ensuring safety and functionality in every project.
+                when looking at its layout. The point of using Lorem Ipsum is
+                that it has a more-or-less normal
               </p>
             </div>
           </div>
@@ -237,38 +129,31 @@
         <div class="col-sm-6 col-md-4 mx-auto">
           <div class="box ">
             <div class="img-box">
-              <img src="images/s3.png" alt="sink" />
+              <img src="images/s3.png" alt="" />
             </div>
             <div class="detail-box">
               <h5>
                 Plumbing
               </h5>
               <p>
-                Dedicated to resolving your plumbing issues efficiently.
+                when looking at its layout. The point of using Lorem Ipsum is
+                that it has a more-or-less normal
               </p>
             </div>
-            
           </div>
         </div>
       </div>
-      -->
-      <br>
-      <!--boking code start-->
-      <!-- <script src="//widget.simplybook.it/v2/widget/widget.js" type="text/javascript"></script>
-  <script type="text/javascript">
-      var widget = new SimplybookWidget({"widget_type":"button","url":"https:\/\/handyed.simplybook.it","theme":"default","theme_settings":{"timeline_hide_unavailable":"1","hide_past_days":"0","timeline_show_end_time":"1","timeline_modern_display":"as_slots","sb_base_color":"#dd3649","display_item_mode":"block","booking_nav_bg_color":"#dd3649","body_bg_color":"#f2f2f2","sb_review_image":"2","sb_review_image_preview":"\/uploads\/handyed\/image_files\/preview\/5ba3ecbe055a18a683aa9cb07cfc3184.PNG","dark_font_color":"#474747","light_font_color":"#f5fcff","btn_color_1":"#dd3649","sb_company_label_color":"#552f34","hide_img_mode":"0","show_sidebar":"1","sb_busy":"#c7b3b3","sb_available":"#d6ebff"},"timeline":"modern","datepicker":"top_calendar","is_rtl":false,"app_config":{"clear_session":0,"allow_switch_to_ada":0,"predefined":[]},"button_title":"Book now","button_background_color":"#dd3649","button_text_color":"#ffffff","button_position":"right","button_position_offset":"55%"});
-  </script> -->
-  <!--boking code end-->
-      <br>
-      
-    
+      <div class="btn-box">
+        <a href="">
+          View More
+        </a>
+      </div>
     </div>
   </section>
-</center>
 
   <!-- end service section -->
 
-  <!-- info section 
+  <!-- info section -->
   <section class="info_section ">
     <div class="container">
       <h4>
@@ -339,7 +224,6 @@
       </div>
     </div>
   </section>
-  -->
 
 
 
