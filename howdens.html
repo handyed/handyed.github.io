@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Howdens</title>
+    <style>
+        /* Center the content */
+        .centered {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh; /* Set height to viewport height for vertical centering */
+        }
+
+        .centered-button {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+    
+    
+        /* Style the embedded PDF */
+        .embedded-pdf {
+          width: 80%; /* Adjust width as needed */
+          max-width: 800px; /* Set maximum width */
+        }
+
+        /* Responsive styling */
+    @media only screen and (max-width: 768px) {
+      .embedded-pdf {
+        width: 90%; /* Adjust width for smaller screens */
+      }
+    }
+
+    /* Style the button */
+    .rounded-button {
+      background-color: #ff8a1d; /* Yellow hue */
+      color: #fff; /* White text color */
+      border: none;
+      padding: 15px 25px;
+      font-size: 16px;
+      border-radius: 25px; /* Rounded corners */
+      cursor: pointer;
+      transition: background-color 0.3s ease; /* Smooth transition */
+      text-decoration: none; /* Remove default link underline */
+      font-family: 'Merriweather Sans', sans-serif;
+    }
+
+    /* Hover effect */
+    .rounded-button:hover {
+      background-color: #e17a14; /* Darker yellow on hover */
+    }
+      </style>
+</head>
+<body style="background-color: #555089;">
+    <center><h1 style="color:white;">HandyEd -- Howdens Catalogue</h1></center>
+    <div class="centered-button">
+         <!-- Button linking back to "home" -->
+         <a href="index.html" class="rounded-button">RETURN HOME</a>
+    </div>
+    <div class="centered">
+        
+        <embed class="embedded-pdf" src="pdf/Howdens.pdf" type="application/pdf" width="600" height="400">
+      </div>
+</body>
+</html>
