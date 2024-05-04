@@ -29,7 +29,7 @@
   }
 
   .containerul{
-    border: 10px solid #4161ee;
+    border: 10px solid hsl(229, 84%, 59%);
     margin:auto;
     display: flex;
     align-items: center;
