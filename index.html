@@ -1,48 +1,541 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style.css">
-    <title>Handy ED</title>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>HandyEd</title>
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <!-- font awesome style -->
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+
+  <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"/> -->
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon/favicon.ico" type="image/x-icon">
+  <!-- Add a fallback for older browsers -->
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
 </head>
 
-    <body>
+<body>
+  <div class="hero_area" >
+    <!-- header section strats -->
+    <header class="header_section" >
+      <div class="header_top" >
+        <div class="container-fluid">
+          <div class="contact_nav" >
+            <a href="/index.html">
+              
+            </a>
+            <a href="">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              <span>
+                Email : handyedoffice@gmail.com
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="header_bottom">
+        <div class="container-fluid">
+          <nav class="navbar navbar-expand-lg custom_nav-container ">
+            <a class="navbar-brand" href="index.html">
+              <span>
+                <a href="#about_section">ABOUT</a>
+              </span>
+            </a>
 
-        <div class="wrapper">
-            <div class="button" onclick="document.body.classList.add('active')">
-                <span class="button-text">Press</span>
-                <div class="button-backgrounds">
-                    <div class="button-circle button-circle1"></div>
-                    <div class="button-circle button-circle2"></div>
-                    <div class="button-circle button-circle3"></div>
-                    <div class="button-circle button-circle4"></div>
-                </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class=""> </span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#home_section">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#about_section"> About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/gallery/index2.html">Services</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#find_section">Find Us</a>
+                </li>
+              </ul>
             </div>
+          </nav>
         </div>
-    
-        <div class="wrapper">
-            <div class="popup">
-                <div class="popup-inside">
-                    <div class="backgrounds">
-                        <div class="background"></div>
-                        <div class="background background2"></div>
-                        <div class="background background3"></div>
-                        <div class="background background4"></div>
-                        <div class="background background5"></div>
-                        <div class="background background6"></div>
-                    </div>
-                </div>
-                <div class="content">
-                    <div class="content-wrapper">
-                        <h1>well done</h1>
-                        <p>To have acces to HandyEd </p>
-                        <p class="try-again" onclick="document.body.classList.remove('active')">You need to be member</p>
-                    </div>
-                </div>
+      </div>
+    </header>
+    <!-- end header section -->
+
+    <!--boking code 
+    <script src="//widget.simplybook.it/v2/widget/widget.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var widget = new SimplybookWidget({"widget_type":"button","url":"https:\/\/handyed.simplybook.it","theme":"default","theme_settings":{"timeline_hide_unavailable":"1","hide_past_days":"0","timeline_show_end_time":"1","timeline_modern_display":"as_slots","sb_base_color":"#dd3649","display_item_mode":"block","booking_nav_bg_color":"#dd3649","body_bg_color":"#f2f2f2","sb_review_image":"2","sb_review_image_preview":"\/uploads\/handyed\/image_files\/preview\/5ba3ecbe055a18a683aa9cb07cfc3184.PNG","dark_font_color":"#474747","light_font_color":"#f5fcff","btn_color_1":"#dd3649","sb_company_label_color":"#552f34","hide_img_mode":"0","show_sidebar":"1","sb_busy":"#c7b3b3","sb_available":"#d6ebff"},"timeline":"modern","datepicker":"top_calendar","is_rtl":false,"app_config":{"clear_session":0,"allow_switch_to_ada":0,"predefined":[]},"button_title":"Book now","button_background_color":"#dd3649","button_text_color":"#ffffff","button_position":"right","button_position_offset":"55%"});
+  </script>
+  boking code end-->
+
+    <!-- slider section -->
+    <section class="slider_section " id="home_section">
+      <div class="container ">
+        <div class="row">
+          <div class="col-md-6 ">
+            <div class="detail-box">
+              <h1>
+                Elevate Your Living Space <br>
+                Home Modifications  <br>
+                by HandyEd 
+              </h1>              
+              <!--
+              <a id="scrollToBottomLink" href="#contact_section">
+                Contact Us
+              </a>-->
+              <!-- this is a code for scroling to end page fabricat de Eduard T :))-->
+              <!-- <script>
+                document.getElementById('scrollToBottomLink').addEventListener('click', function(event) {
+                    event.preventDefault(); // Prevent default link behavior
+                    window.scrollTo(0, document.body.scrollHeight);
+                });
+            </script> -->
+
+
+              <!--end of code end page-->
             </div>
+            <div class="col-md-6">
+              <div class="img-box">
+                <img src="images/slider-img.png" alt="">
+              </div>
+            </div>
+          </div>
+          
         </div>
-    
-    </body>
+      </div>
+    </section>
+  </div><!-- end slider section --> 
+
+  <!-- about section -->
+
+  <section class="about_section layout_padding-bottom" id="about_section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5 col-md-6">
+          <div class="detail-box">
+            <br>
+            <h2>
+              About 
+            </h2>
+            <p>
+              Enhance Your Living Space with Our Premier Installation Solutions. From Kitchens to Doors and Wardrobes,<br> We Deliver Quality Craftsmanship Every Time. 
+            </p>
+            <p>Our approved installers are fully vetted and DBS checked, ensuring accredited installation and product services. <br>             
+              <strong>Job Estimation Process</strong>
+              :<br> We prioritize transparency and respect for privacy. 
+              <br>Our thorough estimation process includes  audio recording for convenience and documentation. Video recording is only done with your explicit consent. Your comfort and privacy are our utmost concerns. If you prefer not to use video recording , we rely on audio recordings and detailed notes for accuracy.<br>              
+              Your trust is vital to us. We are committed to providing a transparent and respectful experience. If you have any questions or concerns about our estimation process or recording technology, please discuss them with our team.<br>              
+              Thank you for considering HandyEd for your job estimation needs. We're excited to assist you in bringing your project to life.
+            </p>
+            <a href="/catalog.html">
+              Kitchen Catalog
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-7 col-md-6">
+          <div class="img-box">
+            <img src="images/about-img.jpg" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end about section -->
+
+
+  <!-- professional section -->
+
+  <section class="professional_section layout_padding" id="services_section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="img-box">
+            <img src="/images/professional-img.png" alt="men">
+          </div>
+        </div>
+        <div class="col-md-6 ">
+          <div class="detail-box">
+            
+            <h2>
+              We Provide Professional <br>
+              Home Services.
+            </h2>
+            <p>
+              <strong>Creating Dream Homes</strong><br>
+We specialize in transforming houses into dream homes with our comprehensive modification services. Whether updating your kitchen, renovating your bathroom, or adding an extension, our skilled professionals bring your vision to life.<br>
+Our Process<br>
+We start with a consultation to understand your needs and ideas.<br>
+ Our experienced designers work with you to create a plan that reflects your style, preferences, and budget.<br>
+ Once the plan is finalized, our craftsmen use high-quality materials and tools to ensure a flawless finish.<br>
+Commitment to quality We pride ourselves on attention to detail and commitment to excellence, completing every project to the highest standards of quality and craftsmanship.<br>
+Whether you aim to increase your home's value, enhance functionality, or create a more beautiful living space, HandyEd is here to help.
+            </p>
+            <a href="#moreservice_section">
+              Our Services
+            </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end professional section -->
+
+  <!-- service section -->
+
+  <section class="service_section layout_padding" id="moreservice_section">
+    <div class="container ">
+      <div class="heading_container heading_center">
+        <div class="img-box">
+          <img src="/images/professional-img.png" alt="men">
+        </div>
+        <br>
+        <h2> Our Services </h2>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 col-md-4 mx-auto">
+          <div class="box ">
+            <div class="img-box">
+              <img src="/images/S1.png" alt="" />
+            </div>
+            <div class="detail-box">
+              <h5>
+                Assembly Experts
+              </h5>
+              <p>
+                We specialize in assembling kitchen furniture, bedroom wardrobes with sliding doors, stairs, and other items. Our expertise ensures precise and careful assembly, offering functional and stylish solutions for your space.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 mx-auto">
+          <div class="box ">
+            <div class="img-box">
+              <img src="images/s2.png" alt="" />
+            </div>
+            <div class="detail-box">
+              <h5>
+                Minor Electrical 
+              </h5>
+              <p>
+                In addition to furniture assembly, we specialize in minor electrical work, including installing light fixtures, switches, and outlets. Our skilled team ensures precision and adherence to safety standards, illuminating your space with professionalism and expertise.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 mx-auto">
+          <div class="box ">
+            <div class="img-box">
+              <img src="images/s3.png" alt="" />
+            </div>
+            <div class="detail-box">
+              <h5>
+                Minor Plumbing 
+              </h5>
+              <p>
+                Furthermore, we provide plumbing services, addressing needs such as fixing leaks, repairing pipes, and installing fixtures. Our experienced team ensures reliable and efficient solutions, keeping your home functioning smoothly with our professional plumbing services.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end service section -->
+
+  <!-- client section -->
+
+  <section class="client_section ">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          What Our Clients Say
+        </h2>
+      </div>
+      <div class="carousel-wrap layout_padding2-top ">
+        <div class="owl-carousel">
+          <div class="item">
+            <div class="box">
+              <div class="client_id">
+               
+                <div class="client_detail">
+                  <div class="client_info">
+                    <h6>
+                      Peter
+                    </h6>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                  </div>
+                  <i class="fa fa-quote-left" aria-hidden="true"></i>
+                </div>
+              </div>
+              <div class="client_text">
+                <p>
+                  I can't recommend this handyman service enough! Ed did an outstanding job fixing up my home. He's not only skilled but also incredibly friendly and professional. My kitchen looks brand new thanks to his expertise!</p>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="box">
+              <div class="client_id">
+                
+                <div class="client_detail">
+                  <div class="client_info">
+                    <h6>
+                      Harriet
+                    </h6>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                  </div>
+                  <i class="fa fa-quote-left" aria-hidden="true"></i>
+                </div>
+              </div>
+              <div class="client_text">
+                <p>
+                  Absolutely thrilled with the service provided by this handyman team! They were prompt, efficient, and meticulous in their work. Went above and beyond to ensure everything was perfect. I'm beyond impressed with the results!                </p>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="box">
+              <div class="client_id">
+                
+                <div class="client_detail">
+                  <div class="client_info">
+                    <h6>
+                      Amy
+                    </h6>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                  </div>
+                  <i class="fa fa-quote-left" aria-hidden="true"></i>
+                </div>
+              </div>
+              <div class="client_text">
+                <p>
+                  I'm so grateful to have found this handyman service! Ed did an amazing job transforming my bathroom. His attention to detail and dedication to delivering high-quality work are unmatched. I couldn't be happier with the outcome!                </p>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="box">
+              <div class="client_id">
+                
+                <div class="client_detail">
+                  <div class="client_info">
+                    <h6>
+                      Adam
+                    </h6>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                  </div>
+                  <i class="fa fa-quote-left" aria-hidden="true"></i>
+                </div>
+              </div>
+              <div class="client_text">
+                <p>
+                  Exceptional service from start to finish! I'm incredibly impressed and will definitely be using their services again!                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end client section -->
+
+  <!-- contact section -->
+
+  <section class="contact_section layout_padding" id="find_section">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          Contact Whatsapp
+        </h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div>
+            <h3>
+              
+            </h3>
+          </div>
+          
+          <div>
+            <h3>
+              <a href="tel:+44 7849758600">               
+                
+              </a>
+            </h3>
+          </div>
+
+          <div>
+            <h3>
+              <a href="https://wa.me/+447849758600">
+                <i class="fa fa-whatsapp"></i>
+                 WhatsApp
+                
+              </a>
+            </h3>
+          </div>
+            <br><br>
+            <div style="font-family: Arial, sans-serif; font-size: 16px; color: #333; line-height: 1.5;">
+                <h3 style="margin-bottom: 10px; font-size: 24px; font-weight: bold;">Our Opening Hours</h2>
+                <h5 style="margin-bottom: 5px;"><strong>Monday - Friday:</strong> 16:00  - 18:00</h5>
+                <h5 style="margin-bottom: 5px;"><strong>Saturday:</strong> 10:00 AM - 16:00 PM</h5>
+                <h5 style="margin-bottom: 5px;"><strong>Sunday:</strong> Closed</h5>
+            </div>
+           
+            
+
+          
+        </div>
+        <!-- <div class="col-md-6">
+          <div class="map_container">
+            <div class="map">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1218.3633580478254!2d-1.1893753023722793!3d52.357241638196676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2suk!4v1713119110030!5m2!1sen!2suk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </section>
+
+  <!-- end contact section -->
+
+
+  <!-- info section -->
+  <section class="info_section " id="contact_section">
+    <div class="container">
+      <h4>
+        Get In Touch
+      </h4>
+      <div class="row">
+        <div class="col-lg-10 mx-auto">
+          <div class="info_items">
+            <div class="row">
+              <div class="col-md-4">
+                <a href="">
+                  <div class="item ">
+                    <div class="img-box ">
+                      <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    </div>
+                    <p>
+                       Warwickshire
+                    </p>
+                  </div>
+                </a>
+              </div>
+              <div class="col-md-4">
+                <a href="tel:+447849758600">
+                  <div class="item ">
+                    <div class="img-box ">
+                      <i class="fa fa-phone" aria-hidden="true"></i>
+                    </div>
+                    <p>
+                      Call
+                    </p>
+                  </div>
+                </a>
+              </div>
+              <div class="col-md-4">
+                <a href="mailto:handyedoffice@gmail.com">
+                  <div class="item ">
+                    <div class="img-box">
+                      <i class="fa fa-envelope" aria-hidden="true"></i>
+                    </div>
+                    <p>
+                      handyedoffice@gmail.com
+                    </p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="social-box">
+      <h4>
+        JOIN OUR MEMBERSHIP
+      </h4>
+      <div class="box">
+        <a href="/index2.html">
+          <i class="fa fa-address-card" style="font-size:48px;color:red"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- end info_section -->
+
+  <!-- footer section -->
+  <footer class="footer_section">
+    <div class="container">
+      <p>
+        &copy; <span id="displayDateYear"></span> All Rights Reserved By
+        <a href="https://html.design/">Free Html Templates</a>
+      </p>
+    </div>
+  </footer>
+  <!-- footer section -->
+
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+  <script src="js/custom.js"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
+  <!-- End Google Map -->
+
+
+</body>
 
 </html>
