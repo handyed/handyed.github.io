@@ -97,10 +97,11 @@
     }
 }
 
-.bg-hero {
-    background: url(../img/hero.jpg) top right no-repeat;
+ .bg-hero {
+    background: url(/img/hero.jpg) top right no-repeat;
     background-size: contain;
-}
+} 
+
 
 @media (max-width: 991.98px) {
     .bg-hero {
