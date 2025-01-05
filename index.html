@@ -8,25 +8,60 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon.svg">
     <link rel="manifest" href="/favicon/">
     <title>Propriety Maintenance</title>
+    
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             line-height: 1.6;
-            background-color: #f4f4f4;
-            color: #333;
+            background-color: #f0f0f1;
+            color:#080808;
         }
         header {
-            background: #007BFF;
+            position: relative;
+            height: 400px;
+            overflow: hidden;
             color: #fff;
-            padding: 10px 20px;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(70, 130, 180, 0.7);
+            z-index: 1;
+        }
+        #background-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100vw;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: cover;
+            
+        }
+        header h1, header p {
+            position: relative;
+            z-index: 2;
+            margin: 10px 0;
+            text-shadow: 3px 3px 5px rgba(15, 15, 15, 0.5);
         }
         nav {
             display: flex;
             justify-content: center;
-            background: #333;
+            background: #0a0a0a;
             padding: 10px;
         }
         nav a {
@@ -56,24 +91,26 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         footer {
-            background: #333;
+            background: #0c0c0c;
             color: #fff;
             text-align: center;
             padding: 10px 0;
             margin-top: 20px;
         }
     </style>
+    
 </head>
 <body>
     <header>
-        <h1>THIS WEBSITE UNDER CONSTRUCTION</h1>
+        <video autoplay loop muted playsinline id="background-video">
+            <source src="/video.mp4" type="video/mp4">
+        </video>
+        <h1>PLUMB POWER</h1>
         <p>Your Trusted Plumbing & Electrical Experts</p>
     </header>
 
     <nav>
-        <a href="#services">Services</a>
-        <a href="#about">About Us</a>
-        <a href="#contact">Contact</a>
+        <a href="#services">Join our service package for expert plumbing, electrical, and emergency support +  exclusive discounts!</a>
     </nav>
 
     <div class="container">
@@ -81,16 +118,18 @@
             <h2>Our Services</h2>
             <div class="services">
                 <div class="service">
-                    <h3>Plumbing Repairs</h3>
-                    <p>Clik Here</p>
+                    <h3>Plumbing </h3>
+                    <p>Services Details</p>
                 </div>
                 <div class="service">
-                    <h3>Electrical Installations</h3>
-                    <p>Click Here.</p>
+                    <h3>Electrical </h3>
+                    <p>Services Details</p>
                 </div>
                 <div class="service">
                     <h3>Emergency Services</h3>
-                    <p>24/7 support for urgent plumbing and electrical issues.</p>
+                    <p>24/7 support for urgent plumbing 
+                        and electrical issues 
+                        exclusive with our service packege </p>
                 </div>
             </div>
         </section>
@@ -103,13 +142,13 @@
         <section id="contact">
             <h2>Contact Us</h2>
             <p>Email: <a href="mailto:info@plumbpower.co.uk">info@plumbpower.co.uk</a></p>
-            <p>Phone: <a href="tel:+123456789">+1 (234) 567-89</a></p>
-            <p>Address: 123 Main Street, Your City</p>
+            <p>Phone: <a href="tel:+447775877746">07775877746</a></p>
+            <p>Service Coverage Area :<strong> Warwickshire</strong> </p>
         </section>
     </div>
 
     <footer>
-        <p>&copy; 2024 Plumb Power. All Rights Reserved.</p>
+        <p>&copy; 2025 Plumb Power. All Rights Reserved.</p>
     </footer>
 </body>
 </html>
