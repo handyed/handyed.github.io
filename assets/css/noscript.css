@@ -6,22 +6,24 @@
 
 /* Header */
 
-	body.is-preload #header .content {
-		-moz-transform: none;
-		-webkit-transform: none;
-		-ms-transform: none;
-		transform: none;
+/* Ensure text in the header is black and bold */
+body.is-preload #header .content {
+	-moz-transform: none;
+	-webkit-transform: none;
+	-ms-transform: none;
+	transform: none;
+	opacity: 1;
+}
+
+body.is-preload #header .image {
+	-moz-transform: none;
+	-webkit-transform: none;
+	-ms-transform: none;
+	transform: none;
+	opacity: 1;
+}
+
+	body.is-preload #header .image img {
 		opacity: 1;
 	}
-
-	body.is-preload #header .image {
-		-moz-transform: none;
-		-webkit-transform: none;
-		-ms-transform: none;
-		transform: none;
-		opacity: 1;
-	}
-
-		body.is-preload #header .image img {
-			opacity: 1;
-		}
+		
