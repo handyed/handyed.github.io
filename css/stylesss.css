@@ -1,0 +1,146 @@
+/* General Styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+/* Header Section */
+.header {
+    background-color: #3aaf85; /* Green background for professionalism */
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.header h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+.header p {
+    font-size: 1.2rem;
+    margin: 20px 0 0;
+}
+
+/* Services Section */
+.services {
+    background-color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.services h2 {
+    font-size: 2.5rem;
+    color: #3aaf85;
+    margin-bottom: 30px;
+}
+
+.service-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.service {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.service:hover {
+    transform: translateY(-10px);
+}
+
+.service h3 {
+    font-size: 1.6rem;
+    color: #3aaf85;
+}
+
+.service p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Why Choose Us Section */
+.why-choose-us {
+    background-color: #f7f7f7;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.why-choose-us h2 {
+    font-size: 2.5rem;
+    color: #3aaf85;
+    margin-bottom: 20px;
+}
+
+.why-choose-us p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Testimonials Section */
+.testimonials {
+    background-color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.testimonials h2 {
+    font-size: 2.5rem;
+    color: #3aaf85;
+    margin-bottom: 30px;
+}
+
+blockquote {
+    font-size: 1.2rem;
+    font-style: italic;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-left: 5px solid #3aaf85;
+    color: #555;
+}
+
+/* Call to Action Section */
+.cta {
+    background-color: #3aaf85;
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.cta h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.cta p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.cta-button {
+    background-color: #fff;
+    color: #3aaf85;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #3aaf85;
+    color: white;
+}
