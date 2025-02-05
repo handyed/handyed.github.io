@@ -144,3 +144,38 @@ blockquote {
     background-color: #3aaf85;
     color: white;
 }
+/* Home Button Styling */
+.home-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 1.2rem;
+    color: white;
+    background-color: #28d193;
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.home-button:hover {
+    background-color: #185334;
+    transform: translateY(-5px);
+}
+
+.home-button i {
+    margin-right: 10px;
+    font-size: 1.5rem;
+}
+.back-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}

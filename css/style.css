@@ -1,7 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather+Sans:wght@400;700&display=swap");
 body {
   font-family: 'Lato', sans-serif;
-  color: rgba(8, 6, 112, 0.333);
+  color: rgba(7, 7, 7, 0.333);
+}
+h1, h2, h3, p {
+  color: black;
 }
 
 .layout_padding {
@@ -116,7 +119,7 @@ a:focus {
 .navbar-brand {
   padding: 0;
   margin: 0;
-  color: rgba(43, 8, 168, 0.333);
+  color: rgba(7, 7, 7, 0.333);
   font-weight: bold;
   font-size: 24px;
   font-weight: bold;
