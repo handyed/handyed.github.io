@@ -305,7 +305,7 @@ a:focus {
 }
 
 .slider_section .detail-box p {
-  color: #444;
+  color: #242323;
   font-size: 15px;
 }
 
@@ -359,7 +359,7 @@ a:focus {
   margin: 0 10px;
   padding: 45px 15px;
   background-color: #ffffff;
-  color: #555089;
+  color: #2a293f;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   -webkit-box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
@@ -709,19 +709,19 @@ a:focus {
 }
 
 .contact_section input::-webkit-input-placeholder {
-  color: #737272;
+  color: #3f3f3f;
 }
 
 .contact_section input:-ms-input-placeholder {
-  color: #737272;
+  color: #292929;
 }
 
 .contact_section input::-ms-input-placeholder {
-  color: #737272;
+  color: #3a3a3a;
 }
 
 .contact_section input::placeholder {
-  color: #737272;
+  color: #242323;
 }
 
 .contact_section input.message-box {

@@ -169,6 +169,7 @@ blockquote {
 .home-button i {
     margin-right: 10px;
     font-size: 1.5rem;
+
 }
 .back-button {
     display: inline-block;
@@ -178,4 +179,5 @@ blockquote {
     color: white;
     text-decoration: none;
     border-radius: 5px;
+
 }
