@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Payment Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        .payment-form {
+            margin-top: 20px;
+        }
+
+        .payment-form input, .payment-form button {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .payment-form button {
+            background-color: #28a745;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .payment-form button:hover {
+            background-color: #218838;
+        }
+
+        #card-errors {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Complete Your Payment</h1>
+        <p>Please provide your payment details below to finish the transaction.</p>
+
+        <!-- Payment Form (Stripe code will go here) -->
+        <form id="payment-form" class="payment-form">
+            <div id="card-element">
+                <!-- Stripe's Card Element will be inserted here. -->
+            </div>
+
+            <div id="card-errors" role="alert"></div>
+
+            <button type="submit">Pay Now</button>
+        </form>
+    </div>
+
+    <!-- Add Stripe JavaScript here -->
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+        // This is where you will add your Stripe integration code
+        // For example, create a Stripe object, elements, and handle the form submission
+
+        // You can place your own Stripe code here to link this form to Stripe
+
+        // Example:
+        // var stripe = Stripe('your-publishable-key');
+        // var elements = stripe.elements();
+        // var card = elements.create('card');
+        // card.mount('#card-element');
+        // form.addEventListener('submit', function(event) {
+        //     event.preventDefault();
+        //     stripe.createToken(card).then(function(result) {
+        //         // Handle token or error here
+        //     });
+        // });
+    </script>
+</body>
+</html>
