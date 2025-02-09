@@ -4,16 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
 
-    <title>Appoinment </title>
+    <title>Appointment</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #d6e5f3;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
         header {
             background-color: #2409c0;
@@ -32,7 +35,7 @@
             margin: 20px auto;
             padding: 10px 15px;
             text-align: center;
-            background-color: #2409c0;
+            background-color: #ff8a1d;
             color: white;
             text-decoration: none;
             font-size: 16px;
@@ -45,6 +48,7 @@
         section {
             padding: 20px 0;
             border-bottom: 1px solid #ccc;
+            flex-grow: 1;
         }
         h2 {
             color: #333;
@@ -65,63 +69,75 @@
             background-color: #2409c0;
             color: white;
         }
+        .button1 {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #ff8a1d;
+            color: rgb(247, 244, 244);
+            text-align: center;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 50px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+        }
+        .button1:hover {
+            background-color: #0984e3;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
         footer {
             background-color: #0a0f43;
-            color: #fff;
+            color: #cac6c6;
             text-align: center;
             padding: 10px 0;
+            margin-top: auto;
         }
-        #appoiment {
-    display: flex;
-    justify-content: center; /* Centers horizontally */
-    align-items: center; /* Centers vertically */
-    height: 200px; /* Adjust height as needed */
-         }
+        #appointment {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+        }
 
-        </style>
-    </head>
+    </style>
+   </head>
    <body>
     <header>
         <div class="container">
-            <h1>Book Appoinment</h1>
-            <p>Payment will be processed through Stripe.</p>
+            <h1>Book Appointment</h1>
+            <p>SumUp.</p>
         </div>
     </header>
 
     <!-- Home Button -->
     <a href="index.html" class="home-button">Home</a>
 
-    <div class="container">
-        <section id="services">
-     
-          
-        </section>
-        <section id="appoiment">
-            <script async
-            src="https://js.stripe.com/v3/buy-button.js">
-            </script>
+    <section>
+        <div class="container">
+            <h1>Book a FREE online quote</h1>
+            <p><strong>Book a FREE Online Quote</strong></p>
+            <p>First, I offer a free online quote for the service. 
+                If you accept the price based on the online quote, 
+                and we proceed to the assessment at your location, 
+                there will be a £10 fee for the visit. However,
+                 if you decide not to proceed with the service after the assessment 
+                 or if I don’t visit your location to assess the job, you won’t
+                  be charged the £10. This £10 will be deducted from the overall
+                   price if you move forward with the work, ensuring no extra cost
+                    if you don't proceed.<br><br></p>
 
-            <stripe-buy-button
-                 buy-button-id="buy_btn_1QpvoYDcpcPCXQIpu9ievKxH"
-                    publishable-key="pk_live_51Qput2DcpcPCXQIpSgTNcVyERDBLT675NOxZUcohA94e0Z6lEPNTUFRjlX2HWiz4aIlaNuBYEQTszJ9uAMyKNk6L00keiHOsw2"
-                    >
-                </stripe-buy-button>
 
-        </section>
-        <section id="contact">
-            <br>
-            <h2>Contact </h2>
+                        <a href="https://www.sumupbookings.com/handyed" class="button1">Book Now</a>
             
-            <p>  </p>
-            <p><strong>Phone:</strong> 07775877746</p>
-            <p><strong>Email:</strong> handyedoffice@gmail.com</p>
-            <p><strong>Address:</strong> UK</p>
-            <a href="/pricing.html" class="home-button">Pricing List</a>
-        </section>
-    </div>
+        </div>
+    </section>
+
     <footer>
-        <p>&copy; 2025 HandyEd Services. All rights reserved.</p>
+        <p>
+            &copy; <span id="displayDateYear"></span> All Rights
+             Reserved By
+            <a href="https://html.design/">Free Html Templates</a>
+          </p>
     </footer>
    </body>
-  </html>
-    
+</html>
