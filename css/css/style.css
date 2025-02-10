@@ -877,6 +877,22 @@ a:focus {
 .footer_section a {
   color: inherit;
 }
+.home-button3 {
+  display: block;
+  width: 120px;
+  margin: 20px auto;
+  padding: 10px 15px;
+  text-align: center;
+  background-color: #ff8a1d;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+.home-button3:hover {
+  background-color: #ee1a1a;
+}
 
 /* end footer section*/
 /*# sourceMappingURL=style.css.map */
