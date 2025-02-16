@@ -141,23 +141,86 @@
         <div class="container">
             <h1>Book a FREE quote</h1>
             <p><strong>Get a Free Quote – Contact Me via WhatsApp</strong></p>
-            <p>First, I offer a free phone quote for the service. 
-                If you accept the price based on the phone quote, 
-                and we proceed to the assessment at your location, 
-                there will be a £20 fee for the visit. However,
-                 if you decide not to proceed with the service after the assessment 
-                 or if I don’t visit your location to assess the job, you won’t
-                  be charged the £20. This £20 will be deducted from the overall
-                   price if you move forward with the work, ensuring no extra cost
-                    if you don't proceed.<br><br></p>
+            <p>"The phone assessment is free. Please only proceed with the £20 payment if you agree with my price and if a visit to your location is required. This fee covers time and transport costs. If you decide not to move forward after the visit, the £20 will not be refunded, as the costs have already been incurred. If you proceed, the £20 will be deducted from the overall price."<br><br></p>
                     <div class="container1">
-                        <a href="https://wa.me/+447775877746" class="whatsapp-btn" target="_blank">
-                            WhatsApp 
-                        </a>
+                        
                     </div>
             
         </div>
+        <div>
+            <div style="
+            overflow: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            width: 259px;
+            background: #FFFFFF;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: -2px 10px 5px rgba(0, 0, 0, 0);
+            border-radius: 10px;
+            font-family: SQ Market, SQ Market, Helvetica, Arial, sans-serif;
+            ">
+            <div style="padding: 20px;">
+              <a target="_blank" data-url="https://square.link/u/bQTeG2Ds?src=embd" href="https://square.link/u/bQTeG2Ds?src=embed" style="
+              display: inline-block;
+              font-size: 18px;
+              line-height: 48px;
+              height: 48px;
+              color: #ffffff;
+              min-width: 212px;
+              background-color: #006aff;
+              text-align: center;
+              box-shadow: 0 0 0 1px rgba(0,0,0,.1) inset;
+              border-radius: 6px;
+            ">Pay for Visit</a>
+            </div>
+          </div>
+          
+          
+            <script>
+              function showCheckoutWindow(e) {
+                e.preventDefault();
+          
+                const url = document.getElementById('embedded-checkout-modal-checkout-button').getAttribute('data-url');
+                const title = 'Square Payment Links';
+          
+                // Some platforms embed in an iframe, so we want to top window to calculate sizes correctly
+                const topWindow = window.top ? window.top : window;
+          
+                // Fixes dual-screen position                                Most browsers          Firefox
+                const dualScreenLeft = topWindow.screenLeft !==  undefined ? topWindow.screenLeft : topWindow.screenX;
+                const dualScreenTop = topWindow.screenTop !==  undefined   ? topWindow.screenTop  : topWindow.screenY;
+          
+                const width = topWindow.innerWidth ? topWindow.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+                const height = topWindow.innerHeight ? topWindow.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+          
+                const h = height * .75;
+                const w = 500;
+          
+                const systemZoom = width / topWindow.screen.availWidth;
+                const left = (width - w) / 2 / systemZoom + dualScreenLeft;
+                const top = (height - h) / 2 / systemZoom + dualScreenTop;
+                const newWindow = window.open(url, title, `scrollbars=yes, width=${w / systemZoom}, height=${h / systemZoom}, top=${top}, left=${left}`);
+          
+                if (window.focus) newWindow.focus();
+              }
+          
+              // This overrides the default checkout button click handler to show the embed modal
+              // instead of opening a new tab with the given link url
+              document.getElementById('embedded-checkout-modal-checkout-button').addEventListener('click', function (e) {
+                showCheckoutWindow(e);
+              });
+            </script>
+          </div>
     </section>
+    
+     <!--Start setmore-->
+  <script id="setmore_script" type="text/javascript" src="https://assets.setmore.com/integration/static/setmoreIframeLive.js"></script><a style="float:none; position: fixed; right: -2px; top: 25%; display: block; z-index: 20000" id="Setmore_button_iframe"  href="https://handyed.setmore.com"><img border="none" src="https://storage.googleapis.com/full-assets/setmore/images/1.0/Calendar/Setmore-Book-Now.png" alt="Book an appointment with HandyEd using Setmore"/></a>
+  
+  
+  
+  <!--end set more section-->
 
     <footer>
         <p>

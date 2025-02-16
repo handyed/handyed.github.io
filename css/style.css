@@ -860,6 +860,24 @@ a:focus {
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
 }
+.whatsapp-btn {
+  padding: 20px 40px;
+  font-size: 24px;
+  color: white;
+  background-color: #25D366; /* WhatsApp Green */
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.whatsapp-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
 
 /* footer section*/
 .footer_section {
@@ -877,6 +895,23 @@ a:focus {
 .footer_section a {
   color: inherit;
 }
+.whatsapp-btn {
+  padding: 20px 40px;
+  font-size: 24px;
+  color: white;
+  background-color: #25D366; /* WhatsApp Green */
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
 
+/* Hover effect */
+.whatsapp-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
 /* end footer section*/
 /*# sourceMappingURL=style.css.map */
