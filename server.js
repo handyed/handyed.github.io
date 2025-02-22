@@ -4,8 +4,20 @@ const axios = require('axios');
 require('dotenv').config();
 
 const app = express();
-app.use(cors());
+
+// Configure CORS
+app.use(cors({
+    origin: '*',
+    methods: ['GET', 'POST', 'OPTIONS'],
+    allowedHeaders: ['Content-Type']
+}));
+
 app.use(express.json());
+
+// Add a test route
+app.get('/api/test', (req, res) => {
+    res.json({ message: 'API is working!' });
+});
 
 const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
 
@@ -91,7 +103,12 @@ Analyze the requested service, match it to the appropriate category, and provide
     }
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-}); 
+// For Vercel serverless deployment
+if (process.env.VERCEL) {
+    module.exports = app;
+} else {
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => {
+        console.log(`Server running on port ${PORT}`);
+    });
+} 
