@@ -8,16 +8,21 @@
     ],
     "routes": [
         {
-            "src": "/api/(.*)",
-            "dest": "server.js",
-            "methods": ["GET", "POST", "OPTIONS"],
-            "headers": {
-                "Access-Control-Allow-Origin": "https://handyed.co.uk",
-                "Access-Control-Allow-Methods": "GET,POST,OPTIONS",
-                "Access-Control-Allow-Headers": "Content-Type, Accept",
-                "Access-Control-Allow-Credentials": "true",
-                "Access-Control-Max-Age": "86400"
-            }
+            "src": "/api/test",
+            "dest": "server.js"
+        },
+        {
+            "src": "/api/estimate-price",
+            "dest": "server.js"
+        },
+        {
+            "handle": "filesystem"
         }
-    ]
+    ],
+    "functions": {
+        "server.js": {
+            "memory": 1024,
+            "maxDuration": 10
+        }
+    }
 } 

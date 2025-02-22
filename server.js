@@ -23,6 +23,17 @@ app.get('/api/test', (req, res) => {
 
 const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
 
+// Create an axios instance with timeout
+const apiClient = axios.create({
+    timeout: 8000, // 8 second timeout
+    headers: {
+        'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
+        'HTTP-Referer': 'https://github.com/handyed/pricing',
+        'X-Title': 'HandyEd Pricing Calculator',
+        'Content-Type': 'application/json'
+    }
+});
+
 app.post('/api/estimate-price', async (req, res) => {
     const { service } = req.body;
     
@@ -31,7 +42,7 @@ app.post('/api/estimate-price', async (req, res) => {
     }
 
     try {
-        const response = await axios.post(
+        const response = await apiClient.post(
             'https://openrouter.ai/api/v1/chat/completions',
             {
                 model: "deepseek/deepseek-r1:free",
@@ -74,14 +85,6 @@ Analyze the requested service, match it to the appropriate category, and provide
                         content: `Based on this service description, what is the appropriate hourly rate: "${service}"`
                     }
                 ]
-            },
-            {
-                headers: {
-                    'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
-                    'HTTP-Referer': 'https://github.com/handyed/pricing',
-                    'X-Title': 'HandyEd Pricing Calculator',
-                    'Content-Type': 'application/json'
-                }
             }
         );
 
@@ -113,20 +116,25 @@ Analyze the requested service, match it to the appropriate category, and provide
         console.error('Detailed error:', {
             message: error.message,
             response: error.response?.data,
-            status: error.response?.status
+            status: error.response?.status,
+            code: error.code
         });
         
-        // Send a more specific error message
-        if (error.response?.status === 401) {
-            res.status(401).json({ error: 'API authentication failed. Please check API key.' });
-        } else if (error.response?.status === 429) {
-            res.status(429).json({ error: 'Too many requests. Please try again later.' });
-        } else {
-            res.status(500).json({ 
-                error: 'Failed to estimate price. Please try again.',
-                details: error.message
-            });
+        // Handle specific error cases
+        if (error.code === 'ECONNABORTED') {
+            return res.status(504).json({ error: 'Request timed out. Please try again.' });
         }
+        if (error.response?.status === 401) {
+            return res.status(401).json({ error: 'API authentication failed. Please check API key.' });
+        }
+        if (error.response?.status === 429) {
+            return res.status(429).json({ error: 'Too many requests. Please try again later.' });
+        }
+        
+        res.status(500).json({ 
+            error: 'Failed to estimate price. Please try again.',
+            details: error.message
+        });
     }
 });
 
