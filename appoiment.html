@@ -137,47 +137,103 @@
     <!-- Home Button -->
     <a href="index.html" class="home-button">Home Page</a>
 
-    <section>
-        <div class="container">
+    <section class="booking-section">
+        <style>
+            .booking-section {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 20px;
+                background: white;
+                border-radius: 10px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+    
+            .booking-content {
+                margin-bottom: 40px;
+            }
+    
+            .payment-options {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+                margin-top: 30px;
+            }
+    
+            .square-button {
+                display: inline-block;
+                font-size: 18px;
+                line-height: 48px;
+                height: 48px;
+                color: #ffffff;
+                min-width: 212px;
+                background-color: #006aff;
+                text-align: center;
+                box-shadow: 0 0 0 1px rgba(0,0,0,.1) inset;
+                border-radius: 6px;
+                text-decoration: none;
+            }
+    
+            .subscribe-btn {
+                display: inline-flex;
+                align-items: center;
+                padding: 15px 25px;
+                font-size: 18px;
+                font-weight: bold;
+                background-color: #FF6600;
+                color: white;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                text-decoration: none;
+                transition: background-color 0.3s ease;
+            }
+    
+            .subscribe-btn:hover {
+                background-color: #FF4500;
+            }
+    
+            .icon {
+                margin-right: 10px;
+            }
+    
+            @media (max-width: 600px) {
+                .booking-section {
+                    padding: 15px;
+                }
+    
+                .square-button, .subscribe-btn {
+                    width: 100%;
+                    max-width: 300px;
+                }
+            }
+        </style>
+    
+        <div class="booking-content">
             <h1>Book a FREE Quote</h1>
             <p><strong>Get a Free Quote – Contact Me via WhatsApp</strong></p>
             <p>The phone assessment is completely free. However, if you agree with my price and require an in-person visit, a £10 fee applies to cover time and transport costs.</p>
-            <p><strong>Important:</strong> This fee is non-refundable if you choose not to proceed after the visit. However, if you go ahead with the job, the £10 will be deducted from the total cost.</p>
+            <p><strong>Important:</strong> This fee is non-refundable if you choose not to proceed after the visit. However,
+                 if you go ahead with the job, the £10 will be deducted from the total cost.</p>
+                 <p>Subscribe to  <strong>Annual Boiler Service</strong><br>
+                    Ensure the longevity and optimal performance of your boiler by subscribing 
+                    to  comprehensive annual service plan. Regular maintenance not only
+                     preserves your warranty but also helps prevent costly breakdowns,
+                      ensuring your system operates safely and efficiently throughout the year. 
+                      I deliver high-quality, professional care, keeping your home or business warm and worry-free.</p>
         </div>
-        
-
-        <a href="https://wa.me/+447775877746" class="whatsapp-btn" target="_blank">
-            WhatsApp 
-        </a>
-        <div style="
-            overflow: auto;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            align-items: center;
-            width: 259px;
-            background: #FFFFFF;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            box-shadow: -2px 10px 5px rgba(0, 0, 0, 0);
-            border-radius: 10px;
-            font-family: SQ Market, SQ Market, Helvetica, Arial, sans-serif;
-            ">
-            <div style="padding: 20px;">
-              <a target="_blank" data-url="https://square.link/u/bQTeG2Ds?src=embd" href="https://square.link/u/bQTeG2Ds?src=embed" style="
-              display: inline-block;
-              font-size: 18px;
-              line-height: 48px;
-              height: 48px;
-              color: #ffffff;
-              min-width: 212px;
-              background-color: #006aff;
-              text-align: center;
-              box-shadow: 0 0 0 1px rgba(0,0,0,.1) inset;
-              border-radius: 6px;">SQUARE PAYMENT</a>
-            </div>
-        
+    
+        <div class="payment-options">
+            <a target="_blank" href="https://square.link/u/bQTeG2Ds?src=embed" class="square-button">
+                SQUARE PAYMENT
+            </a>
             
-          
+            <a href="https://pay.gocardless.com/BRT0003QD8BDY5R" class="subscribe-btn">
+                <span class="icon">🔥</span> Subscribe for Boiler Service GoCardless
+            </a>
+        </div>
+        <br>
+    </section>
           
           
             <script>
@@ -216,7 +272,7 @@
             </script>
           </div>
     </section>
-    
+</div>
      <!--Start setmore-->
   <script id="setmore_script" type="text/javascript" src="https://assets.setmore.com/integration/static/setmoreIframeLive.js"></script><a style="float:none; position: fixed; right: -2px; top: 25%; display: block; z-index: 20000" id="Setmore_button_iframe"  href="https://handyed.setmore.com"><img border="none" src="https://storage.googleapis.com/full-assets/setmore/images/1.0/Calendar/Setmore-Book-Now.png" alt="Book an appointment with HandyEd using Setmore"/></a>
   
