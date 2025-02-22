@@ -97,167 +97,108 @@
                 <li>Door Installation & windows</li>
                 <li>Handyman services for elderly and disabled clients</li>
                 <li>Special prices for real estate agencies !</li>
-                <li><strong style="color:#ee1a1a">Don't see what you need? Just ask!</strong></li>
+                <li><strong style="color:#ee1a1a">Don’t see what you need? Just ask!</strong></li>
             </ul>
         </section>
         <section id="pricing">
-            <h2>Get a Price Estimate</h2>
-            <p>Enter any handyman service you need and get an instant price estimate:</p>
-            <div class="price-estimator">
-                <textarea id="serviceInput" placeholder="Describe the service you need (e.g. 'Install a new bathroom mirror' or 'Fix a leaking kitchen tap')" rows="3"></textarea>
-                <button onclick="getEstimate()" class="estimate-button">Get Estimate</button>
-                <div id="estimateResult" class="estimate-result"></div>
-            </div>
-
-            <style>
-                .price-estimator {
-                    max-width: 600px;
-                    margin: 30px auto;
-                    padding: 20px;
-                    background: white;
-                    border-radius: 12px;
-                    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-                    overflow: hidden;
-                }
-
-                #serviceInput {
-                    width: calc(100% - 30px);
-                    padding: 15px;
-                    margin-bottom: 15px;
-                    border: 2px solid #ff8a1d;
-                    border-radius: 6px;
-                    font-size: 16px;
-                    resize: vertical;
-                    min-height: 100px;
-                    font-family: Arial, sans-serif;
-                    display: block;
-                }
-
-                #serviceInput:focus {
-                    outline: none;
-                    border-color: #2409c0;
-                    box-shadow: 0 0 5px rgba(36, 9, 192, 0.2);
-                }
-
-                .estimate-button {
-                    background-color: #ff8a1d;
-                    color: white;
-                    padding: 15px 30px;
-                    border: none;
-                    border-radius: 6px;
-                    cursor: pointer;
-                    font-size: 16px;
-                    transition: all 0.3s ease;
-                    width: calc(100% - 40px);
-                    display: block;
-                    margin: 0 auto;
-                }
-
-                .estimate-button:hover {
-                    background-color: #ee1a1a;
-                    transform: translateY(-2px);
-                }
-
-                .estimate-result {
-                    margin: 20px 15px 0;
-                    padding: 20px;
-                    border-radius: 6px;
-                    font-size: 20px;
-                    font-weight: bold;
-                    text-align: center;
-                }
-
-                .loading {
-                    color: #666;
-                }
-
-                .error {
-                    color: #ee1a1a;
-                    background-color: rgba(238, 26, 26, 0.1);
-                    border-radius: 8px;
-                    padding: 15px;
-                }
-
-                .success {
-                    color: #2409c0;
-                    background-color: rgba(36, 9, 192, 0.1);
-                    border-radius: 8px;
-                    padding: 15px;
-                }
-            </style>
-
-            <script>
-                // Replace 'handyed' with your actual Vercel project name
-                const API_URL = 'https://handyed-website.vercel.app';
-
-                async function getEstimate() {
-                    const serviceInput = document.getElementById('serviceInput');
-                    const resultDiv = document.getElementById('estimateResult');
-                    const service = serviceInput.value.trim();
-
-                    if (!service) {
-                        resultDiv.innerHTML = '<span class="error">Please enter a service</span>';
-                        return;
+            <h2>Pricing</h2>
+            <p>Our pricing is transparent and competitive.
+                 Below is a list of our services with estimated costs:</p>
+            <table>
+                <tr>
+                    <th>Service</th>
+                    <th>Average Time</th>
+                    <th>p/h</th>
+                </tr>
+                <tr>
+                    <td>Socket installation</td>
+                    <td>2-4 hours</td>
+                    <td>£40-£60</td>
+                </tr>
+                <tr>
+                    <td>Put up 8 Basic Shelves</td>
+                    <td>4-8 hours</td>
+                    <td>£15</td>
+                </tr>
+                <tr>
+                    <td>Paint Woodwork (Skirting Boards and Door in 4m x 4m Room)</td>
+                    <td>3-5 hours</td>
+                    <td>£40</td>
+                </tr>
+                <tr>
+                    <td>Picture and Mirror Hanging</td>
+                    <td>1-2 hours</td>
+                    <td>£45</td>
+                </tr>
+                <tr>
+                    <td>Put up Curtain Rail</td>
+                    <td>1-2 hours</td>
+                    <td>£45</td>
+                </tr>
+                <tr>
+                    <td>Minor Electrical Work</td>
+                    <td>1 hour</td>
+                    <td>£50</td>
+                </tr>
+                <tr>
+                    <td>Minor Plumbing Work</td>
+                    <td>1 hour</td>
+                    <td>£60</td>
+                </tr>
+                <tr>
+                    <td>Loft ladder Installation</td>
+                    <td>3-5 hour</td>
+                    <td>£40</td>
+                </tr>
+                <tr>
+                    <td>Loft ladder hatch modifications</td>
+                    <td>5-8 hour</td>
+                    <td>£60</td>
+                </tr>
+                <tr>
+                    <td>Custom loft ladder + boarding</td>
+                    <td>5-8 hour</td>
+                    <td>£60+</td>
+                </tr>
+            </table>
+            <p>Please note that these prices are averages 
+                and can vary depending on the specific
+                 requirements of each job. For a detailed quote,
+                  please contact me directly.</p>
+                  <section id="minimum-fee">
+                    <h2 class="animated-text">Emergency Call-Out Policy</h2>
+                    <p class="animated-text">
+                        To ensure the highest standard of service, a minimum call-out fee applies to all emergency situations.  
+                        This fee covers travel, assessment, and the first hour of work. 
+                        Any additional time or materials will be quoted separately.                  
+                        For our valued VIP clients, emergency call-outs are provided at no charge as part of your exclusive service package.                  
+                        I appreciate your understanding and remain committed to delivering efficient, reliable, and professional assistance.
+                    </p>
+                </section>
+                
+                
+                <style>
+                    @keyframes blink {
+                        0% { opacity: 1; }
+                        50% { opacity: 1; }
+                        100% { opacity: 1; }
                     }
-
-                    resultDiv.innerHTML = '<span class="loading">Calculating estimate...</span>';
-
-                    try {
-                        const response = await fetch(`${API_URL}/api/estimate-price`, {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                            },
-                            body: JSON.stringify({ service })
-                        });
-
-                        const data = await response.json();
-                        
-                        if (data.error) {
-                            throw new Error(data.error);
-                        }
-
-                        resultDiv.innerHTML = `<span class="success">Estimated price: ${data.price} per hour</span>`;
-                    } catch (error) {
-                        resultDiv.innerHTML = `<span class="error">Error: ${error.message}</span>`;
+                
+                    @keyframes slide {
+                        0% { transform: translateX(-10px); }
+                        50% { transform: translateX(10px); }
+                        100% { transform: translateX(-10px); }
                     }
-                }
-            </script>
-
-            <section id="minimum-fee">
-                <h2 class="animated-text">Emergency Call-Out Policy</h2>
-                <p class="animated-text">
-                    To ensure the highest standard of service, a minimum call-out fee applies to all emergency situations.  
-                    This fee covers travel, assessment, and the first hour of work. 
-                    Any additional time or materials will be quoted separately.                  
-                    For our valued VIP clients, emergency call-outs are provided at no charge as part of your exclusive service package.                  
-                    I appreciate your understanding and remain committed to delivering efficient, reliable, and professional assistance.
-                </p>
-            </section>
-            
-            
-            <style>
-                @keyframes blink {
-                    0% { opacity: 1; }
-                    50% { opacity: 1; }
-                    100% { opacity: 1; }
-                }
-            
-                @keyframes slide {
-                    0% { transform: translateX(-10px); }
-                    50% { transform: translateX(10px); }
-                    100% { transform: translateX(-10px); }
-                }
-            
-                .animated-text {
-                    color: red;
-                    font-weight: bold;
-                    font-size: 20px;
-                    animation: blink 1s infinite, slide 1s infinite alternate;
-                    text-align: center;
-                }
-            </style>
-            
+                
+                    .animated-text {
+                        color: red;
+                        font-weight: bold;
+                        font-size: 20px;
+                        animation: blink 1s infinite, slide 1s infinite alternate;
+                        text-align: center;
+                    }
+                </style>
+                
         </section>
         <section id="contact">
             <h2>Contact Us</h2>
