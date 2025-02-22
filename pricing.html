@@ -187,7 +187,6 @@
             </style>
 
             <script>
-                // Replace 'handyed' with your actual Vercel project name
                 const API_URL = 'https://handyed-website.vercel.app';
 
                 async function getEstimate() {
@@ -207,9 +206,16 @@
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json',
+                                'Accept': 'application/json'
                             },
                             body: JSON.stringify({ service })
                         });
+
+                        if (!response.ok) {
+                            const errorText = await response.text();
+                            console.error('API Error:', errorText);
+                            throw new Error(`API Error: ${response.status} ${response.statusText}`);
+                        }
 
                         const data = await response.json();
                         
@@ -219,6 +225,7 @@
 
                         resultDiv.innerHTML = `<span class="success">Estimated price: ${data.price} per hour</span>`;
                     } catch (error) {
+                        console.error('Full error:', error);
                         resultDiv.innerHTML = `<span class="error">Error: ${error.message}</span>`;
                     }
                 }

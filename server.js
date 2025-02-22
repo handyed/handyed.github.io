@@ -24,6 +24,10 @@ const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
 app.post('/api/estimate-price', async (req, res) => {
     const { service } = req.body;
     
+    if (!service) {
+        return res.status(400).json({ error: 'Service description is required' });
+    }
+
     try {
         const response = await axios.post(
             'https://openrouter.ai/api/v1/chat/completions',
@@ -79,6 +83,11 @@ Analyze the requested service, match it to the appropriate category, and provide
             }
         );
 
+        if (!response.data || !response.data.choices || !response.data.choices[0]) {
+            console.error('Invalid API response:', response.data);
+            return res.status(500).json({ error: 'Invalid response from AI service' });
+        }
+
         let price = response.data.choices[0].message.content.trim();
         
         // Extract only the first number found after £ symbol
@@ -93,13 +102,29 @@ Analyze the requested service, match it to the appropriate category, and provide
             price = `£${numericPrice}`;
         } else {
             // Default fallback price if no valid price format is found
+            console.warn('No valid price format found in:', price);
             price = '£75';
         }
         
         res.json({ price });
     } catch (error) {
-        console.error('Error details:', error.response?.data || error.message);
-        res.status(500).json({ error: 'Failed to estimate price. Please try again.' });
+        console.error('Detailed error:', {
+            message: error.message,
+            response: error.response?.data,
+            status: error.response?.status
+        });
+        
+        // Send a more specific error message
+        if (error.response?.status === 401) {
+            res.status(401).json({ error: 'API authentication failed. Please check API key.' });
+        } else if (error.response?.status === 429) {
+            res.status(429).json({ error: 'Too many requests. Please try again later.' });
+        } else {
+            res.status(500).json({ 
+                error: 'Failed to estimate price. Please try again.',
+                details: error.message
+            });
+        }
     }
 });
 
