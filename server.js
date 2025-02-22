@@ -7,9 +7,11 @@ const app = express();
 
 // Configure CORS
 app.use(cors({
-    origin: '*',
+    origin: ['https://handyed.co.uk', 'https://www.handyed.co.uk', 'http://localhost:3000'],
     methods: ['GET', 'POST', 'OPTIONS'],
-    allowedHeaders: ['Content-Type']
+    allowedHeaders: ['Content-Type', 'Accept'],
+    credentials: true,
+    maxAge: 86400 // 24 hours
 }));
 
 app.use(express.json());
