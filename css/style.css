@@ -494,30 +494,32 @@ a:focus {
   border: 1px solid #ff8a1d;
   border-radius: 2px;
   color: #ffffff;
-  @media (max-width: 768px) {
-    .row {
-      flex-direction: column;
-    }
-    
-    .col-md-6 {
-      width: 100%;
-      text-align: center;
-    }
-    
-    .img-box img {
-      max-width: 50%;
-      height: auto;
-    }
-    
-    .detail-box {
-      padding: 15px;
-    }
-  }
 }
 
 .professional_section .detail-box a:hover {
   background-color: transparent;
   color: #ff8a1d;
+}
+
+/* Media query for responsive design */
+@media (max-width: 768px) {
+  .professional_section .row {
+    flex-direction: column;
+  }
+  
+  .professional_section .col-md-6 {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .professional_section .img-box img {
+    max-width: 50%;
+    height: auto;
+  }
+  
+  .professional_section .detail-box {
+    padding: 15px;
+  }
 }
 
 .service_section {
