@@ -60,6 +60,27 @@ h1, h2, h3, p {
 .heading_container p {
   margin-bottom: 0;
 }
+.floating-button {
+  position: fixed;
+  bottom: 20px; /* Distance from the bottom of the screen */
+  right: 20px;  /* Distance from the right of the screen */
+  padding: 15px 25px;
+  background-color: #007bff;
+  color: white;
+  font-size: 18px;
+  border-radius: 50px;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s;
+}
+
+.floating-button:hover {
+  background-color: #0056b3; /* Darken the color when hovering */
+}
+
+
+
 
 .heading_container.heading_center {
   -webkit-box-align: center;
