@@ -198,12 +198,26 @@
                         animation: blink 1s infinite, slide 1s infinite alternate;
                         text-align: center;
                     }
+                     .floating-logo {
+                            position: absolute;
+                            width: 150px; /* Adjust size */
+                            animation: floatAnimation 5s infinite alternate ease-in-out;
+                            opacity: 0.5; /* Adjust from 0 (fully transparent) to 1 (fully visible) */
+                    }
+
+                        @keyframes floatAnimation {
+                         0% { transform: translate(0, 0); }
+                          50% { transform: translate(30px, -30px); }
+                          100% { transform: translate(-30px, 30px); }
+                            }
+
                 </style>
                 
         </section>
         <section id="contact">
             
-            
+            <img src="/images/Howdens_logo.svg.png" alt="Howdens Logo" class="floating-logo">
+
             
 
             <a href="/appoiment.html" class="home-button">Book Appoinment</a>
