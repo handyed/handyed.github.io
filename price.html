@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-blue-500 text-white flex flex-col min-h-screen">
+    <header class="bg-blue-700 p-4 shadow-lg">
+        <nav class="flex justify-between items-center container mx-auto">
+            <h1 class="text-2xl font-bold">HandyEd</h1>
+            <ul class="flex space-x-6">
+                <li><a href="index.html" class="hover:underline">Home</a></li>
+                <li><a href="price.html" class="hover:underline">Price</a></li>
+                <li><a href="booking.html" class="hover:underline">Booking</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main class="container mx-auto py-10 flex flex-col items-center flex-grow">
+        <h2 class="text-3xl font-bold mb-6">Handyman Services Price List</h2>
+        <table class="w-full max-w-3xl bg-white text-blue-700 rounded-lg shadow-lg overflow-hidden">
+            <thead class="bg-blue-700 text-white">
+                <tr>
+                    <th class="p-4">Service</th>
+                    <th class="p-4">Price (£)</th>
+                </tr>
+            </thead>
+            <tbody class="text-center">
+                <tr class="border-b">
+                    <td class="p-4">General Repairs</td>
+                    <td class="p-4">50</td>
+                </tr>
+                <tr class="border-b bg-gray-100">
+                    <td class="p-4">Furniture Assembly</td>
+                    <td class="p-4">40</td>
+                </tr>
+                <tr class="border-b">
+                    <td class="p-4">Electrical Work</td>
+                    <td class="p-4">60</td>
+                </tr>
+                <tr class="border-b bg-gray-100">
+                    <td class="p-4">Plumbing Services</td>
+                    <td class="p-4">70</td>
+                </tr>
+                <tr>
+                    <td class="p-4">Painting & Decorating</td>
+                    <td class="p-4">80</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+    
+    <footer class="bg-blue-700 text-center p-4 mt-auto shadow-lg">
+        <p>&copy; 2014 HandyEd. All rights reserved.</p>
+    </footer>
+</body>
+</html>
