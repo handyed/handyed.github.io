@@ -7,18 +7,73 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="/style.css">
-       
     
-    
+    <style>
+        .floating-whatsapp {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+        }
+        
+        .whatsapp-btn {
+            background-color: #25D366;
+            color: white;
+            padding: 15px 10px 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            /* Trapezoid shape */
+            clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
+            width: 60px;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+            right: 0;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+            width: 130px;
+            clip-path: polygon(12% 0%, 100% 0%, 100% 100%, 12% 100%, 0% 50%);
+        }
+        
+        .whatsapp-btn i {
+            font-size: 24px;
+            margin-right: 5px;
+        }
+        
+        .whatsapp-btn span {
+            display: none;
+            white-space: nowrap;
+            font-size: 12px;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .whatsapp-btn:hover span {
+            display: inline;
+            opacity: 1;
+        }
+    </style>
 </head>
 <body class="bg-blue-500 text-white flex flex-col min-h-screen">
     <header class="bg-blue-700 p-4 shadow-lg">
         <nav class="flex justify-between items-center container mx-auto">
-            <a href="https://wa.me/447775877746" class="whatsapp-btn" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-whatsapp"></i>
-                <span>Chat on WhatsApp</span>
-            </a>
-            
+            <div class="logo">
+                <a href="index.html" class="text-2xl font-bold flex items-center">
+                    HandyEd
+                </a>
+            </div>
             
             <ul class="flex space-x-6">
                 <li><a href="index.html" class="hover:underline">Home</a></li>
@@ -28,6 +83,14 @@
         </nav>
     </header>
     
+    <!-- Floating WhatsApp Button -->
+    <div class="floating-whatsapp">
+        <a href="https://wa.me/447775877746" class="whatsapp-btn" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-whatsapp"></i>
+            <span>WhatsApp</span>
+        </a>
+    </div>
+    
     <main class="container mx-auto py-10 flex flex-col items-center flex-grow">
         <h2 class="text-3xl font-bold mb-6">Book a Service</h2>
         <p class="text-lg mb-4">Office hours: <strong>Monday - Friday, 9 AM - 5 PM</strong></p>
@@ -36,8 +99,6 @@
             <p class="text-center text-sm text-gray-600 mt-4">If the <strong>CHAT</strong>  is unavailable, feel free to contact us on <strong>WhatsApp</strong> for immediate assistance.</p>
         </div>
     </main>
-    
-    
     
     <footer class="bg-blue-700 text-center p-4 mt-auto shadow-lg">
         <p>&copy; 2014 HandyEd. All rights reserved.</p>
