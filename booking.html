@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .whatsapp-btn {
+            position: fixed;
+            z-index: 1000;
+            transition: all 0.5s ease;
+            opacity: 0.7; /* Added transparency */
+        }
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            opacity: 1; /* Fully visible on hover */
+        }
+    </style>
 </head>
 <body class="bg-blue-500 text-white flex flex-col min-h-screen">
     <header class="bg-blue-700 p-4 shadow-lg">
@@ -22,27 +35,52 @@
         <h2 class="text-3xl font-bold mb-6">Book a Service</h2>
         <p class="text-lg mb-4">Office hours: <strong>Monday - Friday, 9 AM - 5 PM</strong></p>
         <div class="w-full max-w-3xl bg-white text-blue-700 rounded-lg shadow-lg p-6">
-            <p class="text-center mb-4">Use the <strong>CHAT</strong> below to book your service:</p>
-      
+            <p class="text-center mb-4">Use the <strong>CHAT</strong> in the bottom corner below to book your service:</p>
+            <p class="text-center text-sm text-gray-600 mt-4">If the CHAT is unavailable, feel free to contact us on WhatsApp for immediate assistance.</p>
         </div>
     </main>
     
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/447775877746" id="whatsapp-btn" class="whatsapp-btn bg-green-500 text-white p-4 rounded-full shadow-lg" target="_blank" rel="noopener noreferrer">
+        <div class="flex flex-col items-center">
+            <i class="fab fa-whatsapp text-2xl"></i>
+            <span class="bg-white text-green-600 text-xs font-bold py-1 px-2 rounded-full mt-1">Book via WhatsApp</span>
+        </div>
+    </a>
     
     <footer class="bg-blue-700 text-center p-4 mt-auto shadow-lg">
         <p>&copy; 2014 HandyEd. All rights reserved.</p>
     </footer>
+    
     <!--Start of Tawk.to Script-->
-<script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/67cb028c2ff8781915f5ad2a/default';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-    })();
+    <script type="text/javascript">
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/67cb028c2ff8781915f5ad2a/default';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+        })();
     </script>
     <!--End of Tawk.to Script-->
+    
+    <script>
+        function moveWhatsAppButton() {
+            const btn = document.getElementById("whatsapp-btn");
+            const maxX = window.innerWidth - btn.offsetWidth - 20;
+            const maxY = window.innerHeight - btn.offsetHeight - 20;
+            
+            const newX = Math.floor(Math.random() * maxX);
+            const newY = Math.floor(Math.random() * maxY);
+            
+            btn.style.left = `${newX}px`;
+            btn.style.top = `${newY}px`;
+        }
+        
+        setInterval(moveWhatsAppButton, 3000); // Move every 3 seconds
+        window.onload = moveWhatsAppButton; // Move initially on load
+    </script>
 </body>
 </html>
