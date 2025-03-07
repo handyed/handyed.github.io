@@ -6,23 +6,20 @@
     <title>Booking</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        .whatsapp-btn {
-            position: fixed;
-            z-index: 1000;
-            transition: all 0.5s ease;
-            opacity: 0.7; /* Added transparency */
-        }
-        .whatsapp-btn:hover {
-            transform: scale(1.1);
-            opacity: 1; /* Fully visible on hover */
-        }
-    </style>
+    <link rel="stylesheet" href="/style.css">
+       
+    
+    
 </head>
 <body class="bg-blue-500 text-white flex flex-col min-h-screen">
     <header class="bg-blue-700 p-4 shadow-lg">
         <nav class="flex justify-between items-center container mx-auto">
-            <h1 class="text-2xl font-bold">HandyEd</h1>
+            <a href="https://wa.me/447775877746" class="whatsapp-btn" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp"></i>
+                <span>Chat on WhatsApp</span>
+            </a>
+            
+            
             <ul class="flex space-x-6">
                 <li><a href="index.html" class="hover:underline">Home</a></li>
                 <li><a href="price.html" class="hover:underline">Price</a></li>
@@ -35,18 +32,12 @@
         <h2 class="text-3xl font-bold mb-6">Book a Service</h2>
         <p class="text-lg mb-4">Office hours: <strong>Monday - Friday, 9 AM - 5 PM</strong></p>
         <div class="w-full max-w-3xl bg-white text-blue-700 rounded-lg shadow-lg p-6">
-            <p class="text-center mb-4">Use the <strong>CHAT</strong> in the bottom corner below to book your service:</p>
-            <p class="text-center text-sm text-gray-600 mt-4">If the CHAT is unavailable, feel free to contact us on WhatsApp for immediate assistance.</p>
+           <p class="text-center mb-4">Use the <strong>CHAT</strong> in the bottom corner below to book your service:</p>
+            <p class="text-center text-sm text-gray-600 mt-4">If the <strong>CHAT</strong>  is unavailable, feel free to contact us on <strong>WhatsApp</strong> for immediate assistance.</p>
         </div>
     </main>
     
-    <!-- WhatsApp Button -->
-    <a href="https://wa.me/447775877746" id="whatsapp-btn" class="whatsapp-btn bg-green-500 text-white p-4 rounded-full shadow-lg" target="_blank" rel="noopener noreferrer">
-        <div class="flex flex-col items-center">
-            <i class="fab fa-whatsapp text-2xl"></i>
-            <span class="bg-white text-green-600 text-xs font-bold py-1 px-2 rounded-full mt-1">Book via WhatsApp</span>
-        </div>
-    </a>
+    
     
     <footer class="bg-blue-700 text-center p-4 mt-auto shadow-lg">
         <p>&copy; 2014 HandyEd. All rights reserved.</p>
@@ -66,21 +57,5 @@
     </script>
     <!--End of Tawk.to Script-->
     
-    <script>
-        function moveWhatsAppButton() {
-            const btn = document.getElementById("whatsapp-btn");
-            const maxX = window.innerWidth - btn.offsetWidth - 20;
-            const maxY = window.innerHeight - btn.offsetHeight - 20;
-            
-            const newX = Math.floor(Math.random() * maxX);
-            const newY = Math.floor(Math.random() * maxY);
-            
-            btn.style.left = `${newX}px`;
-            btn.style.top = `${newY}px`;
-        }
-        
-        setInterval(moveWhatsAppButton, 3000); // Move every 3 seconds
-        window.onload = moveWhatsAppButton; // Move initially on load
-    </script>
 </body>
 </html>
