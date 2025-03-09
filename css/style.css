@@ -1,10 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather+Sans:wght@400;700&display=swap");
 body {
   font-family: 'Lato', sans-serif;
-  color: rgba(7, 7, 7, 0.333);
-}
-h1, h2, h3, p {
-  color: black;
+  color: #040000;
 }
 
 .layout_padding {
@@ -60,27 +57,6 @@ h1, h2, h3, p {
 .heading_container p {
   margin-bottom: 0;
 }
-.floating-button {
-  position: fixed;
-  bottom: 20px; /* Distance from the bottom of the screen */
-  right: 20px;  /* Distance from the right of the screen */
-  padding: 15px 25px;
-  background-color: #007bff;
-  color: white;
-  font-size: 18px;
-  border-radius: 50px;
-  text-align: center;
-  text-decoration: none;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s;
-}
-
-.floating-button:hover {
-  background-color: #0056b3; /* Darken the color when hovering */
-}
-
-
-
 
 .heading_container.heading_center {
   -webkit-box-align: center;
@@ -113,7 +89,7 @@ a:focus {
 
 .header_section .header_top {
   padding: 15px 0;
-  background-color: #2409c0;
+  background-color: #000000;
 }
 
 .header_section .header_top .contact_nav {
@@ -140,7 +116,7 @@ a:focus {
 .navbar-brand {
   padding: 0;
   margin: 0;
-  color: rgba(7, 7, 7, 0.333);
+  color: #000000;
   font-weight: bold;
   font-size: 24px;
   font-weight: bold;
@@ -326,7 +302,7 @@ a:focus {
 }
 
 .slider_section .detail-box p {
-  color: #242323;
+  color: #444;
   font-size: 15px;
 }
 
@@ -380,7 +356,7 @@ a:focus {
   margin: 0 10px;
   padding: 45px 15px;
   background-color: #ffffff;
-  color: #2a293f;
+  color: #555089;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   -webkit-box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
@@ -485,26 +461,6 @@ a:focus {
   margin-top: 20px;
 }
 
-@media (max-width: 768px) {
-  .row {
-    flex-direction: column;
-  }
-  
-  .col-md-6 {
-    width: 100%;
-    text-align: center;
-  }
-  
-  .img-box img {
-    max-width: 50%;
-    height: auto;
-  }
-  
-  .detail-box {
-    padding: 15px;
-  }
-}
-
 .professional_section .detail-box a {
   margin-top: 25px;
   display: inline-block;
@@ -520,27 +476,6 @@ a:focus {
 .professional_section .detail-box a:hover {
   background-color: transparent;
   color: #ff8a1d;
-}
-
-/* Media query for responsive design */
-@media (max-width: 768px) {
-  .professional_section .row {
-    flex-direction: column;
-  }
-  
-  .professional_section .col-md-6 {
-    width: 100%;
-    text-align: center;
-  }
-  
-  .professional_section .img-box img {
-    max-width: 50%;
-    height: auto;
-  }
-  
-  .professional_section .detail-box {
-    padding: 15px;
-  }
 }
 
 .service_section {
@@ -732,19 +667,19 @@ a:focus {
 }
 
 .contact_section input::-webkit-input-placeholder {
-  color: #3f3f3f;
+  color: #737272;
 }
 
 .contact_section input:-ms-input-placeholder {
-  color: #292929;
+  color: #737272;
 }
 
 .contact_section input::-ms-input-placeholder {
-  color: #3a3a3a;
+  color: #737272;
 }
 
 .contact_section input::placeholder {
-  color: #242323;
+  color: #737272;
 }
 
 .contact_section input.message-box {
@@ -777,6 +712,18 @@ a:focus {
   height: 100%;
 }
 
+
+.highlight-text1 {
+  color: #e60000; /* Red text color */
+  font-size: 12px; /* Slightly larger text */
+  font-weight: bold; /* Bold text */
+  text-transform: uppercase; /* Make the text all uppercase */
+  transition: color 0.3s ease; /* Smooth transition effect */
+}
+
+.highlight-text1:hover {
+  color: #ff1a1a; /* Darker red when hovered */
+}
 .info_section {
   padding: 75px 0;
   background-color: #0a0f43;
@@ -883,24 +830,6 @@ a:focus {
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
 }
-.whatsapp-btn {
-  padding: 20px 40px;
-  font-size: 24px;
-  color: white;
-  background-color: #25D366; /* WhatsApp Green */
-  border-radius: 40px;
-  text-decoration: none;
-  font-weight: bold;
-  display: inline-block;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
-}
-
-/* Hover effect */
-.whatsapp-btn:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-}
 
 /* footer section*/
 .footer_section {
@@ -918,23 +847,6 @@ a:focus {
 .footer_section a {
   color: inherit;
 }
-.whatsapp-btn {
-  padding: 20px 40px;
-  font-size: 24px;
-  color: white;
-  background-color: #25D366; /* WhatsApp Green */
-  border-radius: 40px;
-  text-decoration: none;
-  font-weight: bold;
-  display: inline-block;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
-}
 
-/* Hover effect */
-.whatsapp-btn:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-}
 /* end footer section*/
 /*# sourceMappingURL=style.css.map */
