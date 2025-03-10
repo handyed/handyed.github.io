@@ -714,15 +714,15 @@ a:focus {
 
 
 .highlight-text1 {
-  color: #e60000; /* Red text color */
-  font-size: 12px; /* Slightly larger text */
+  color:  #39ff14; /* Red text color */
+  font-size: 17px; /* Slightly larger text */
   font-weight: bold; /* Bold text */
   text-transform: uppercase; /* Make the text all uppercase */
   transition: color 0.3s ease; /* Smooth transition effect */
 }
 
 .highlight-text1:hover {
-  color: #ff1a1a; /* Darker red when hovered */
+  color: #ec0e0e; /* Darker red when hovered */
 }
 .info_section {
   padding: 75px 0;
