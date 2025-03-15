@@ -21,6 +21,8 @@
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
   <!-- font awesome style -->
   <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+  <!--Landline button-->
+  <link rel="stylesheet" type="text/css" href="/css/landlinebutton.css" />
 
   <!-- Custom styles for this template -->
   <link href="css/style.css" rel="stylesheet" />
@@ -39,7 +41,7 @@
             <a href="https://wa.me/447775877746">
               <i class="fa fa-phone" aria-hidden="true"></i>
               <span>
-                Call : 07775877746
+                Call :  07775877746
               </span>
             </a>
             <a href="mailto:info@handyed.co.uk">
@@ -208,12 +210,35 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
   <!-- End Google Map -->
 
+  <!-- Button for Popup -->
+<div id="popupButton" class="popup-button">
+  <div class="phone-icon">
+    📞Your feedback matters.
+  </div>
+  <span class="popup-text">Leave a message to office if you have a complaint.</span>
+</div>
+<!-- JavaScript placed just before the closing tag -->
+<script>
+  // Ensure the DOM is fully loaded before attaching the event listener
+  document.addEventListener('DOMContentLoaded', function() {
+    // Replace the phone number below with your actual landline number
+    var phoneNumber = '1234567890'; // Replace with your landline number
+
+    document.getElementById('popupButton').addEventListener
+    ('click', function() {
+      // This will open the dialer with the number when clicked
+      window.location.href = 'tel:' +441788632047;
+    });
+  });
+</script>
+
 <!--Start setmore-->
 <script id="setmore_script" type="text/javascript" src="https://assets.setmore.com/integration/static/setmoreIframeLive.js"></script><a style="float:none; position: fixed; right: -2px; top: 25%; display: block; z-index: 20000" id="Setmore_button_iframe"  href="https://handyed.setmore.com"><img border="none" src="https://storage.googleapis.com/full-assets/setmore/images/1.0/Calendar/Setmore-Book-Now.png" alt="Book an appointment with HandyEd using Setmore"/></a>
   
   
   
 <!--end set more section-->
+
 
 </body>
 
