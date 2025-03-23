@@ -1,243 +1,402 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Handy Ed</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-        body {
-            background-color: #f8f8f8;
-            color: #333;
-            padding-bottom: 60px; /* Add padding to avoid footer overlap */
-        }
-        header {
-            background-color: #000;
-            padding: 10px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        header img {
-            height: 40px;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin-left: 20px;
-            font-size: 16px;
-        }
-        .container {
-            max-width: 900px;
-            margin: 20px auto;
-            background: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-        h1 {
-            margin-bottom: 20px;
-        }
-        h2 {
-            margin: 30px 0 15px 0;
-            text-align: left;
-        }
-        .button-container {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 30px;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        button {
-            padding: 15px 30px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #000;
-            color: white;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-        /* Table styles */
-        .privacy-container {
-            height: 200px;
-            overflow-y: auto;
-            margin-top: 20px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            text-align: left;
-        }
-        th, td {
-            padding: 12px 15px;
-            border-bottom: 1px solid #ddd;
-        }
-        th {
-            background-color: #f2f2f2;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
-        tr:hover {
-            background-color: #f5f5f5;
-        }
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px;
-                margin: 10px;
-            }
-            .button-container {
-                flex-direction: column;
-            }
-            button {
-                width: 100%;
-                margin-bottom: 10px;
-            }
-            header {
-                flex-direction: column;
-                padding: 10px;
-            }
-            nav {
-                margin-top: 10px;
-                width: 100%;
-                display: flex;
-                justify-content: space-around;
-            }
-            nav a {
-                margin: 0;
-            }
-            /* TrustPilot widget mobile improvements */
-            .trustpilot-widget {
-                margin: 20px auto 30px;
-                display: block;
-                max-width: 95%;
-            }
-        }
-        
-        /* TrustPilot widget general styling */
-        .trustpilot-widget {
-            margin: 30px auto;
-            display: block;
-        }
-    </style>
-    <!-- TrustBox script -->
-<script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
-<!-- End TrustBox script -->
-</head>
-<body>
-    <header>
-        <img src="/images/logo.jpg" alt="Handy Ed Logo">
-        <nav>
-            <a href="/index.html">Home</a>
-            <a href="/pricelist.html">Price List</a>
-            <a href="/contact.html">Contact</a>
-        </nav>
-    </header>
-    <div class="container">
-        <h1>Contact Us</h1>
-        <div class="button-container">
-            <a href="https://handyed.setmore.com/services/eac08e5f-feaf-44d8-b362-7af53bbb127e">
-                <button>Book a Call Back</button>
-            </a>
-            <a href="https://tawk.to/chat/67d3318d8514fb19138aa2f1/1im8fj4nb">
-                <button>Live CHAT</button>
-            </a>
-            
-            
-            <!-- Button that links to WhatsApp for a direct message -->
-            <button onclick="window.location.href='https://wa.me/447775877746'">WhatsApp Text</button>
-            
-            <a href="tel:441788335005">
-                <button>Leave Office Feedback</button>
-            </a>
-           
-        </div>
-        
+  <link rel="icon" href="/favicon_io/favicon.ico" type="image/x-icon">
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="handyman, repairs, home services, UK, Midlands" />
+  <meta name="description" content="Contact HandyEd for all your home repair and maintenance needs in the Midlands, UK" />
+  <meta name="author" content="HandyEd" />
+
+  <title>Contact HandyEd - Your Reliable Handyman Service</title>
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <!-- font awesome style -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+
+  <style>
+    /* Additional Mobile-Friendly Styles */
+    @media (max-width: 768px) {
+      .contact-card {
+        margin-bottom: 20px;
+      }
       
-        
-        <h2>Privacy Policy</h2>
-        <div class="privacy-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Section</th>
-                        <th>Details</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <div class="container">
-                        <h1>Privacy Policy</h1>
-                        <p>At Handy Ed, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your personal information when you use our services or visit our website.</p>
-                
-                        <h2>1. Information We Collect</h2>
-                        <p>We may collect personal information such as your name, email address, phone number, and payment details when you:</p>
-                        <ul>
-                            <li>Book our services</li>
-                            <li>Subscribe to our newsletter</li>
-                            <li>Contact us through the website</li>
-                        </ul>
-                
-                        <h2>2. How We Use Your Information</h2>
-                        <p>We use the information we collect for the following purposes:</p>
-                        <ul>
-                            <li>To provide and improve our services</li>
-                            <li>To process payments</li>
-                            <li>To respond to your inquiries</li>
-                            <li>To send you updates, promotions, or important notices</li>
-                        </ul>
-                
-                        <h2>3. Sharing of Information</h2>
-                        <p>We do not sell, rent, or share your personal information with third parties, except as necessary to provide our services (e.g., payment processing) or as required by law.</p>
-                
-                        <h2>4. Data Security</h2>
-                        <p>We take reasonable precautions to protect your personal information from unauthorized access, use, or disclosure. However, no method of transmission over the Internet is 100% secure, and we cannot guarantee absolute security.</p>
-                
-                        <h2>5. Your Rights</h2>
-                        <p>You have the right to access, update, or delete your personal information. If you wish to exercise these rights, please contact us at <a href="mailto:info@handyed.co.uk">info@handyed.co.uk</a>.</p>
-                
-                        <h2>6. Changes to This Privacy Policy</h2>
-                        <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page, and the date of the latest update will be indicated at the top.</p>
-                
-                        <h2>7. Contact Us</h2>
-                        <p>If you have any questions about this Privacy Policy, please contact us at:</p>
-                        <p><strong>Handy Ed</strong></p>
-                        <p>Email: <a href="mailto:info@handyed.co.uk">info@handyed.co.uk</a></p>
-                        <p>Website: <a href="https://handyed.co.uk" target="_blank">www.handyed.co.uk</a></p>
-                
-                        <footer>
-                            &copy; 2025 Handy Ed. All rights reserved.
-                        </footer>
-                    </div>
-                </tbody>
-            </table>
+      .header_top .contact_nav {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .header_top .contact_nav a {
+        margin-bottom: 5px;
+      }
+      
+      .contact-btn {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 12px;
+        font-size: 16px;
+        text-align: center;
+        background-color: #0355cc;
+        color: white;
+        border: 2px solid #0355cc;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+      }
+      
+      .contact-btn:hover {
+        background-color: transparent;
+        color: #0355cc;
+      }
+      
+      .contact-btn.orange {
+        background-color: #ff8a1d;
+        border-color: #ff8a1d;
+      }
+      
+      .contact-btn.orange:hover {
+        background-color: transparent;
+        color: #ff8a1d;
+      }
+      
+      .info_section .info_items {
+        flex-direction: column;
+      }
+      
+      .info_section .info_items .item {
+        margin-bottom: 20px;
+      }
+    }
+    
+    /* General Contact Page Improvements */
+    .contact-section {
+      padding: 60px 0;
+    }
+    
+    .contact-heading {
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    
+    .contact-card {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 25px;
+      height: 100%;
+      transition: transform 0.3s ease;
+    }
+    
+    .contact-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .contact-icon {
+      font-size: 40px;
+      color: #0355cc;
+      margin-bottom: 20px;
+    }
+    
+    .contact-title {
+      font-weight: bold;
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+    
+    .contact-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #0355cc;
+      color: white;
+      border: 2px solid #0355cc;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      margin-top: 15px;
+      font-weight: 500;
+    }
+    
+    .contact-btn:hover {
+      background-color: transparent;
+      color: #0355cc;
+    }
+    
+    .contact-btn.orange {
+      background-color: #ff8a1d;
+      border-color: #ff8a1d;
+    }
+    
+    .contact-btn.orange:hover {
+      background-color: transparent;
+      color: #ff8a1d;
+    }
+    
+    .feedback-btn {
+      margin-top: 40px;
+      text-align: center;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: #0355cc;
+      color: white;
+      border-radius: 50%;
+      margin: 0 10px;
+      transition: all 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      background-color: #ff8a1d;
+      transform: translateY(-3px);
+    }
+
+
+    html, body {
+      overflow-x: hidden;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .container-fluid, .container {
+      padding-left: 15px;
+      padding-right: 15px;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    img, svg {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .row {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    /* Fix for any potentially overflowing elements */
+    .header_section, .contact-section, .info_section, .footer_section {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="header_top">
+        <div class="container-fluid">
+          <div class="contact_nav">
+            <a href="https://wa.me/447775877746">
+              <i class="fa fa-phone" aria-hidden="true"></i>
+              <span>Call: 07775 877 746</span>
+            </a>
+            <a href="mailto:info@handyed.co.uk">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              <span>Email: info@handyed.co.uk</span>
+            </a>
+          </div>
         </div>
+      </div>
+      <div class="header_bottom">
+        <div class="container-fluid">
+          <nav class="navbar navbar-expand-lg custom_nav-container">
+            <a class="navbar-brand" href="index.html">
+              <img src="/images/logo.jpg" alt="Handy Ed Logo" width="100">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="service.html">Services</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="contact.html">Contact Us <span class="sr-only">(current)</span></a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div>
+
+  <!-- contact section -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="heading_container heading_center contact-heading">
+        <h2>Get In Touch</h2>
+        <p class="mt-3">We're here to help with all your handyman needs. Choose the contact method that works best for you.</p>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="contact-card text-center">
+            <i class="fas fa-calendar-alt contact-icon"></i>
+            <h5 class="contact-title">Schedule a Call Back</h5>
+            <p>Book a convenient time for us to call you back and discuss your requirements.</p>
+            <a href="https://handyed.setmore.com/services/eac08e5f-feaf-44d8-b362-7af53bbb127e" class="contact-btn">Book Now</a>
+          </div>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+          <div class="contact-card text-center">
+            <i class="fas fa-comments contact-icon"></i>
+            <h5 class="contact-title">Live Chat</h5>
+            <p>Connect with our team instantly through our live chat service.</p>
+            <a href="https://tawk.to/chat/67d3318d8514fb19138aa2f1/1im8fj4nb" class="contact-btn">Start Chat</a>
+          </div>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+          <div class="contact-card text-center">
+            <i class="fab fa-whatsapp contact-icon" style="color: #25D366;"></i>
+            <h5 class="contact-title">WhatsApp</h5>
+            <p>Message us directly on WhatsApp for quick responses and easy communication.</p>
+            <a href="https://wa.me/447775877746" class="contact-btn">WhatsApp Now</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="feedback-btn text-center">
+        <a href="tel:+4401788632047" class="contact-btn orange">
+          <i class="fas fa-phone-alt mr-2"></i> Call Our Office
+        </a>
+      </div>
     </div>
-    <footer>
-        <p>&copy; 2025 Handy Ed. All rights reserved. | Contact us at info@handyed.co.uk</p>
+  </section>
+  <!-- end contact section -->
+
+  <!-- info section -->
+  <section class="info_section">
+    <div class="container">
+      <h4>Contact Information</h4>
+      <div class="row">
+        <div class="col-lg-10 mx-auto">
+          <div class="info_items">
+            <div class="row">
+              <div class="col-md-4 mb-3">
+                <a href="https://www.google.com/maps/search/Midlands,+UK">
+                  <div class="item">
+                    <div class="img-box">
+                      <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    </div>
+                    <p>Midlands, UK</p>
+                  </div>
+                </a>
+              </div>
+              <div class="col-md-4 mb-3">
+                <a href="https://wa.me/447775877746">
+                  <div class="item">
+                    <div class="img-box">
+                      <i class="fa fa-phone" aria-hidden="true"></i>
+                    </div>
+                    <p>07775 877 746</p>
+                  </div>
+                </a>
+              </div>
+              <div class="col-md-4 mb-3">
+                <a href="mailto:info@handyed.co.uk">
+                  <div class="item">
+                    <div class="img-box">
+                      <i class="fa fa-envelope" aria-hidden="true"></i>
+                    </div>
+                    <p>info@handyed.co.uk</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="social-box mt-4">
+      <h4>Follow Us</h4>
+      <div class="social-links">
+        <a href="https://www.facebook.com/profile.php?id=61572792132079" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://x.com/TurosEduard" aria-label="Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://www.youtube.com/@handyed" aria-label="YouTube">
+          <i class="fab fa-youtube"></i>
+        </a>
+        <a href="https://www.instagram.com/handyedinfo?igsh=MTI2ZTJnaHRnZmhvbA==" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- end info section -->
+
+  <!-- footer section -->
+  <footer class="footer_section">
+    <div class="container">
+      <p>
+        &copy; <span id="displayDateYear">2025</span> All Rights Reserved By HandyEd
         <br>
-        <a href="/privacy.html">Privacy Policy - HandyEd</a>
-    </footer>
+        <a href="/privacy.html">Privacy Policy</a>
+      </p>
+    </div>
+  </footer>
+  <!-- footer section -->
+
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script src="js/custom.js"></script>
+  
+  <!-- Set current year in footer -->
+  <script>
+    document.getElementById('displayDateYear').textContent = new Date().getFullYear();
+  </script>
+
+  <!--Start setmore-->
+  <script id="setmore_script" type="text/javascript" src="https://assets.setmore.com/integration/static/setmoreIframeLive.js"></script>
+  <a style="float:none; position: fixed; right: -2px; top: 25%; display: block; z-index: 20000" id="Setmore_button_iframe" href="https://handyed.setmore.com">
+    <img border="none" src="https://storage.googleapis.com/full-assets/setmore/images/1.0/Calendar/Setmore-Book-Now.png" alt="Book an appointment with HandyEd using Setmore"/>
+  </a>
+  <!--end set more section-->
+
 </body>
 </html>

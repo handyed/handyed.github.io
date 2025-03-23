@@ -79,7 +79,7 @@ a:focus {
 /*header section*/
 .hero_area {
   position: relative;
-  background-color: #d1e3ff;
+  background-color: #b9cff1;
 }
 
 .header_section .container-fluid {
@@ -173,7 +173,7 @@ a:focus {
   display: block;
   width: 35px;
   height: 4px;
-  background-color: #000000;
+  background-color: #2945e4;
   margin: 7px 0;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
@@ -189,7 +189,7 @@ a:focus {
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: #000000;
+  background-color: #4e43e9;
   top: -10px;
   border-radius: 5px;
   -webkit-transition: all .3s;
@@ -659,7 +659,7 @@ a:focus {
   height: 50px;
   margin-bottom: 25px;
   padding-left: 25px;
-  background-color: #ffffff;
+  background-color: #d5d8f7;
   outline: none;
   color: #ffffff;
   -webkit-box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.2);
@@ -796,7 +796,7 @@ a:focus {
   background-position: center;
   text-align: center;
   line-height: 80px;
-  background-color: #0355cc;
+  background-color: #2a26f8;
   color: #ffffff;
 }
 
@@ -850,3 +850,23 @@ a:focus {
 
 /* end footer section*/
 /*# sourceMappingURL=style.css.map */
+/*contact buttons*/
+.button-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+button {
+  padding: 15px 30px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+button:hover {
+  background-color: #0056b3;
+}
