@@ -324,8 +324,25 @@ a:focus {
 }
 
 .slider_section .img-box img {
-  width: 100%;
+  width: 40%;  /* Makes the image scale to fit its container */
+  height: auto; /* Maintains the aspect ratio */
+  max-width: 500px; /* Limits how big it gets on large screens */
+  display: block;
+  margin: 0 auto; /* Centers the image */
+  border-radius: 10px; /* Optional: Rounds the corners for a modern look */
 }
+
+/* Make sure the container is flexible */
+@media (max-width: 768px) {
+  .img-box {
+    text-align: center; /* Centers the image on smaller screens */
+  }
+
+  .img-box img {
+    max-width: 90%; /* Makes the image fit better on smaller screens */
+  }
+}
+
 
 .feature_section {
   -webkit-transform: translateY(-50%);
@@ -434,7 +451,7 @@ a:focus {
 }
 
 .about_section .img-box img {
-  width: 100%;
+  width: 40%;
 }
 
 .professional_section {
@@ -448,7 +465,7 @@ a:focus {
 }
 
 .professional_section .img-box img {
-  width: 100%;
+  width: 40%;
 }
 
 .professional_section .detail-box h2 {
