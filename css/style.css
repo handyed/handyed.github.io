@@ -324,7 +324,7 @@ a:focus {
 }
 
 .slider_section .img-box img {
-  width: 40%;  /* Makes the image scale to fit its container */
+  width: 100%;  /* Makes the image scale to fit its container */
   height: auto; /* Maintains the aspect ratio */
   max-width: 500px; /* Limits how big it gets on large screens */
   display: block;
@@ -451,7 +451,7 @@ a:focus {
 }
 
 .about_section .img-box img {
-  width: 40%;
+  width: 100%;
 }
 
 .professional_section {
@@ -465,7 +465,7 @@ a:focus {
 }
 
 .professional_section .img-box img {
-  width: 40%;
+  width: 100%;
 }
 
 .professional_section .detail-box h2 {
