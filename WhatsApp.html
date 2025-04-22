@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HandyEd - WhatsApp Contact</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #25d366;
+            --accent-color: #ff9800;
+            --light-bg: #f9f9f9;
+            --dark-text: #333;
+            --light-text: #fff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+        
+        .header {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .home-btn {
+            background-color: var(--light-text);
+            color: var(--primary-color);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+        
+        .home-btn:hover {
+            background-color: var(--accent-color);
+            color: var(--light-text);
+        }
+        
+        .main-content {
+            padding: 3rem 0;
+        }
+        
+        .whatsapp-card {
+            background-color: var(--light-text);
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .whatsapp-icon {
+            font-size: 4rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .card-title {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .card-text {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: #666;
+        }
+        
+        .exclusive-text {
+            background-color: #f0f8ff;
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .benefit-item {
+            background-color: var(--light-text);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .benefit-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--light-text);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
+        }
+        
+        .divider {
+            height: 1px;
+            background-color: #eee;
+            margin: 2rem 0;
+        }
+        
+        .security-section {
+            background-color: #f5f5f5;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            border: 1px solid #ebebeb;
+        }
+        
+        .footer {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 2rem 0;
+            margin-top: 3rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo">HandyEd</div>
+            <a href="index.html" class="home-btn">
+                <i class="fas fa-home mr-2"></i> &nbsp;Back to Home
+            </a>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="whatsapp-card">
+                <i class="fab fa-whatsapp whatsapp-icon"></i>
+                <h1 class="card-title">Exclusive WhatsApp Service</h1>
+                <p class="card-text">At HandyEd, we value the personal connection we build with our clients. Our WhatsApp service is an exclusive channel reserved for our established clients who have already experienced our exceptional craftsmanship.</p>
+                
+                <div class="exclusive-text">
+                    <h3>A Privilege for Our Trusted Clients</h3>
+                    <p>Our WhatsApp number is exclusively available to clients who have previously worked with us. This ensures prompt responses and personalized service for those who have already placed their trust in our expertise.</p>
+                </div>
+                
+                <h2>Why We've Created This Exclusive Channel</h2>
+                <div class="benefits">
+                    <div class="benefit-item">
+                        <i class="fas fa-bolt benefit-icon"></i>
+                        <h3>Rapid Response</h3>
+                        <p>Our trusted clients receive priority attention with significantly faster response times through this dedicated channel.</p>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <i class="fas fa-user-shield benefit-icon"></i>
+                        <h3>Enhanced Privacy</h3>
+                        <p>Direct communication with the team member who understands your property's unique requirements.</p>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <i class="fas fa-calendar-check benefit-icon"></i>
+                        <h3>Simplified Scheduling</h3>
+                        <p>Seamlessly arrange follow-up visits or discuss new projects with minimal back-and-forth.</p>
+                    </div>
+                </div>
+                
+                <div class="divider"></div>
+                
+                <h2>Becoming an Established Client</h2>
+                <p class="card-text">Not yet part of our trusted client network? We welcome the opportunity to demonstrate our exceptional service standards through our standard contact channels first.</p>
+                
+                <div class="security-section">
+                    <h3><i class="fas fa-shield-alt"></i> Our Communication Promise</h3>
+                    <p>At HandyEd, we treat your contact information with the utmost confidentiality. Your WhatsApp details will never be shared with third parties, and we maintain the same level of professionalism across all communication channels.</p>
+                </div>
+                
+                <p class="card-text">If you're an existing client and haven't received our WhatsApp details, please contact your project manager who will be happy to provide you with this exclusive access.</p>
+                
+                <a href="/contact.html" class="cta-button">Return to Main Contact Options</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 HandyEd. All rights reserved.</p>
+            <p>Specialists in bespoke maintenance and repair solutions for luxury properties.</p>
+        </div>
+    </footer>
+
+    <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/67d3318d8514fb19138aa2f1/1im8fj4nb';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
+</body>
+</html>
