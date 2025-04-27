@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TUROS - Engineering Freedom</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Arial', sans-serif;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Video background */
+    .video-background {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -1;
+      object-fit: cover;
+      filter: brightness(50%);
+    }
+
+    /* Content over video */
+    .hero-content {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .hero-content h1 {
+      font-size: 70px;
+      letter-spacing: 10px;
+      margin: 0;
+    }
+
+    .hero-content p {
+      font-size: 24px;
+      color: #aaa;
+      margin-top: 20px;
+    }
+
+    section {
+      padding: 80px 20px;
+      text-align: center;
+      background-color: #000;
+    }
+
+    section h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    section p {
+      font-size: 18px;
+      color: #bbb;
+      max-width: 700px;
+      margin: 0 auto 30px;
+    }
+
+    .button {
+      display: inline-block;
+      margin: 10px;
+      padding: 15px 30px;
+      background-color: #444;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 30px;
+      transition: background-color 0.3s;
+    }
+
+    .button:hover {
+      background-color: #666;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .gallery img {
+      width: 300px;
+      height: 200px;
+      object-fit: cover;
+      border: 2px solid #333;
+      border-radius: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 50px 20px;
+      font-size: 14px;
+      color: #666;
+      background-color: #000;
+    }
+
+    .newsletter input[type="email"] {
+      padding: 10px;
+      width: 250px;
+      border-radius: 30px;
+      border: none;
+      margin-right: 10px;
+    }
+
+    .newsletter input[type="submit"] {
+      padding: 10px 20px;
+      border-radius: 30px;
+      border: none;
+      background-color: #444;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .newsletter input[type="submit"]:hover {
+      background-color: #666;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Background Video -->
+<video autoplay muted loop class="video-background">
+  <source src="/img/video.mp4" type="video/mp4">
+  Your browser does not support HTML5 video.
+</video>
+
+<!-- Hero Section -->
+<div class="hero-content">
+  <h1>TUROS</h1>
+  <p>ENGINEERING FREEDOM.</p>
+</div>
+
+<section>
+  <h2>OUR WORLD</h2>
+  <p>Redefining what's possible on two wheels.  
+  Relentless performance, breathtaking design.  
+  Every TUROS bike — a legend in the making.</p>
+  <a href="#" class="button">Explore Our Collection</a>
+  <a href="#" class="button">Discover Our Story</a>
+</section>
+
+<section>
+  <h2>LATEST CREATIONS</h2>
+  <div class="gallery">
+    <img src="/img/moto1.png" alt="TUROS Viper">
+    <img src="/img/moto2.png" alt="TUROS Phantom">
+    <img src="/img/moto3.png" alt="TUROS Velocity">
+  </div>
+  <a href="#" class="button">View All Models</a>
+</section>
+
+<section>
+  <h2>LIMITLESS CUSTOMIZATION</h2>
+  <p>Dream it. Ride it. At TUROS, exclusive materials and extreme craftsmanship  
+  bring your imagination to life.</p>
+  <a href="#" class="button">Start Your Build</a>
+</section>
+
+<section>
+  <h2>NEWSROOM</h2>
+  <p>New TUROS Flagship Launched.<br> Collaboration with Top Designers.<br> Best Custom Bike .
