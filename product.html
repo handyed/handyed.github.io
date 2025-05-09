@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="icon" href="/favicon_io/favicon.ico" type="image/x-icon">
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="handyman, repairs, home services, UK, Midlands" />
+  <meta name="description" content="Contact HandyEd for all your home repair and maintenance needs in the Midlands, UK" />
+  <meta name="author" content="HandyEd" />
+
+  <title>Products</title>
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <!-- font awesome style -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+
+  <style>
+    /* Additional Mobile-Friendly Styles */
+    @media (max-width: 768px) {
+      .contact-card {
+        margin-bottom: 20px;
+      }
+      
+      .header_top .contact_nav {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .header_top .contact_nav a {
+        margin-bottom: 5px;
+      }
+      
+      .contact-btn {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 12px;
+        font-size: 16px;
+        text-align: center;
+        background-color: #0a0f43;
+        color: white;
+        border: 2px solid #0a0f43;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+      }
+      
+      .contact-btn:hover {
+        background-color: transparent;
+        color: #0a0f43;
+      }
+      
+      .contact-btn.orange {
+        background-color: #FFD700;
+        border-color: #FFD700;
+      }
+      
+      .contact-btn.orange:hover {
+        background-color: transparent;
+        color: #FFD700;
+      }
+      
+      .info_section .info_items {
+        flex-direction: column;
+      }
+      
+      .info_section .info_items .item {
+        margin-bottom: 20px;
+      }
+    }
+    
+    /* General Contact Page Improvements */
+    .contact-section {
+      padding: 60px 0;
+    }
+    
+    .contact-heading {
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    
+    .contact-card {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 25px;
+      height: 100%;
+      transition: transform 0.3s ease;
+    }
+    
+    .contact-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .contact-icon {
+      font-size: 40px;
+      color: #0355cc;
+      margin-bottom: 20px;
+    }
+    
+    .contact-title {
+      font-weight: bold;
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+    
+    .contact-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #0a0f43;
+      color: white;
+      border: 2px solid #0a0f43;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      margin-top: 15px;
+      font-weight: 500;
+    }
+    
+    .contact-btn:hover {
+      background-color: transparent;
+      color: #0a0f43;
+    }
+    
+    .contact-btn.orange {
+      background-color: #FFD700;
+      border-color: #FFD700;
+    }
+    
+    .contact-btn.orange:hover {
+      background-color: transparent;
+      color: #FFD700;
+    }
+    
+    .feedback-btn {
+      margin-top: 40px;
+      text-align: center;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: #0a0f43;
+      color: white;
+      border-radius: 50%;
+      margin: 0 10px;
+      transition: all 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      background-color: #FFD700;
+      transform: translateY(-3px);
+    }
+
+    html, body {
+      overflow-x: hidden;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .container-fluid, .container {
+      padding-left: 15px;
+      padding-right: 15px;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    img, svg {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .row {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    /* Fix for any potentially overflowing elements */
+    .header_section, .contact-section, .info_section, .footer_section {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+    
+    .whatsapp-float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      color: white;
+      border-radius: 50%;
+      font-size: 30px;
+      text-align: center;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+    }
+
+    /* Improved Carousel Styles */
+    .product-carousel-section {
+      padding: 20px 0;
+      position: relative;
+    }
+    
+    .carousel-title {
+      text-align: center;
+      margin-bottom: 30px;
+      font-weight: bold;
+      color: #0a0f43;
+    }
+    
+    .owl-carousel .item {
+      margin: 10px;
+    }
+    
+    .product-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+      padding: 15px;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .product-card img {
+      width: 100%;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+    
+    .product-card h3 {
+      font-size: 1.1em;
+      margin: 10px 0;
+    }
+    
+    .product-card p {
+      font-size: 0.9em;
+      color: #555;
+    }
+    
+    .product-card .price {
+      display: block;
+      font-weight: bold;
+      color: #25d366;
+      margin: 10px 0;
+    }
+    
+    .buy-btn {
+      display: inline-block;
+      padding: 8px 12px;
+      background-color: #25d366;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.9em;
+      transition: background 0.3s ease;
+    }
+    
+    .buy-btn:hover {
+      background-color: #1ebe5d;
+    }
+    
+    /* Custom navigation buttons */
+    .owl-nav button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      background-color: #0a0f43 !important;
+      color: white !important;
+      border-radius: 50% !important;
+      font-size: 24px !important;
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.7;
+      transition: opacity 0.3s ease;
+    }
+    
+    .owl-nav button:hover {
+      opacity: 1;
+    }
+    
+    .owl-prev {
+      left: -20px;
+    }
+    
+    .owl-next {
+      right: -20px;
+    }
+    
+    .owl-dots {
+      text-align: center;
+      margin-top: 20px;
+    }
+    
+    .owl-dot {
+      width: 10px;
+      height: 10px;
+      background-color: #ccc !important;
+      border-radius: 50%;
+      margin: 0 5px;
+      transition: background-color 0.3s ease;
+    }
+    
+    .owl-dot.active {
+      background-color: #0a0f43 !important;
+    }
+    
+    /* Modal styles for enlarged images */
+    .image-modal {
+      display: none;
+      position: fixed;
+      z-index: 10000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.85);
+      overflow: hidden;
+    }
+    
+    .modal-content {
+      position: relative;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      max-width: 90%;
+    }
+    
+    .modal-img {
+      max-width: 90%;
+      max-height: 80vh;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.2);
+    }
+    
+    .modal-info {
+      margin-top: 20px;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    
+    .modal-info h3 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+    
+    .modal-info p {
+      margin-bottom: 10px;
+    }
+    
+    .modal-info .price {
+      font-size: 1.3em;
+      font-weight: bold;
+      color: #25d366;
+      margin: 10px 0;
+    }
+    
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
+      background: none;
+      border: none;
+      opacity: 0.8;
+      transition: opacity 0.3s ease;
+    }
+    
+    .modal-close:hover {
+      opacity: 1;
+    }
+    
+    .modal-buy-btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #25d366;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1.1em;
+      margin-top: 20px;
+      transition: background 0.3s ease;
+    }
+    
+    .modal-buy-btn:hover {
+      background-color: #1ebe5d;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="header_top">
+        <div class="container-fluid">
+          <div class="contact_nav">
+            <a href="https://wa.me/447775877746">
+              <i class="fa fa-phone" aria-hidden="true"></i>
+              <span>Call: 07775 877 746</span>
+            </a>
+            <a href="mailto:info@handyed.co.uk">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              <span>Email: info@handyed.co.uk</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="header_bottom">
+        <div class="container-fluid">
+          <nav class="navbar navbar-expand-lg custom_nav-container">
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="service.html">Services</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="contact.html">Contact Us <span class="sr-only">(current)</span></a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div>
+
+  <!-- contact section -->
+  <a href="https://wa.me/447775877746" class="whatsapp-float" target="_blank" title="Chat with us on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+  
+  <section class="contact-section">
+    <div class="container">
+      <div class="heading_container heading_center contact-heading">
+        <h2>Our Products</h2>
+        <p>Browse our selection of high-quality products</p>
+      </div>
+      
+      <!-- Improved Carousel Section -->
+      <div class="product-carousel-section">
+        <div class="owl-carousel product-carousel">
+          <!-- Product 1 -->
+          <div class="item">
+            <div class="product-card" data-product-id="1">
+              <img src="/images/PRODUCT/osmo.png" alt="Product 1" class="product-image">
+              <h3>Water Filter Installation (Under the Sink)</h3>
+              <p> 6 Stage Reverse Osmosis Water Filter System with Booster Pump</p>
+              <span class="price">£299</span>
+              <a href="https://wa.me/447775877746" 
+              class="buy-btn" target="_blank">Ask for FREE Installation</a>
+            </div>
+          </div>
+          
+          <!-- Product 2 -->
+          <div class="item">
+            <div class="product-card" data-product-id="2">
+              <img src="/images/PRODUCT/wash.png" alt="Product 2" class="product-image">
+              <h3> Washing machine filters</h3>
+              <p>Protect your washing machine and improve performance by preventing lint, debris, and blockages.</p>
+              <span class="price">£99</span>
+              <a href="https://wa.me/447775877746" class="buy-btn"
+               target="_blank">Ask for FREE Installation</a>
+            </div>
+          </div>
+          
+          <!-- Product 3 -->
+          <div class="item">
+            <div class="product-card" data-product-id="3">
+              <img src="/images/PRODUCT/ring.png" alt="Product 3" class="product-image">
+              <h3>Security Camera</h3>
+              <p>Ring Floodlight Cam Wired Plus | Outdoor Security Camera 1080p HD Video,
+                 LED Floodlights, Siren, Wifi, Hardwire</p>
+              <span class="price">£199</span>
+              <a href="https://wa.me/447775877746" class="buy-btn"
+               target="_blank">Ask for FREE Installation</a>
+            </div>
+          </div>
+          
+          <!-- Product 4 -->
+          <div class="item">
+            <div class="product-card" data-product-id="4">
+              <img src="/images/PRODUCT/co2.png" alt="Product 4" class="product-image">
+              <h3>Carbon Monoxide Alarm - Hard Wired </h3>
+              <p>Mains powered with 7 year sealed rechargeable lithium back-up battery</p>
+              <span class="price">£99</span>
+              <a href="https://wa.me/447775877746" class="buy-btn" 
+              target="_blank">Ask for FREE Installation</a>
+            </div>
+          </div>
+          
+          <!-- Product 5 -->
+          <div class="item">
+            <div class="product-card" data-product-id="5">
+              <img src="/images/PRODUCT/sec.PNG" alt="Product 5" class="product-image">
+              <h3> Home Security Door Lock</h3>
+              <p>Aluminum Alloy Anti-theft Door Lock Childproof Door Reinforcement Lock with 3 Inch Stop</p>
+              <span class="price">£19.99</span>
+              <a href="https://wa.me/447775877746"
+               class="buy-btn" target="_blank">Ask for FREE Installation</a>
+            </div>
+          </div>
+          
+          <!-- Product 6 -->
+          <div class="item">
+            <div class="product-card" data-product-id="6">
+              <img src="/images/PRODUCT/6.avif" alt="Product 6" class="product-image">
+              <h3>Product 6</h3>
+              <p>Complete home solution</p>
+              <span class="price">£79.99</span>
+              <a href="https://wa.me/447775877746" 
+              class="buy-btn" target="_blank">Ask for FREE Installation</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Image Modal for Enlarged View -->
+  <div id="imageModal" class="image-modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <img id="modalImage" class="modal-img" src="" alt="Enlarged product">
+      <div class="modal-info">
+        <h3 id="modalTitle"></h3>
+        <p id="modalDescription"></p>
+        <span id="modalPrice" class="price"></span>
+        <a id="modalBuyBtn" href="#" class="modal-buy-btn" target="_blank">Buy via WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- info section -->
+  <section class="info_section">
+    <div class="container">
+      <h4>Contact Information</h4>
+      <div class="row">
+        <div class="col-lg-10 mx-auto">
+          <div class="info_items">
+            <div class="row">
+              <div class="col-md-4 mb-3">
+                <a href="https://www.google.com/maps/search/Midlands,+UK">
+                  <div class="item">
+                    <div class="img-box">
+                      <i class ="fa fa-map-marker" aria-hidden="true"></i>
+                    </div>
+                    <p>Midlands, UK</p>
+                  </div>
+                </a>
+              </div>
+              <div class="col-md-4 mb-3">
+                <a href="https://wa.me/447775877746">
+                  <div class="item">
+                    <div class="img-box">
+                      <i class="fa fa-phone" aria-hidden="true"></i>
+                    </div>
+                    <p>07775 877 746</p>
+                  </div>
+                </a>
+              </div>
+              <div class="col-md-4 mb-3">
+                <a href="mailto:info@handyed.co.uk">
+                  <div class="item">
+                    <div class="img-box">
+                      <i class="fa fa-envelope" aria-hidden="true"></i>
+                    </div>
+                    <p>info@handyed.co.uk</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="social-box mt-4">
+      <h4>Follow Us</h4>
+      <div class="social-links">
+        <a href="https://www.facebook.com/profile.php?id=61572792132079" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://x.com/TurosEduard" aria-label="Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://www.youtube.com/@handyed" aria-label="YouTube">
+          <i class="fab fa-youtube"></i>
+        </a>
+        <a href="https://www.instagram.com/handyedinfo?igsh=MTI2ZTJnaHRnZmhvbA==" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- end info section -->
+
+  <!-- footer section -->
+  <footer class="footer_section">
+    <div class="container">
+      <p>
+        &copy; <span id="displayDateYear">2025</span> All Rights Reserved By HandyEd
+        <br>
+        <a href="/privacy.html">Privacy Policy</a>
+      </p>
+    </div>
+  </footer>
+  <!-- footer section -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script src="js/custom.js"></script>
+  
+  <!-- Set current year in footer -->
+  <script>
+    document.getElementById('displayDateYear').textContent = new Date().getFullYear();
+  </script>
+
+  
+    // WhatsApp button animation
+    setInterval(() => {
+      const btn = document.querySelector('.whatsapp-float');
+      btn.style.transform = 'scale(1.2)';
+      setTimeout(() => {
+        btn.style.transform = 'scale(1)';
+      }, 300);
+    }, 5000); // every 5 seconds
+    
+    // Initialize Owl Carousel
+    $(document).ready(function(){
+      $('.product-carousel').owlCarousel({
+        loop: true,
+        margin: 20,
+        nav: true,
+        dots: true,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        autoplayHoverPause: true,
+        navText: [
+          "<i class='fas fa-chevron-left'></i>",
+          "<i class='fas fa-chevron-right'></i>"
+        ],
+        responsive: {
+          0: {
+            items: 1
+          },
+          576: {
+            items: 2
+          },
+          992: {
+            items: 3
+          },
+          1200: {
+            items: 4
+          }
+        }
+      });
+      
+      // Modal functionality for product images
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImage');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalDesc = document.getElementById('modalDescription');
+      const modalPrice = document.getElementById('modalPrice');
+      const modalBuyBtn = document.getElementById('modalBuyBtn');
+      const closeBtn = document.querySelector('.modal-close');
+      
+      // Open modal when clicking on product image
+      $('.product-card').on('click', function(e) {
+        // Don't open modal if clicking on the buy button
+        if (e.target.classList.contains('buy-btn')) {
+          return;
+        }
+        
+        const productId = $(this).data('product-id');
+        const productImg = $(this).find('img').attr('src');
+        const productTitle = $(this).find('h3').text();
+        const productDesc = $(this).find('p').text();
+        const productPrice = $(this).find('.price').text();
+        const productBuyLink = $(this).find('.buy-btn').attr('href');
+        
+        modalImg.src = productImg;
+        modalTitle.textContent = productTitle;
+        modalDesc.textContent = productDesc;
+        modalPrice.textContent = productPrice;
+        modalBuyBtn.href = productBuyLink;
+        
+        modal.style.display = 'block';
+        
+        // Disable body scroll when modal is open
+        document.body.style.overflow = 'hidden';
+      });
+      
+      // Close modal
+      closeBtn.onclick = function() {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+      
+      // Close modal when clicking outside of content
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        }
+      }
+      
+      // Close modal on ESC key
+      $(document).keydown(function(e) {
+        if (e.key === "Escape" && modal.style.display === 'block') {
+          modal.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
