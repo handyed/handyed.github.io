@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Premium Eco-Friendly Painting Services</title>
     <style>
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
+        
         :root {
             --primary-color: #4CAF50;
             --secondary-color: #81C784;
@@ -240,6 +246,11 @@
             padding: 20px 0;
         }
         
+        /* Fix for any elements that might be causing overflow */
+        img, section, div {
+            max-width: 100%;
+        }
+        
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
             header h1 {
@@ -254,8 +265,9 @@
                 padding: 50px 0;
             }
             
+            /* Keep the same background image, just adjust the overlay opacity */
             .hero::before {
-                background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/api/placeholder/800/400');
+                background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/img/headcover.jpg');
             }
             
             .hero h2 {
@@ -281,7 +293,7 @@
             }
             
             .about-image img {
-                max-height: 250px;
+                max-height: 650px;
             }
             
             .feature {
@@ -311,8 +323,9 @@
                 max-height: 200px;
             }
             
+            /* Keep the same background image, just adjust the overlay opacity */
             .hero::before {
-                background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/api/placeholder/480/300');
+                background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/img/headcover.jpg');
             }
             
             .floating-whatsapp {
@@ -360,7 +373,7 @@
         <div class="container">
             <h2>Transform Your Space with Safe, Eco-Friendly Paint</h2>
             <p>Our professional painting services use only the highest quality, zero-VOC paints that are completely safe for your family, pets, and the environment.</p>
-            <a href="https://tawk.to/chat/67d3318d8514fb19138aa2f1/1im8fj4nb" class="cta-button">Get a Free Quote</a>
+            <a href="https://tawk.to/chat/67d3318d8514fb19138aa2f1/1im8fj4nb" class="cta-button">Chat with us</a>
             
         </div>
     </section>
@@ -433,24 +446,19 @@
                 WhatsApp for Quotes
             </a>
             
-            <a href="https://wa.me/447766347551" class="whatsapp-btn">
-                <i class="fab fa-whatsapp whatsapp-icon"></i>
-                Schedule Consultation
-            </a>
+            
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Eco-Friendly Professional Painting. All rights reserved.</p>
+            <p>&copy; 2025 Eco-Friendly Professional Painting. <br>All rights reserved.</p>
         </div>
     </footer>
 
     <a href="https://wa.me/447775877746" class="floating-whatsapp">
         <i class="fab fa-whatsapp"></i>
     </a>
-
-
 
     <!--Start of Tawk.to Script-->
 <script type="text/javascript">
