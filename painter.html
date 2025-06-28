@@ -133,7 +133,9 @@
       z-index: 1000;
       display: flex;
       justify-content: center;
+      align-items: center;
       gap: 20px;
+      flex-wrap: wrap;
     }
 
     .contact-btn {
@@ -178,6 +180,15 @@
 
     .call-btn:hover {
       background: rgba(0, 123, 255, 0.3);
+    }
+
+    .home-btn {
+      background: rgba(248, 35, 124, 0.2);
+      border-color: rgba(248, 35, 124, 0.5);
+    }
+
+    .home-btn:hover {
+      background: rgba(248, 35, 124, 0.3);
     }
 
     /* Main Content */
@@ -235,27 +246,10 @@
       line-height: 1.5;
     }
 
-    .back-btn { 
-      text-decoration: none; 
-      background: rgba(248, 35, 124, 0.9); 
-      color: #eff5ef; 
-      padding: 15px 25px; 
-      border-radius: 30px; 
-      font-weight: bold; 
-      font-size: 1em; 
-      transition: all 0.3s ease; 
-      margin-top: 30px;
-      display: inline-block;
-    }
-
-    .back-btn:hover { 
-      background: rgb(253, 19, 19); 
-      transform: scale(1.05);
-    }
-
     @media (max-width: 768px) {
       .contact-bar {
-        padding: 8px 0;
+        padding: 8px 5px;
+        gap: 10px;
       }
       
       .contact-btn {
@@ -281,6 +275,24 @@
 
       .services {
         margin: 20px 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .contact-bar {
+        gap: 8px;
+        padding: 6px 5px;
+      }
+      
+      .contact-btn {
+        padding: 5px 8px;
+        font-size: 11px;
+        gap: 4px;
+      }
+      
+      .contact-btn svg {
+        width: 14px;
+        height: 14px;
       }
     }
   </style>
@@ -329,6 +341,12 @@
       </svg>
       WhatsApp
     </a>
+    <a href="index.html" class="contact-btn home-btn">
+      <svg viewBox="0 0 24 24">
+        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+      </svg>
+      Home
+    </a>
   </div>
 
   <!-- Main Content -->
@@ -357,8 +375,6 @@
       <h2>Contact Us</h2>
       <p>Ready to refresh your spaces with odor‑free, eco‑safe paints? Contact us today for a free consultation and quote via WhatsApp or email.</p>
     </div>
-
-    <a href="index.html" class="back-btn">⬅ Back to Home</a>
   </div>
 </body>
 </html>
