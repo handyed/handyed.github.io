@@ -1,210 +1,504 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>EVOC Painting</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Handy Ed | Where Kindness Meets Mastery</title>
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
-      background-size: 400% 400%;
-      animation: gradientMove 15s ease infinite;
+    * {
       margin: 0;
       padding: 0;
-      height: 100vh;
-      color: white;
-      text-align: center;
-    }
-
-    @keyframes gradientMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    @keyframes shimmer {
-      0% { background-position: -100% 0; }
-      100% { background-position: 100% 0; }
-    }
-
-    /* Contact Bar Styles */
-    .contact-bar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      backdrop-filter: blur(10px);
-      padding: 10px 20px;
-      z-index: 1000;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       box-sizing: border-box;
     }
-
-    .logo {
-      font-size: 20px;
-      font-weight: bold;
-      background: linear-gradient(to right, #ff7f50, #ffff00, #00ffcc, #ff7f50);
-      background-size: 200% auto;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: shimmer 4s linear infinite;
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: #2d3748;
+      background: #f7fafc;
     }
-
-    .contact-buttons {
-      display: flex;
-      gap: 12px;
-    }
-
-    .contact-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 16px;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 25px;
+    
+    /* Header Styles */
+    header {
+      background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
       color: white;
+      padding: 4rem 1rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+      opacity: 0.3;
+    }
+    
+    header .container {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    header h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      color: #f6e05e;
+      margin-bottom: 1rem;
+      text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+    
+    header p {
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      font-style: italic;
+      color: #e2e8f0;
+      margin-bottom: 2rem;
+    }
+    
+    /* Navigation */
+    nav {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+    }
+    
+    nav .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+    
+    nav a {
+      color: #2d3748;
       text-decoration: none;
-      font-size: 14px;
       font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
       transition: all 0.3s ease;
     }
-
-    .contact-btn:hover {
-      background: rgba(255, 255, 255, 0.2);
+    
+    nav a:hover {
+      background: #f6e05e;
+      color: #1a202c;
       transform: translateY(-2px);
     }
-
-    .contact-btn svg {
-      width: 18px;
-      height: 18px;
-      fill: currentColor;
+    
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
     }
-
-    .whatsapp-btn {
-      background: rgba(37, 211, 102, 0.2);
-      border-color: rgba(37, 211, 102, 0.5);
-    }
-
-    .whatsapp-btn:hover {
-      background: rgba(37, 211, 102, 0.3);
-    }
-
-    .call-btn {
-      background: rgba(0, 123, 255, 0.2);
-      border-color: rgba(0, 123, 255, 0.5);
-    }
-
-    .call-btn:hover {
-      background: rgba(0, 123, 255, 0.3);
-    }
-
-    .main-content {
-      margin-top: 80px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      flex-grow: 1;
-      text-align: center;
-    }
-
-    h1 {
-      margin-bottom: 10px;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-    }
-
-    p {
-      font-size: 1.2em;
-      margin-bottom: 30px;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
-    }
-
-    .button-container {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      width: 90%;
-      max-width: 300px;
-    }
-
-    a.service-btn {
-      text-decoration: none;
-      background: rgba(255, 255, 255, 0.9);
-      color: #333;
-      padding: 14px;
-      border-radius: 8px;
-      font-weight: bold;
-      font-size: 1em;
-      transition: background 0.3s ease, transform 0.2s ease;
-    }
-
-    a.service-btn:hover {
+    
+    /* Section Styles */
+    section {
+      margin: 3rem auto;
       background: white;
-      transform: scale(1.03);
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-
-    @media (min-width: 600px) {
-      .button-container {
-        flex-direction: row;
-        justify-content: center;
-      }
-
-      a.service-btn {
-        flex: 1;
-      }
+    
+    section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
     }
-
-    @media (max-width: 480px) {
-      .contact-bar {
+    
+    section .section-content {
+      padding: 2.5rem;
+    }
+    
+    h2 {
+      font-size: clamp(1.8rem, 4vw, 2.2rem);
+      font-weight: 600;
+      color: #1a202c;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 1rem;
+    }
+    
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, #f6e05e, #ecc94b);
+      border-radius: 2px;
+    }
+    
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      color: #4a5568;
+      line-height: 1.8;
+    }
+    
+    /* Service Grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .service-card {
+      background: #f7fafc;
+      padding: 2rem;
+      border-radius: 15px;
+      border-left: 4px solid #f6e05e;
+      transition: all 0.3s ease;
+    }
+    
+    .service-card:hover {
+      background: #f6e05e;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(246,224,94,0.3);
+    }
+    
+    .service-card h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #1a202c;
+      margin-bottom: 1rem;
+    }
+    
+    .service-card p {
+      color: #4a5568;
+      margin-bottom: 0;
+    }
+    
+    /* Features List */
+    .features-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+      list-style: none;
+    }
+    
+    .features-list li {
+      background: #f7fafc;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border-left: 4px solid #48bb78;
+      font-size: 1.1rem;
+      color: #2d3748;
+      transition: all 0.3s ease;
+    }
+    
+    .features-list li:hover {
+      background: #e6fffa;
+      transform: translateX(5px);
+    }
+    
+    .features-list li::before {
+      content: '✓';
+      color: #48bb78;
+      font-weight: bold;
+      margin-right: 0.5rem;
+    }
+    
+    /* CTA Section */
+    .cta {
+      background: linear-gradient(135deg, #f6e05e 0%, #ecc94b 100%);
+      color: #1a202c;
+      padding: 3rem 2rem;
+      text-align: center;
+      border-radius: 20px;
+      margin: 3rem 0;
+      box-shadow: 0 10px 30px rgba(246,224,94,0.3);
+    }
+    
+    .cta h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    
+    .cta p {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: #2d3748;
+    }
+    
+    .cta .highlight {
+      font-weight: 700;
+      font-size: 1.3rem;
+    }
+    
+    /* Form Styles */
+    .contact-form {
+      background: #f7fafc;
+      padding: 2rem;
+      border-radius: 15px;
+      margin-top: 2rem;
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    label {
+      display: block;
+      font-weight: 600;
+      color: #2d3748;
+      margin-bottom: 0.5rem;
+    }
+    
+    input, textarea {
+      width: 100%;
+      padding: 1rem;
+      border: 2px solid #e2e8f0;
+      border-radius: 10px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      background: white;
+    }
+    
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #f6e05e;
+      box-shadow: 0 0 0 3px rgba(246,224,94,0.1);
+    }
+    
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    
+    button {
+      background: linear-gradient(135deg, #f6e05e 0%, #ecc94b 100%);
+      color: #1a202c;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(246,224,94,0.3);
+    }
+    
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(246,224,94,0.4);
+    }
+    
+    button:active {
+      transform: translateY(0);
+    }
+    
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+      color: white;
+      text-align: center;
+      padding: 3rem 1rem;
+      margin-top: 4rem;
+    }
+    
+    footer p {
+      color: #e2e8f0;
+      margin-bottom: 0.5rem;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header {
+        padding: 2rem 1rem;
+      }
+      
+      nav .container {
         flex-direction: column;
-        gap: 10px;
-        padding: 8px;
+        gap: 1rem;
       }
-      .logo {
-        font-size: 18px;
+      
+      section .section-content {
+        padding: 1.5rem;
       }
-      .contact-buttons {
-        flex-wrap: wrap;
-        justify-content: center;
+      
+      .services-grid {
+        grid-template-columns: 1fr;
       }
+      
+      .features-list {
+        grid-template-columns: 1fr;
+      }
+      
+      .cta {
+        padding: 2rem 1rem;
+      }
+    }
+    
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    section {
+      animation: fadeInUp 0.6s ease-out;
+    }
+    
+    /* Scroll behavior */
+    html {
+      scroll-behavior: smooth;
     }
   </style>
 </head>
 <body>
-
-  <!-- Header Bar -->
-  <div class="contact-bar">
-    <div class="logo">EVOC Painting</div>
-    <div class="contact-buttons">
-      <a href="tel:+447775877746" class="contact-btn call-btn">
-        <svg viewBox="0 0 24 24">
-          <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-        </svg>
-        Call Now
-      </a>
-      <a href="https://wa.me/447775877746?text=Hello%20EVOC,%20I%20need%20your%20services" class="contact-btn whatsapp-btn">
-        <svg viewBox="0 0 24 24">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/>
-        </svg>
-        WhatsApp
-      </a>
+  <header>
+    <div class="container">
+      <h1>Handy Ed</h1>
+      <p>Where Kindness Meets Mastery</p>
     </div>
+  </header>
+
+  <nav>
+    <div class="container">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <section id="services">
+      <div class="section-content">
+        <h2>Professional Property Maintenance Services</h2>
+        <p>
+          With over 20 years of hands-on experience and a reputation built on integrity, attention to detail, and kindness, Handy Ed is your go-to specialist for high-quality, reliable work. Whether you need monthly property care, one-time urgent fixes, or long-term collaboration, you're in expert hands.
+        </p>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <h3>Complete Property Maintenance</h3>
+            <p>Inside and outside maintenance services to keep your property in perfect condition year-round.</p>
+          </div>
+          <div class="service-card">
+            <h3>Repairs & Installations</h3>
+            <p>Expert repair work and professional installations with attention to detail and quality craftsmanship.</p>
+          </div>
+          <div class="service-card">
+            <h3>Fast-Response Service</h3>
+            <p>Urgent repairs and emergency fixes handled quickly and professionally when you need them most.</p>
+          </div>
+          <div class="service-card">
+            <h3>Commercial Services</h3>
+            <p>Trusted by real estate agents, care homes, and businesses for reliable, professional service.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="section-content">
+        <h2>Why Choose Handy Ed?</h2>
+        <p>Quality workmanship backed by professional certifications and a commitment to excellence.</p>
+        
+        <ul class="features-list">
+          <li>Clean DBS check for your peace of mind</li>
+          <li>18th Edition Wiring Regulation Certified</li>
+          <li>Professional, punctual, and polite service</li>
+          <li>Always respectful of your time and space</li>
+          <li>20+ years of proven experience</li>
+          <li>Fully insured and reliable</li>
+        </ul>
+
+        <div class="cta">
+          <h3>Now Accepting New Business Clients</h3>
+          <p>Minimum project fee: <span class="highlight">£80</span></p>
+          <p>First quote is <span class="highlight">free online</span></p>
+          <p>Home visit assessment: <span class="highlight">£50</span> (deducted from final price)</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-content">
+        <h2>Get Your Free Quote Today</h2>
+        <p>Ready to get started? Fill out the form below and I'll get back to you within 24 hours with a detailed quote.</p>
+        
+        <div class="contact-form">
+          <form action="https://formspree.io/f/mqabvwpw" method="POST">
+            <div class="form-group">
+              <label for="email">Your Email Address</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="phone">Phone Number (Optional)</label>
+              <input type="tel" id="phone" name="phone">
+            </div>
+            
+            <div class="form-group">
+              <label for="project">Project Description</label>
+              <textarea id="project" name="message" placeholder="Please describe your project, including any specific requirements or timeline..." required></textarea>
+            </div>
+            
+            <button type="submit">Get My Free Quote</button>
+          </form>
+        </div>
+      </div>
+    </section>
   </div>
 
-  <!-- Main Content -->
-  <div class="main-content">
-    <h1>Welcome to EVOC Painting</h1>
-    <p>Select your need:</p>
-    <div class="button-container">
-      <a href="/painter.html" class="service-btn">ECO Painter & Decorator</a>
-      <a href="/cleaner.html" class="service-btn">Cleaning Services Expert</a>
-    </div>
-  </div>
+  <footer>
+    <p>&copy; 2025 Handy Ed | Built on Trust. Powered by Mastery.</p>
+    <p>Professional Property Maintenance Services</p>
+  </footer>
 
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Form submission enhancement
+    const form = document.querySelector('form');
+    const button = form.querySelector('button');
+    
+    form.addEventListener('submit', function(e) {
+      button.textContent = 'Sending...';
+      button.disabled = true;
+      
+      // Reset after 3 seconds (form will have submitted by then)
+      setTimeout(() => {
+        button.textContent = 'Get My Free Quote';
+        button.disabled = false;
+      }, 3000);
+    });
+  </script>
 </body>
 </html>
