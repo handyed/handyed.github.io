@@ -1,11 +1,22 @@
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Garden Bites | Handcrafted Character Cakes | UK</title>
-  <meta name="description" content="Artisan character cakes inspired by childhood memories. Handcrafted ladybugs, frogs, snails & hedgehogs. UK delivery available. Perfect for birthdays & celebrations.">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <title>Handy Ed | Where Kindness Meets Mastery</title>
+   <!-- Favicon using your SVG -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+IDxyZWN0IHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgZmlsbD0id2hpdGUiIHN0cm9rZT0iI2RkZCIgc3Ryb2tlLXdpZHRoPSIwLjUiLz4gPHRleHQgeD0iMTYiIHk9IjIyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjMjU2M2ViIiBsZXR0ZXItc3BhY2luZz0iLTFweCI+SEU8L3RleHQ+IDwvc3ZnPg==">
+    
+    <!-- Fallback for older browsers -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- For different sizes (optional) -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  
   <style>
     * {
       margin: 0;
@@ -14,605 +25,345 @@
     }
     
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       line-height: 1.6;
-      color: #2c3e50;
-      background-color: #fefefe;
+      color: #2d3748;
+      background: #f7fafc;
     }
     
-    .container {
+    /* Header Styles */
+    header {
+      background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+      color: white;
+      padding: 4rem 1rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+      opacity: 0.3;
+    }
+    
+    header .container {
+      position: relative;
+      z-index: 1;
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 20px;
     }
     
-    /* Header */
-    header {
-      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    header h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      color: #f6e05e;
+      margin-bottom: 1rem;
+      text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+    
+    header p {
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      font-style: italic;
+      color: #e2e8f0;
+      margin-bottom: 2rem;
+    }
+    
+    /* Navigation */
+    nav {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
       padding: 1rem 0;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       position: sticky;
       top: 0;
       z-index: 100;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
     }
     
-    .header-content {
+    nav .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    
-    .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: #d63384;
-      text-decoration: none;
-    }
-    
-    .tagline {
-      font-size: 0.9rem;
-      color: #6c757d;
-      margin-top: 0.25rem;
-    }
-    
-    nav {
-      display: flex;
+      justify-content: center;
       gap: 2rem;
     }
     
     nav a {
+      color: #2d3748;
       text-decoration: none;
-      color: #495057;
       font-weight: 500;
-      transition: all 0.3s ease;
       padding: 0.5rem 1rem;
       border-radius: 25px;
+      transition: all 0.3s ease;
     }
     
     nav a:hover {
-      background-color: #d63384;
-      color: white;
+      background: #f6e05e;
+      color: #1a202c;
       transform: translateY(-2px);
     }
     
-    /* Hero Section */
-    .hero {
-      background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
-      padding: 5rem 0;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
     }
     
-    .hero::before {
+    /* Section Styles */
+    section {
+      margin: 3rem auto;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+    }
+    
+    section .section-content {
+      padding: 2.5rem;
+    }
+    
+    h2 {
+      font-size: clamp(1.8rem, 4vw, 2.2rem);
+      font-weight: 600;
+      color: #1a202c;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 1rem;
+    }
+    
+    h2::after {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
       bottom: 0;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
-      animation: float 20s infinite linear;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, #f6e05e, #ecc94b);
+      border-radius: 2px;
     }
     
-    @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-20px); }
-      100% { transform: translateY(0px); }
-    }
-    
-    .hero-content {
-      position: relative;
-      z-index: 2;
-    }
-    
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 3.5rem;
-      font-weight: 700;
-      color: #2c3e50;
-      margin-bottom: 1rem;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-    }
-    
-    .hero p {
-      font-size: 1.3rem;
-      color: #495057;
-      margin-bottom: 2rem;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    
-    .cta-button {
-      display: inline-block;
-      background: linear-gradient(135deg, #d63384 0%, #e91e63 100%);
-      color: white;
-      padding: 1rem 2.5rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
+    p {
       font-size: 1.1rem;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(214, 51, 132, 0.3);
-    }
-    
-    .cta-button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(214, 51, 132, 0.4);
-    }
-    
-    /* Sections */
-    .section {
-      padding: 5rem 0;
-    }
-    
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      font-weight: 600;
-      text-align: center;
-      margin-bottom: 3rem;
-      color: #2c3e50;
-    }
-    
-    .section-subtitle {
-      text-align: center;
-      font-size: 1.1rem;
-      color: #6c757d;
-      margin-bottom: 3rem;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    
-    /* About Section */
-    .about {
-      background-color: #f8f9fa;
-    }
-    
-    .about-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-    
-    .about-text {
-      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      color: #4a5568;
       line-height: 1.8;
     }
     
-    .about-highlights {
+    /* Service Grid */
+    .services-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
       margin-top: 2rem;
     }
     
-    .highlight {
-      background: white;
-      padding: 1.5rem;
+    .service-card {
+      background: #f7fafc;
+      padding: 2rem;
       border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-    
-    .highlight-icon {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-    
-    .highlight h3 {
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      color: #d63384;
-    }
-    
-    /* Products Section */
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-    
-    .product-card {
-      background: white;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      border-left: 4px solid #f6e05e;
       transition: all 0.3s ease;
-      position: relative;
     }
     
-    .product-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    .service-card:hover {
+      background: #f6e05e;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(246,224,94,0.3);
     }
     
-    .product-image {
-      width: 100%;
-      height: 250px;
-      background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 4rem;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .product-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.3s ease;
-      border-radius: 20px 20px 0 0;
-    }
-    
-    .product-card:hover .product-image img {
-      transform: scale(1.05);
-    }
-    
-    .product-image::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(255,255,255,0.1);
-      backdrop-filter: blur(10px);
-      pointer-events: none;
-    }
-    
-    .product-info {
-      padding: 1.5rem;
-    }
-    
-    .product-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
+    .service-card h3 {
+      font-size: 1.3rem;
       font-weight: 600;
-      margin-bottom: 0.5rem;
-      color: #2c3e50;
-    }
-    
-    .product-description {
-      color: #6c757d;
-      font-size: 0.95rem;
+      color: #1a202c;
       margin-bottom: 1rem;
     }
     
-    .price {
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: #d63384;
+    .service-card p {
+      color: #4a5568;
+      margin-bottom: 0;
     }
     
-    /* Order Section */
-    .order {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
+    /* Features List */
+    .features-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+      list-style: none;
     }
     
-    .order .section-title,
-    .order .section-subtitle {
-      color: white;
+    .features-list li {
+      background: #f7fafc;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border-left: 4px solid #48bb78;
+      font-size: 1.1rem;
+      color: #2d3748;
+      transition: all 0.3s ease;
     }
     
-    .order-form {
-      background: white;
-      padding: 3rem;
+    .features-list li:hover {
+      background: #e6fffa;
+      transform: translateX(5px);
+    }
+    
+    .features-list li::before {
+      content: '✓';
+      color: #48bb78;
+      font-weight: bold;
+      margin-right: 0.5rem;
+    }
+    
+    /* CTA Section */
+    .cta {
+      background: linear-gradient(135deg, #f6e05e 0%, #ecc94b 100%);
+      color: #1a202c;
+      padding: 3rem 2rem;
+      text-align: center;
       border-radius: 20px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-      max-width: 600px;
-      margin: 0 auto;
+      margin: 3rem 0;
+      box-shadow: 0 10px 30px rgba(246,224,94,0.3);
+    }
+    
+    .cta h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    
+    .cta p {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: #2d3748;
+    }
+    
+    .cta .highlight {
+      font-weight: 700;
+      font-size: 1.3rem;
+    }
+    
+    /* Form Styles */
+    .contact-form {
+      background: #f7fafc;
+      padding: 2rem;
+      border-radius: 15px;
+      margin-top: 2rem;
     }
     
     .form-group {
       margin-bottom: 1.5rem;
     }
     
-    .form-group label {
+    label {
       display: block;
+      font-weight: 600;
+      color: #2d3748;
       margin-bottom: 0.5rem;
-      font-weight: 500;
-      color: #2c3e50;
     }
     
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
+    input, textarea {
       width: 100%;
       padding: 1rem;
-      border: 2px solid #e9ecef;
+      border: 2px solid #e2e8f0;
       border-radius: 10px;
       font-size: 1rem;
-      transition: border-color 0.3s ease;
+      transition: all 0.3s ease;
+      background: white;
     }
     
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus {
+    input:focus, textarea:focus {
       outline: none;
-      border-color: #d63384;
-      box-shadow: 0 0 0 3px rgba(214, 51, 132, 0.1);
+      border-color: #f6e05e;
+      box-shadow: 0 0 0 3px rgba(246,224,94,0.1);
     }
     
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
+    textarea {
+      resize: vertical;
+      min-height: 120px;
     }
     
-    .submit-btn {
-      background: linear-gradient(135deg, #d63384 0%, #e91e63 100%);
-      color: white;
-      padding: 1rem 2rem;
+    button {
+      background: linear-gradient(135deg, #f6e05e 0%, #ecc94b 100%);
+      color: #1a202c;
       border: none;
-      border-radius: 50px;
+      padding: 1rem 2rem;
       font-size: 1.1rem;
       font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      width: 100%;
-      box-shadow: 0 4px 15px rgba(214, 51, 132, 0.3);
-    }
-    
-    .submit-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(214, 51, 132, 0.4);
-    }
-    
-    /* Payment Section */
-    .payment-options {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-    
-    .payment-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      padding: 1rem 1.5rem;
-      border: 2px solid #e9ecef;
-      border-radius: 15px;
-      background: white;
-      color: #2c3e50;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-    
-    .payment-btn:hover {
-      border-color: #d63384;
-      background-color: #f8f9fa;
-      transform: translateY(-2px);
-    }
-    
-    .stripe-btn {
-      background: linear-gradient(135deg, #635BFF 0%, #4f46e5 100%);
-      color: white;
-      border-color: #635BFF;
-    }
-    
-    .stripe-btn:hover {
-      background: linear-gradient(135deg, #4f46e5 0%, #635BFF 100%);
-      color: white;
-    }
-    
-    /* Contact Section */
-    .contact {
-      background-color: #f8f9fa;
-    }
-    
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-    
-    .contact-card {
-      background: white;
-      padding: 2rem;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-    
-    .contact-icon {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      color: #d63384;
-    }
-    
-    .contact-card h3 {
-      font-weight: 600;
-      margin-bottom: 1rem;
-      color: #2c3e50;
-    }
-    
-    .contact-card p {
-      color: #6c757d;
-      margin-bottom: 1rem;
-    }
-    
-    .contact-link {
-      color: #d63384;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    
-    .contact-link:hover {
-      text-decoration: underline;
-    }
-    
-    /* Trust Signals */
-    .trust-signals {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 2rem;
-      flex-wrap: wrap;
-    }
-    
-    .trust-badge {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.5rem 1rem;
-      background: white;
       border-radius: 25px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      font-size: 0.9rem;
-      color: #2c3e50;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(246,224,94,0.3);
     }
     
-    .trust-badge span {
-      color: #28a745;
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(246,224,94,0.4);
+    }
+    
+    button:active {
+      transform: translateY(0);
     }
     
     /* Footer */
     footer {
-      background: #2c3e50;
+      background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
       color: white;
-      padding: 3rem 0 1rem;
-    }
-    
-    .footer-content {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-bottom: 2rem;
-    }
-    
-    .footer-section h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
-      margin-bottom: 1rem;
-      color: #d63384;
-    }
-    
-    .footer-section p,
-    .footer-section a {
-      color: #adb5bd;
-      text-decoration: none;
-      margin-bottom: 0.5rem;
-      display: block;
-    }
-    
-    .footer-section a:hover {
-      color: #d63384;
-    }
-    
-    .footer-bottom {
-      border-top: 1px solid #495057;
-      padding-top: 1rem;
       text-align: center;
-      color: #6c757d;
+      padding: 3rem 1rem;
+      margin-top: 4rem;
     }
     
-    /* Mobile Responsive */
+    footer p {
+      color: #e2e8f0;
+      margin-bottom: 0.5rem;
+    }
+    
+    /* Responsive Design */
     @media (max-width: 768px) {
-      .header-content {
+      header {
+        padding: 2rem 1rem;
+      }
+      
+      nav .container {
         flex-direction: column;
         gap: 1rem;
       }
       
-      nav {
-        flex-wrap: wrap;
-        gap: 1rem;
-      }
-      
-      .hero h1 {
-        font-size: 2.5rem;
-      }
-      
-      .hero p {
-        font-size: 1.1rem;
-      }
-      
-      .section {
-        padding: 3rem 0;
-      }
-      
-      .about-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-      
-      .about-highlights {
-        grid-template-columns: 1fr;
-      }
-      
-      .products-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .order-form {
-        padding: 2rem;
-        margin: 0 1rem;
-      }
-      
-      .form-row {
-        grid-template-columns: 1fr;
-      }
-      
-      .payment-options {
-        grid-template-columns: 1fr;
-      }
-      
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .trust-signals {
-        flex-direction: column;
-        align-items: center;
-      }
-      
-      .footer-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .container {
-        padding: 0 15px;
-      }
-      
-      .hero {
-        padding: 3rem 0;
-      }
-      
-      .hero h1 {
-        font-size: 2rem;
-      }
-      
-      .section-title {
-        font-size: 2rem;
-      }
-      
-      .order-form {
+      section .section-content {
         padding: 1.5rem;
+      }
+      
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .features-list {
+        grid-template-columns: 1fr;
+      }
+      
+      .cta {
+        padding: 2rem 1rem;
       }
     }
     
     /* Animations */
-    @keyframes fadeIn {
+    @keyframes fadeInUp {
       from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(30px);
       }
       to {
         opacity: 1;
@@ -620,370 +371,122 @@
       }
     }
     
-    .fade-in {
-      animation: fadeIn 0.8s ease-out;
+    section {
+      animation: fadeInUp 0.6s ease-out;
     }
     
-    /* Loading state for payment */
-    .loading {
-      opacity: 0.7;
-      pointer-events: none;
-    }
-    
-    .loading::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 20px;
-      height: 20px;
-      margin: -10px 0 0 -10px;
-      border: 2px solid #fff;
-      border-top: 2px solid transparent;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-    }
-    
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+    /* Scroll behavior */
+    html {
+      scroll-behavior: smooth;
     }
   </style>
 </head>
 <body>
   <header>
     <div class="container">
-      <div class="header-content">
-        <div>
-          <a href="#" class="logo">Garden Bites</a>
-          <div class="tagline">Artisan character cakes with personality</div>
-        </div>
-        <nav>
-          <a href="#about">About</a>
-          <a href="#cakes">Our Cakes</a>
-          <a href="#order">Order</a>
-          <a href="#contact">Contact</a>
-          <a href="/stripe.html">Checkout</a>
-        </nav>
-      </div>
+      <h1>Handy Ed</h1>
+      <p>Where Kindness Meets Mastery</p>
     </div>
   </header>
 
-  <section class="hero">
+  <nav>
     <div class="container">
-      <div class="hero-content">
-        <h1>Handcrafted Character Cakes</h1>
-        <p>Try our adorable ladybugs, frogs, snails, and hedgehogs. Each cake is lovingly handmade in the UK.</p>
-        <a href="#order" class="cta-button">Order Your Cake</a>
-      </div>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
     </div>
-  </section>
+  </nav>
 
-  <section id="about" class="section about">
-    <div class="container">
-      <h2 class="section-title">About Garden Bites</h2>
-      <div class="about-content">
-        <div class="about-text">
-          <p>At Garden Bites, we specialise in creating unique, whimsical desserts  .
-             Each of our character cakes tells a story, bringing joy to birthdays, celebrations, and special moments.</p>
-          <p>Founded on the principle that every cake should have personality, we handcraft each creation with premium 
-            ingredients and meticulous attention to detail. Our charming ladybugs,
-             friendly frogs, gentle snails, and cuddly hedgehogs are more than just cakes – they're edible works of art.</p>
-        </div>
-        <div class="about-highlights">
-          <div class="highlight">
-            <div class="highlight-icon">🎂</div>
-            <h3>Handmade</h3>
-            <p>Every cake is individually crafted by hand</p>
+  <div class="container">
+    <section id="services">
+      <div class="section-content">
+        <h2>Professional Property Maintenance Services</h2>
+        <p>
+          With over 20 years of hands-on experience and a reputation built on integrity, attention to detail, and kindness, Handy Ed is your go-to specialist for high-quality, reliable work. Whether you need monthly property care, one-time urgent fixes, or long-term collaboration, you're in expert hands.
+        </p>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <h3>Complete Property Maintenance</h3>
+            <p>Inside and outside maintenance services to keep your property in perfect condition year-round.</p>
           </div>
-          <div class="highlight">
-            <div class="highlight-icon">🇬🇧</div>
-            <h3>UK Made</h3>
-            <p>Proudly baked in Britain with local ingredients</p>
+          <div class="service-card">
+            <h3>Repairs & Installations</h3>
+            <p>Expert repair work and professional installations with attention to detail and quality craftsmanship.</p>
           </div>
-          <div class="highlight">
-            <div class="highlight-icon">✨</div>
-            <h3>Unique</h3>
-            <p>Each character has its own personality</p>
+          <div class="service-card">
+            <h3>Fast-Response Service</h3>
+            <p>Urgent repairs and emergency fixes handled quickly and professionally when you need them most.</p>
           </div>
-          <div class="highlight">
-            <div class="highlight-icon">💝</div>
-            <h3>Made with Love</h3>
-            <p>Bringing joy to every celebration</p>
+          <div class="service-card">
+            <h3>Commercial Services</h3>
+            <p>Trusted by real estate agents, care homes, and businesses for reliable, professional service.</p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="cakes" class="section">
-    <div class="container">
-      <h2 class="section-title">Our Character Cakes</h2>
-      <p class="section-subtitle">Meet our delightful cast of edible characters, each with their own charm and personality</p>
-      <div class="products-grid">
-        <div class="product-card">
-          <div class="product-image">
-            <img src="photo/ladybug.jpg" alt="Ladybug Cake" />
-          </div>
-          <div class="product-info">
-            <h3 class="product-name">Ladybug Cake</h3>
-            <p class="product-description">Our signature ladybug cake with its distinctive red and black spotted design. A classic that never goes out of style.</p>
-            <div class="price">From £4.50</div>
-          </div>
-        </div>
-        <div class="product-card">
-          <div class="product-image">
-            <img src="photo/frog.jpg" alt="Frog Cake" />
-          </div>
-          <div class="product-info">
-            <h3 class="product-name">Frog Cake</h3>
-            <p class="product-description">A charming green frog that's sure to make anyone smile. Perfect for nature lovers and pond enthusiasts.</p>
-            <div class="price">From £4.50</div>
-          </div>
-        </div>
-        <div class="product-card">
-          <div class="product-image">
-            <img src="photo/snail.jpg" alt="Snail Cake" />
-          </div>
-          <div class="product-info">
-            <h3 class="product-name">Snail Cake</h3>
-            <p class="product-description">Our gentle snail with its beautiful spiral shell design. A unique and endearing choice for special occasions.</p>
-            <div class="price">From £4.00</div>
-          </div>
-        </div>
-        <div class="product-card">
-          <div class="product-image">
-            <img src="photo/hedgehog.jpg" alt="Hedgehog Cake" />
-          </div>
-          <div class="product-info">
-            <h3 class="product-name">Hedgehog Cake</h3>
-            <p class="product-description">An adorable hedgehog with textured spines and a sweet face. A favourite among children and adults alike.</p>
-            <div class="price">From £5.00</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="order" class="section order">
-    <div class="container">
-      <h2 class="section-title">Order Your Perfect Cake</h2>
-      <p class="section-subtitle">Ready to bring some joy to your celebration? Tell us what you'd like and we'll create something magical.</p>
-      <form class="order-form" id="orderForm">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="firstName">First Name *</label>
-            <input type="text" id="firstName" name="firstName" required>
-          </div>
-          <div class="form-group">
-            <label for="lastName">Last Name *</label>
-            <input type="text" id="lastName" name="lastName" required>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="email">Email Address *</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-        <div class="form-group">
-          <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" name="phone">
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="cakeType">Cake Type *</label>
-            <select id="cakeType" name="cakeType" required>
-              <option value="">Select your cake</option>
-              <option value="ladybug">Ladybug Cake - £12.50</option>
-              <option value="frog">Frog Cake - £13.50</option>
-              <option value="snail">Snail Cake - £14.00</option>
-              <option value="hedgehog">Hedgehog Cake - £15.00</option>
-              <option value="custom">Custom Design - Price on request</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="quantity">Quantity *</label>
-            <select id="quantity" name="quantity" required>
-              <option value="">Select quantity</option>
-              <option value="1">1 cake</option>
-              <option value="2">2 cakes</option>
-              <option value="3">3 cakes</option>
-              <option value="4">4 cakes</option>
-              <option value="5+">5+ cakes</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="deliveryDate">Preferred Delivery Date *</label>
-          <input type="date" id="deliveryDate" name="deliveryDate" required>
-        </div>
-        <div class="form-group">
-          <label for="postcode">Postcode *</label>
-          <input type="text" id="postcode" name="postcode" placeholder="e.g. SW1A 1AA" required>
-        </div>
-        <div class="form-group">
-          <label for="specialRequests">Special Requests or Customisation</label>
-          <textarea id="specialRequests" name="specialRequests" rows="4" placeholder="Any special colours, messages, dietary requirements, or customisation requests..."></textarea>
-        </div>
+    <section id="about">
+      <div class="section-content">
+        <h2>Why Choose Handy Ed?</h2>
+        <p>Quality workmanship backed by professional certifications and a commitment to excellence.</p>
         
-        <div class="payment-options">
-          <button type="button" class="payment-btn stripe-btn" id="stripePayment">
-            <span>💳</span>
-            Pay with Stripe
-          </button>
-          <button type="submit" class="payment-btn">
-            <span>📧</span>
-            Request Quote
-          </button>
-        </div>
-      </form>
-      
-      <div class="trust-signals">
-        <div class="trust-badge">
-          <span>✓</span>
-          Food Standards Agency Approved
-        </div>
-        <div class="trust-badge">
-          <span>✓</span>
-          Secure Payment
-        </div>
-        <div class="trust-badge">
-          <span>✓</span>
-          UK Wide Delivery
-        </div>
-      </div>
-    </div>
-  </section>
+        <ul class="features-list">
+          <li>Clean DBS check for your peace of mind</li>
+          <li>18th Edition Wiring Regulation Certified</li>
+          <li>Professional, punctual, and polite service</li>
+          <li>Always respectful of your time and space</li>
+          <li>20+ years of proven experience</li>
+          <li>Fully insured and reliable</li>
+        </ul>
 
-  <section id="contact" class="section contact">
-    <div class="container">
-      <h2 class="section-title">Get in Touch</h2>
-      <p class="section-subtitle">We'd love to hear from you! Whether you have questions about our cakes or need help with your order.</p>
-      <div class="contact-grid">
-        <div class="contact-card">
-          <div class="contact-icon">📧</div>
-          <h3>Email Us</h3>
-          <p>Get in touch for enquiries and orders</p>
-          <a href="mailto:hello@sweetzoobakery.uk" class="contact-link">hello@sweetzoobakery.uk</a>
-        </div>
-        <div class="contact-card">
-          <div class="contact-icon">📱</div>
-          <h3>Follow Us</h3>
-          <p>See our latest creations and behind-the-scenes</p>
-          <a href="https://instagram.com/sweetzoobakery" class="contact-link">@sweetzoobakery</a>
-        </div>
-        <div class="contact-card">
-          <div class="contact-icon">🚚</div>
-          <h3>Delivery</h3>
-          <p>UK wide delivery available</p>
-          <span class="contact-link">Local & nationwide options</span>
+        <div class="cta">
+          <h3>Now Accepting New Business Clients</h3>
+          <p>Minimum project fee: <span class="highlight">£80</span></p>
+          <p>First quote is <span class="highlight">free online</span></p>
+          <p>Home visit assessment: <span class="highlight">£50</span> (deducted from final price)</p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <section id="contact">
+      <div class="section-content">
+        <h2>Get Your Free Quote Today</h2>
+        <p>Ready to get started? Fill out the form below and I'll get back to you within 24 hours with a detailed quote.</p>
+        
+        <div class="contact-form">
+          <form action="https://formspree.io/f/mqabvwpw" method="POST">
+            <div class="form-group">
+              <label for="email">Your Email Address</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="phone">Phone Number (Optional)</label>
+              <input type="tel" id="phone" name="phone">
+            </div>
+            
+            <div class="form-group">
+              <label for="project">Project Description</label>
+              <textarea id="project" name="message" placeholder="Please describe your project, including any specific requirements or timeline..." required></textarea>
+            </div>
+            
+            <button type="submit">Get My Free Quote</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
 
   <footer>
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-section">
-          <h3>Sweet Zoo Bakery</h3>
-          <p>Bringing childhood memories to life, one cake at a time.</p>
-          <p>Handcrafted with love in the UK.</p>
-        </div>
-        <div class="footer-section">
-          <h3>Quick Links</h3>
-          <a href="#about">About Us</a>
-          <a href="#cakes">Our Cakes</a>
-          <a href="#order">Order Now</a>
-          <a href="#contact">Contact</a>
-        </div>
-        <div class="footer-section">
-          <h3>Policies</h3>
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms & Conditions</a>
-          <a href="#">Delivery Information</a>
-          <a href="#">Returns & Refunds</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2025 Sweet Zoo Bakery. All rights reserved. | Registered in England & Wales</p>
-      </div>
-    </div>
+    <p>&copy; 2025 Handy Ed | Built on Trust. Powered by Mastery.</p>
+    <p>Professional Property Maintenance Services</p>
   </footer>
 
   <script>
-    // Stripe Payment Integration
-    document.getElementById('stripePayment').addEventListener('click', function() {
-      const form = document.getElementById('orderForm');
-      const formData = new FormData(form);
-      
-      // Validate required fields
-      const requiredFields = ['firstName', 'lastName', 'email', 'cakeType', 'quantity', 'deliveryDate', 'postcode'];
-      let isValid = true;
-      
-      for (let field of requiredFields) {
-        if (!formData.get(field)) {
-          isValid = false;
-          document.getElementById(field).focus();
-          alert('Please fill in all required fields before proceeding to payment.');
-          return;
-        }
-      }
-      
-      if (isValid) {
-        // Add loading state
-        this.classList.add('loading');
-        this.textContent = 'Processing...';
-        
-        // Simulate Stripe integration
-        setTimeout(() => {
-          // In a real implementation, you would:
-          // 1. Send order data to your server
-          // 2. Create a Stripe payment intent
-          // 3. Redirect to Stripe checkout
-          
-          // For demo purposes, show success message
-          alert('Redirecting to secure payment... (This is a demo - integrate with your Stripe account)');
-          
-          // Reset button
-          this.classList.remove('loading');
-          this.innerHTML = '<span>💳</span> Pay with Stripe';
-        }, 2000);
-      }
-    });
-    
-    // Form submission for quote requests
-    document.getElementById('orderForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      // Get form data
-      const formData = new FormData(this);
-      const data = Object.fromEntries(formData);
-      
-      // Create email body
-      const emailBody = `New cake order enquiry:
-      
-Name: ${data.firstName} ${data.lastName}
-Email: ${data.email}
-Phone: ${data.phone}
-Cake Type: ${data.cakeType}
-Quantity: ${data.quantity}
-Delivery Date: ${data.deliveryDate}
-Postcode: ${data.postcode}
-Special Requests: ${data.specialRequests}`;
-      
-      // Create mailto link
-      const mailtoLink = `mailto:hello@sweetzoobakery.uk?subject=Cake Order Enquiry&body=${encodeURIComponent(emailBody)}`;
-      
-      // Open email client
-      window.location.href = mailtoLink;
-      
-      // Show confirmation
-      alert('Thank you for your enquiry! Your email client will open with the order details. We\'ll get back to you within 24 hours.');
-    });
-    
-    // Smooth scrolling for navigation
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
@@ -994,11 +497,21 @@ Special Requests: ${data.specialRequests}`;
         }
       });
     });
+
+    // Form submission enhancement
+    const form = document.querySelector('form');
+    const button = form.querySelector('button');
     
-    // Set minimum date for delivery (tomorrow)
-    const tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    document.getElementById('deliveryDate').min = tomorrow.toISOString().split('T')[0];
+    form.addEventListener('submit', function(e) {
+      button.textContent = 'Sending...';
+      button.disabled = true;
+      
+      // Reset after 3 seconds (form will have submitted by then)
+      setTimeout(() => {
+        button.textContent = 'Get My Free Quote';
+        button.disabled = false;
+      }, 3000);
+    });
   </script>
 </body>
 </html>
