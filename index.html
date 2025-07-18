@@ -196,6 +196,57 @@
       margin-bottom: 0;
     }
     
+    /* Service Category Sections */
+    .service-category {
+      margin-bottom: 3rem;
+    }
+    
+    .service-category h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #1a202c;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      padding: 1rem;
+      background: linear-gradient(135deg, #f6e05e 0%, #ecc94b 100%);
+      border-radius: 15px;
+    }
+    
+    .service-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    
+    .service-item {
+      background: #f7fafc;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border-left: 4px solid #48bb78;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+    
+    .service-item:hover {
+      background: #e6fffa;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 20px rgba(72,187,120,0.2);
+    }
+    
+    .service-item h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #1a202c;
+      margin-bottom: 0.5rem;
+    }
+    
+    .service-item p {
+      font-size: 0.9rem;
+      color: #4a5568;
+      margin-bottom: 0;
+    }
+    
     /* Features List */
     .features-list {
       display: grid;
@@ -274,7 +325,7 @@
       margin-bottom: 0.5rem;
     }
     
-    input, textarea {
+    input, textarea, select {
       width: 100%;
       padding: 1rem;
       border: 2px solid #e2e8f0;
@@ -284,7 +335,7 @@
       background: white;
     }
     
-    input:focus, textarea:focus {
+    input:focus, textarea:focus, select:focus {
       outline: none;
       border-color: #f6e05e;
       box-shadow: 0 0 0 3px rgba(246,224,94,0.1);
@@ -293,6 +344,10 @@
     textarea {
       resize: vertical;
       min-height: 120px;
+    }
+    
+    select {
+      cursor: pointer;
     }
     
     button {
@@ -354,6 +409,10 @@
         grid-template-columns: 1fr;
       }
       
+      .service-list {
+        grid-template-columns: 1fr;
+      }
+      
       .cta {
         padding: 2rem 1rem;
       }
@@ -400,19 +459,19 @@
   <div class="container">
     <section id="services">
       <div class="section-content">
-        <h2>Professional Property Maintenance Services</h2>
+        <h2>Complete Indoor & Outdoor Property Services</h2>
         <p>
-          With over 20 years of hands-on experience and a reputation built on integrity, attention to detail, and kindness, Handy Ed is your go-to specialist for high-quality, reliable work. Whether you need monthly property care, one-time urgent fixes, or long-term collaboration, you're in expert hands.
+          With over 20 years of hands-on experience and a reputation built on integrity, attention to detail, and kindness, Handy Ed is your go-to specialist for high-quality, reliable work. From indoor repairs to outdoor maintenance, whether you need monthly property care, one-time urgent fixes, or long-term collaboration, you're in expert hands.
         </p>
 
         <div class="services-grid">
           <div class="service-card">
-            <h3>Complete Property Maintenance</h3>
-            <p>Inside and outside maintenance services to keep your property in perfect condition year-round.</p>
+            <h3>Indoor Property Maintenance</h3>
+            <p>Professional repairs, installations, and maintenance services to keep your home or business running smoothly.</p>
           </div>
           <div class="service-card">
-            <h3>Repairs & Installations</h3>
-            <p>Expert repair work and professional installations with attention to detail and quality craftsmanship.</p>
+            <h3>Outdoor Property Care</h3>
+            <p>Complete exterior maintenance including lawn care, gutter cleaning, pressure washing, and window cleaning.</p>
           </div>
           <div class="service-card">
             <h3>Fast-Response Service</h3>
@@ -421,6 +480,64 @@
           <div class="service-card">
             <h3>Commercial Services</h3>
             <p>Trusted by real estate agents, care homes, and businesses for reliable, professional service.</p>
+          </div>
+        </div>
+
+        <!-- Detailed Service Categories -->
+        <div class="service-category">
+          <h3>🏠 Indoor Services</h3>
+          <div class="service-list">
+            <div class="service-item">
+              <h4>Electrical Work</h4>
+              <p>Wiring, outlets, lighting, and electrical repairs</p>
+            </div>
+            <div class="service-item">
+              <h4>Plumbing</h4>
+              <p>Repairs, installations, and maintenance</p>
+            </div>
+            <div class="service-item">
+              <h4>Carpentry</h4>
+              <p>Custom work, repairs, and installations</p>
+            </div>
+            <div class="service-item">
+              <h4>Painting & Decorating</h4>
+              <p>Interior painting and finishing work</p>
+            </div>
+            <div class="service-item">
+              <h4>General Repairs</h4>
+              <p>Doors, windows, fixtures, and more</p>
+            </div>
+            <div class="service-item">
+              <h4>Appliance Installation</h4>
+              <p>Safe and professional appliance setup</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-category">
+          <h3>🌿 Outdoor Services</h3>
+          <div class="service-list">
+            <div class="service-item">
+              <h4>Lawn Care & Grass Cutting</h4>
+              <p>Regular mowing, edging, and lawn maintenance</p>
+            </div>
+            <div class="service-item">
+              <h4>Gutter Cleaning</h4>
+              <p>Professional cleaning and maintenance</p>
+            </div>
+            <div class="service-item">
+              <h4>Window Cleaning</h4>
+              <p>Crystal clear windows inside and out</p>
+            </div>
+            <div class="service-item">
+              <h4>Pressure Washing</h4>
+              <p>Driveways, patios, decking, and exteriors</p>
+            </div>
+
+            <div class="service-item">
+              <h4>Exterior Repairs</h4>
+              <p>Fencing, outdoor fixtures, and structures</p>
+            </div>
           </div>
         </div>
       </div>
@@ -438,6 +555,8 @@
           <li>Always respectful of your time and space</li>
           <li>20+ years of proven experience</li>
           <li>Fully insured and reliable</li>
+          <li>Complete indoor and outdoor services</li>
+          <li>Competitive pricing for all services</li>
         </ul>
 
         <div class="cta">
@@ -467,8 +586,24 @@
             </div>
             
             <div class="form-group">
+              <label for="service-type">Type of Service Needed</label>
+              <select id="service-type" name="service-type" required>
+                <option value="">Please select...</option>
+                <option value="indoor-maintenance">Indoor Maintenance & Repairs</option>
+                <option value="outdoor-maintenance">Outdoor Maintenance & Cleaning</option>
+                <option value="lawn-care">Lawn Care & Grass Cutting</option>
+                <option value="gutter-cleaning">Gutter Cleaning</option>
+                <option value="window-cleaning">Window Cleaning</option>
+                <option value="pressure-washing">Pressure Washing</option>
+                <option value="multiple-services">Multiple Services</option>
+                <option value="emergency-repair">Emergency Repair</option>
+                <option value="other">Other (please specify below)</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
               <label for="project">Project Description</label>
-              <textarea id="project" name="message" placeholder="Please describe your project, including any specific requirements or timeline..." required></textarea>
+              <textarea id="project" name="message" placeholder="Please describe your project in detail, including any specific requirements, timeline, and property details..." required></textarea>
             </div>
             
             <button type="submit">Get My Free Quote</button>
@@ -480,7 +615,7 @@
 
   <footer>
     <p>&copy; 2025 Handy Ed | Built on Trust. Powered by Mastery.</p>
-    <p>Professional Property Maintenance Services</p>
+    <p>Complete Indoor & Outdoor Property Maintenance Services</p>
   </footer>
 
   <script>
