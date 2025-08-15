@@ -443,6 +443,18 @@
   let displayDate = new Date();
   let utcOffsetMinutes = 0; // from API
 
+  // Load saved data from localStorage
+  let notes = JSON.parse(localStorage.getItem("notes")) || {};
+  let workSchedule = JSON.parse(localStorage.getItem("workSchedule")) || {};
+
+  // Save functions
+  function saveNotes() {
+    localStorage.setItem("notes", JSON.stringify(notes));
+  }
+  function saveWorkSchedule() {
+    localStorage.setItem("workSchedule", JSON.stringify(workSchedule));
+  }
+
   // Fetch real-time data from WorldTimeAPI
   async function fetchRealTime() {
     try {
@@ -456,7 +468,7 @@
 
       currentDate = apiDate;
       displayDate = new Date(currentDate);
-      
+
       renderCalendar();
       updateCurrentTimeDisplay();
       setInterval(updateCurrentTimeDisplay, 1000);
@@ -472,12 +484,12 @@
 
   function updateCurrentTimeDisplay() {
     const now = new Date(Date.now() + utcOffsetMinutes * 60000 - new Date().getTimezoneOffset() * 60000);
-    currentDate = now; // Always keep this updated for today highlight
+    currentDate = now;
 
-    const options = { 
-      weekday: 'long', 
-      year: 'numeric', 
-      month: 'long', 
+    const options = {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
       day: 'numeric',
       hour: '2-digit',
       minute: '2-digit',
@@ -508,7 +520,6 @@
     let startDayOfWeek = firstDay.getDay();
     startDayOfWeek = startDayOfWeek === 0 ? 6 : startDayOfWeek - 1;
 
-    // Empty slots before first day
     for (let i = 0; i < startDayOfWeek; i++) {
       const emptyDay = document.createElement('div');
       emptyDay.className = 'day other-month';
@@ -519,15 +530,11 @@
       const dayElement = document.createElement('div');
       dayElement.className = 'day';
 
-      // Check if it's today
       const isToday = currentDate.getDate() === day &&
                       currentDate.getMonth() === displayDate.getMonth() &&
                       currentDate.getFullYear() === displayDate.getFullYear();
-      if (isToday) {
-        dayElement.classList.add('today');
-      }
+      if (isToday) dayElement.classList.add('today');
 
-      // Header
       const dayHeader = document.createElement('div');
       dayHeader.className = 'day-header';
 
@@ -536,28 +543,24 @@
       dayNumber.textContent = day;
       dayHeader.appendChild(dayNumber);
 
-      // Content
       const dayContent = document.createElement('div');
       dayContent.className = 'day-content';
 
-      // Notes
       const notesSection = document.createElement('div');
       notesSection.className = 'notes-section';
-      
+
       const note = document.createElement('textarea');
       note.className = 'note';
       note.placeholder = "Notes...";
 
-      // Use regular variables instead of localStorage
       const noteKey = `note-${displayDate.getFullYear()}-${displayDate.getMonth()}-${day}`;
-      if (!window.notes) window.notes = {};
-      note.value = window.notes[noteKey] || '';
+      note.value = notes[noteKey] || '';
       note.addEventListener('input', () => {
-        window.notes[noteKey] = note.value;
+        notes[noteKey] = note.value;
+        saveNotes();
       });
       notesSection.appendChild(note);
 
-      // Work/Off buttons
       const workSection = document.createElement('div');
       workSection.className = 'work-section';
 
@@ -579,36 +582,33 @@
       offBtn.type = 'button';
 
       const workKey = `work-${displayDate.getFullYear()}-${displayDate.getMonth()}-${day}`;
-      if (!window.workSchedule) window.workSchedule = {};
-      const savedStatus = window.workSchedule[workKey];
+      const savedStatus = workSchedule[workKey];
 
       if (savedStatus === 'work') workBtn.classList.add('active');
       if (savedStatus === 'off') offBtn.classList.add('active');
 
       workBtn.addEventListener('click', () => {
         if (workBtn.classList.contains('active')) {
-          // If already active, deactivate it
           workBtn.classList.remove('active');
-          delete window.workSchedule[workKey];
+          delete workSchedule[workKey];
         } else {
-          // Activate work and deactivate off
           workBtn.classList.add('active');
           offBtn.classList.remove('active');
-          window.workSchedule[workKey] = 'work';
+          workSchedule[workKey] = 'work';
         }
+        saveWorkSchedule();
       });
 
       offBtn.addEventListener('click', () => {
         if (offBtn.classList.contains('active')) {
-          // If already active, deactivate it
           offBtn.classList.remove('active');
-          delete window.workSchedule[workKey];
+          delete workSchedule[workKey];
         } else {
-          // Activate off and deactivate work
           offBtn.classList.add('active');
           workBtn.classList.remove('active');
-          window.workSchedule[workKey] = 'off';
+          workSchedule[workKey] = 'off';
         }
+        saveWorkSchedule();
       });
 
       workButtons.appendChild(workBtn);
