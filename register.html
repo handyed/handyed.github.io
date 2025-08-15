@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Get Your Free Quote - Instant Discount Registration</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      margin: 0;
+      padding: 20px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .container {
+      max-width: 520px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      position: relative;
+      overflow: hidden;
+    }
+    .container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #0a7e8c, #05545d, #0a7e8c);
+      animation: shimmer 2s ease-in-out infinite;
+    }
+    @keyframes shimmer {
+      0%, 100% { transform: translateX(-100%); }
+      50% { transform: translateX(100%); }
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 30px;
+      font-size: 28px;
+      font-weight: 300;
+      position: relative;
+    }
+    .subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 30px;
+      font-size: 16px;
+    }
+    .form-group {
+      margin-bottom: 25px;
+      position: relative;
+    }
+    form label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #555;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    form input, form textarea, form select {
+      width: 100%;
+      padding: 15px 20px;
+      border-radius: 12px;
+      border: 2px solid #e1e5e9;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      background: #fff;
+    }
+    form input:focus, form textarea:focus, form select:focus {
+      outline: none;
+      border-color: #0a7e8c;
+      box-shadow: 0 0 0 3px rgba(10, 126, 140, 0.1);
+      transform: translateY(-2px);
+    }
+    form input:valid, form textarea:valid, form select:valid {
+      border-color: #28a745;
+    }
+    form textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    .submit-btn {
+      margin-top: 30px;
+      width: 100%;
+      padding: 18px;
+      background: linear-gradient(135deg, #0a7e8c, #05545d);
+      color: #fff;
+      font-size: 18px;
+      font-weight: 600;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      position: relative;
+      overflow: hidden;
+    }
+    .submit-btn:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+    .submit-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(10, 126, 140, 0.3);
+    }
+    .submit-btn:hover:before {
+      left: 100%;
+    }
+    .submit-btn:active {
+      transform: translateY(-1px);
+    }
+    .success {
+      margin-top: 20px;
+      padding: 20px;
+      background: linear-gradient(135deg, #28a745, #20c997);
+      color: white;
+      text-align: center;
+      border-radius: 12px;
+      font-weight: 600;
+      animation: slideIn 0.5s ease-out;
+    }
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .required {
+      color: #e74c3c;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    @media (max-width: 600px) {
+      .container {
+        margin: 10px;
+        padding: 30px 20px;
+      }
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      h2 {
+        font-size: 24px;
+      }
+    }
+    .loading {
+      display: none;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #ffffff;
+      border-top: 2px solid transparent;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-right: 10px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .privacy-note {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #666;
+      text-align: center;
+      line-height: 1.4;
+    }
+    .home-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: linear-gradient(135deg, #0a7e8c, #05545d);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 12px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 15px rgba(10, 126, 140, 0.3);
+      z-index: 1000;
+    }
+    .home-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(10, 126, 140, 0.4);
+      background: linear-gradient(135deg, #0c8a98, #066169);
+    }
+    .home-button:active {
+      transform: translateY(0);
+    }
+    .home-icon {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+    @media (max-width: 600px) {
+      .home-button {
+        top: 15px;
+        left: 15px;
+        padding: 10px 16px;
+        font-size: 13px;
+      }
+    }
+    .field-hint {
+      font-size: 12px;
+      color: #666;
+      margin-top: 5px;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <!-- Home Button -->
+  <a href="/" class="home-button" onclick="goHome()">
+    <svg class="home-icon" viewBox="0 0 24 24">
+      <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+    </svg>
+    Home
+  </a>
+
+  <div class="container">
+    <h2>Get Your Free Quote</h2>
+    <p class="subtitle">Join thousands of satisfied customers and unlock exclusive discounts</p>
+    
+    <form id="registrationForm" method="POST" action="/submit-quote-request">
+      
+      <!-- Personal Information -->
+      <div class="form-group">
+        <label for="fullName">Full Name <span class="required">*</span></label>
+        <input type="text" id="fullName" name="fullName" required />
+      </div>
+      
+      <!-- Contact Information -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="email">Email Address <span class="required">*</span></label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number <span class="required">*</span></label>
+          <input type="tel" id="phone" name="phone" required />
+        </div>
+      </div>
+      
+      <!-- Address Information -->
+      <div class="form-group">
+        <label for="streetAddress">Street Address <span class="required">*</span></label>
+        <input type="text" id="streetAddress" name="streetAddress" required placeholder="House number and street name" />
+      </div>
+      
+      <div class="form-row">
+        <div class="form-group">
+          <label for="city">City/Town <span class="required">*</span></label>
+          <input type="text" id="city" name="city" required />
+        </div>
+        <div class="form-group">
+          <label for="postcode">Postcode <span class="required">*</span></label>
+          <input type="text" id="postcode" name="postcode" required placeholder="e.g. SW1A 1AA" />
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="county">County</label>
+        <input type="text" id="county" name="county" placeholder="Optional" />
+      </div>
+      
+      <!-- Service Information -->
+      <div class="form-group">
+        <label for="serviceType">Type of Service <span class="required">*</span></label>
+        <select id="serviceType" name="serviceType" required>
+          <option value="">Please select a service</option>
+          <option value="home-improvement">Home Improvement</option>
+          <option value="plumbing">Plumbing</option>
+          <option value="electrical">Electrical Work</option>
+          <option value="heating-cooling">Heating & Cooling</option>
+          <option value="roofing">Roofing</option>
+          <option value="painting">Painting & Decorating</option>
+          <option value="garden-landscaping">Garden & Landscaping</option>
+          <option value="cleaning">Cleaning Services</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="projectDetails">Project Details</label>
+        <textarea id="projectDetails" name="projectDetails" rows="4" placeholder="Please describe the work you need done, including any specific requirements or timeline..."></textarea>
+        <small class="field-hint">The more details you provide, the more accurate your quote will be</small>
+      </div>
+      
+      <!-- Preferences -->
+      <div class="form-group">
+        <label for="budget">Estimated Budget Range</label>
+        <select id="budget" name="budget">
+          <option value="">Select budget range (optional)</option>
+          <option value="under-500">Under £500</option>
+          <option value="500-1000">£500 - £1,000</option>
+          <option value="1000-2500">£1,000 - £2,500</option>
+          <option value="2500-5000">£2,500 - £5,000</option>
+          <option value="5000-10000">£5,000 - £10,000</option>
+          <option value="over-10000">Over £10,000</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="urgency">How urgent is this project?</label>
+        <select id="urgency" name="urgency">
+          <option value="">Select urgency (optional)</option>
+          <option value="asap">ASAP - Emergency</option>
+          <option value="within-week">Within a week</option>
+          <option value="within-month">Within a month</option>
+          <option value="within-3months">Within 3 months</option>
+          <option value="flexible">I'm flexible</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="contactPreference">Preferred Contact Method</label>
+        <select id="contactPreference" name="contactPreference">
+          <option value="phone">Phone call</option>
+          <option value="email">Email</option>
+          <option value="text">Text message</option>
+          <option value="whatsapp">WhatsApp</option>
+        </select>
+      </div>
+      
+      <!-- Marketing Preferences -->
+      <div class="form-group">
+        <label for="hearAboutUs">How did you hear about us?</label>
+        <select id="hearAboutUs" name="hearAboutUs">
+          <option value="">Please select (optional)</option>
+          <option value="google-search">Google Search</option>
+          <option value="social-media">Social Media</option>
+          <option value="friend-referral">Friend/Family Referral</option>
+          <option value="online-ad">Online Advertisement</option>
+          <option value="local-directory">Local Directory</option>
+          <option value="previous-customer">Previous Customer</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      
+      <!-- Hidden fields for tracking -->
+      <input type="hidden" id="submissionDate" name="submissionDate" />
+      <input type="hidden" id="userAgent" name="userAgent" />
+      <input type="hidden" id="referrer" name="referrer" />
+      
+      <button type="submit" class="submit-btn">
+        <span class="loading" id="loading"></span>
+        <span id="btnText">Get My Free Quote</span>
+      </button>
+    </form>
+    
+    <div class="success" id="successMessage" style="display:none;">
+      🎉 Thank you for your quote request! We'll contact you within 24 hours with your personalized quote and exclusive discounts.
+    </div>
+    
+    <p class="privacy-note">
+      We respect your privacy. Your information is secure and will only be used to provide you with quotes and special offers.
+    </p>
+  </div>
+
+  <script>
+    // Home button functionality
+    function goHome() {
+      if (confirm('Go back to homepage?')) {
+        window.location.href = '/'; // Change this to your homepage URL
+      }
+      return false;
+    }
+    
+    // Form handling
+    const form = document.getElementById('registrationForm');
+    const successMessage = document.getElementById('successMessage');
+    const loading = document.getElementById('loading');
+    const btnText = document.getElementById('btnText');
+    
+    // Set hidden field values
+    document.getElementById('submissionDate').value = new Date().toISOString();
+    document.getElementById('userAgent').value = navigator.userAgent;
+    document.getElementById('referrer').value = document.referrer || 'Direct';
+    
+    form.addEventListener('submit', function (e) {
+      // For demonstration, prevent default submission and show success
+      // Remove e.preventDefault() when you want real form submission
+      e.preventDefault();
+      
+      // Show loading state
+      loading.style.display = 'inline-block';
+      btnText.textContent = 'Processing...';
+      
+      // Simulate form submission delay
+      setTimeout(() => {
+        // Hide loading state
+        loading.style.display = 'none';
+        btnText.textContent = 'Get My Free Quote';
+        
+        // Show success message
+        successMessage.style.display = 'block';
+        form.style.display = 'none';
+        
+        // Log form data for testing
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData);
+        console.log('Form Data to be sent to admin:', data);
+        
+      }, 1500);
+      
+      // UNCOMMENT BELOW FOR REAL FORM SUBMISSION:
+      // This will submit the form to your server at the action URL
+      // return true; // Allow form to submit normally
+    });
+    
+    // Real-time validation feedback
+    const inputs = form.querySelectorAll('input, textarea, select');
+    inputs.forEach(input => {
+      input.addEventListener('blur', function() {
+        if (this.checkValidity()) {
+          this.style.borderColor = '#28a745';
+        } else {
+          this.style.borderColor = '#e74c3c';
+        }
+      });
+    });
+    
+    // Auto-format postcode
+    document.getElementById('postcode').addEventListener('input', function() {
+      let value = this.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
+      if (value.length > 3) {
+        value = value.slice(0, -3) + ' ' + value.slice(-3);
+      }
+      this.value = value;
+    });
+    
+    // Phone number formatting
+    document.getElementById('phone').addEventListener('input', function() {
+      let value = this.value.replace(/[^\d+\s()-]/g, '');
+      this.value = value;
+    });
+  </script>
+</body>
+</html>
