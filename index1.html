@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Handy Ed | Where Kindness Meets Mastery</title>
+
+  <!-- Fallback for older browsers -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+  <style>
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    body {font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #2d3748; background: #f7fafc;}
+
+    /* Header */
+    header {background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%); color: white; padding: 4rem 1rem; text-align: center; position: relative; overflow: hidden;}
+    header::before {content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>'); opacity: 0.3;}
+    header .container {position: relative; z-index: 1; max-width: 1200px; margin: 0 auto;}
+    header h1 {font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; color: #f6e05e; margin-bottom: 1rem; text-shadow: 0 4px 8px rgba(0,0,0,0.3);}
+    header p {font-size: clamp(1.1rem, 2.5vw, 1.4rem); font-style: italic; color: #e2e8f0;}
+
+    /* Navigation */
+    nav {background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); padding: 1rem 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 20px rgba(0,0,0,0.1);}
+    nav .container {max-width: 1200px; margin: 0 auto; padding: 0 1rem; display: flex; justify-content: space-between; align-items: center;}
+    .logo {font-weight: 700; font-size: 1.2rem; color: #2d3748;}
+    .menu-toggle {display: none; font-size: 2rem; cursor: pointer; color: #2d3748;}
+    .nav-links {display: flex; gap: 1.5rem; list-style: none;}
+    .nav-links li {display: inline-block;}
+    .nav-links a {color: #2d3748; text-decoration: none; font-weight: 500; padding: 0.5rem 1rem; border-radius: 25px; transition: all 0.3s ease;}
+    .nav-links a:hover {background: #f6e05e; color: #1a202c; transform: translateY(-2px);}
+
+    @media (max-width: 768px) {
+      .menu-toggle {display: block;}
+      .nav-links {display: none; flex-direction: column; background: white; position: absolute; top: 60px; right: 20px; padding: 1rem; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.2);}
+      .nav-links li {margin: 0.5rem 0;}
+      .nav-links.active {display: flex;}
+    }
+
+    /* Sections */
+    .container {max-width: 1200px; margin: 0 auto; padding: 0 1rem;}
+    section {margin: 3rem auto; background: white; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); overflow: hidden; animation: fadeInUp 0.6s ease-out;}
+    section .section-content {padding: 2.5rem;}
+    h2 {font-size: clamp(1.8rem, 4vw, 2.2rem); font-weight: 600; color: #1a202c; margin-bottom: 1.5rem; position: relative; padding-bottom: 1rem;}
+    h2::after {content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: linear-gradient(90deg, #f6e05e, #ecc94b); border-radius: 2px;}
+    p {font-size: 1.1rem; margin-bottom: 1.5rem; color: #4a5568; line-height: 1.8;}
+
+    /* Services */
+    .services-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem;}
+    .service-card {background: #f7fafc; padding: 2rem; border-radius: 15px; border-left: 4px solid #f6e05e; transition: all 0.3s ease;}
+    .service-card:hover {background: #f6e05e; transform: translateY(-3px); box-shadow: 0 10px 30px rgba(246,224,94,0.3);}
+    .service-card h3 {font-size: 1.3rem; font-weight: 600; color: #1a202c; margin-bottom: 1rem;}
+
+    .service-category h3 {font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem; text-align: center; padding: 1rem; background: linear-gradient(135deg, #f6e05e 0%, #ecc94b 100%); border-radius: 15px;}
+    .service-list {display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;}
+    .service-item {background: #f7fafc; padding: 1.5rem; border-radius: 12px; border-left: 4px solid #48bb78; transition: all 0.3s ease; text-align: center;}
+    .service-item:hover {background: #e6fffa; transform: translateY(-3px);}
+
+    /* Features */
+    .features-list {display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; list-style: none;}
+    .features-list li {background: #f7fafc; padding: 1.5rem; border-radius: 12px; border-left: 4px solid #48bb78; font-size: 1.1rem; color: #2d3748; transition: all 0.3s ease;}
+    .features-list li:hover {background: #e6fffa; transform: translateX(5px);}
+    .features-list li::before {content: '✓'; color: #48bb78; font-weight: bold; margin-right: 0.5rem;}
+
+    /* CTA */
+    .cta {background: linear-gradient(135deg, #f6e05e 0%, #ecc94b 100%); color: #1a202c; padding: 3rem 2rem; text-align: center; border-radius: 20px; margin: 3rem 0; box-shadow: 0 10px 30px rgba(246,224,94,0.3);}
+    .cta h3 {font-size: 1.8rem; font-weight: 700; margin-bottom: 1rem;}
+    .cta .highlight {font-weight: 700; font-size: 1.3rem;}
+
+    /* Form */
+    .contact-form {background: #f7fafc; padding: 2rem; border-radius: 15px; margin-top: 2rem;}
+    label {display: block; font-weight: 600; margin-bottom: 0.5rem;}
+    input, textarea, select {width: 100%; padding: 1rem; border: 2px solid #e2e8f0; border-radius: 10px; margin-bottom: 1rem;}
+    input:focus, textarea:focus, select:focus {outline: none; border-color: #f6e05e; box-shadow: 0 0 0 3px rgba(246,224,94,0.1);}
+    button {background: linear-gradient(135deg, #f6e05e 0%, #ecc94b 100%); color: #1a202c; border: none; padding: 1rem 2rem; font-size: 1.1rem; font-weight: 600; border-radius: 25px; cursor: pointer;}
+    button:hover {transform: translateY(-2px);}
+
+    /* Footer */
+    footer {background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%); color: white; text-align: center; padding: 3rem 1rem; margin-top: 4rem;}
+    footer a {color: #f6e05e; text-decoration: none; font-weight: 700; display: inline-block; margin-top: 1rem;}
+    footer a:hover {background: #f6e05e; color: #1a202c; padding: 0.3rem 0.8rem; border-radius: 20px;}
+
+    /* Animations */
+    @keyframes fadeInUp {from {opacity: 0; transform: translateY(30px);} to {opacity: 1; transform: translateY(0);}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Handy Ed</h1>
+      <p>Where Kindness Meets Mastery</p>
+    </div>
+  </header>
+
+  <nav>
+    <div class="container">
+      <div class="logo">Handy Ed</div>
+      <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="/register.html">Join HandyEd VIP</a></li>
+        <li><a href="/calendar.html">Calendar with Work Schedule</a></li>
+        <li><a href="/walpaper.html">Wallpaper Services</a></li>
+        <li><a href="/painting.html">Painting Services</a></li>
+        <li><a href="/doors.html">Windows & Doors Installation</a></li>
+        <li><a href="/phone1.html">Leave-a-Message</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <section id="services">
+      <div class="section-content">
+        <h2>Complete Indoor & Outdoor Property Services</h2>
+        <p>
+          Professional Handyman Services for Businesses Across the UK<br><br>
+          ✅ Reliable support for Real Estate & Letting Agencies<br>
+          ✅ Maintenance for Care Homes & Hotels<br>
+          ✅ Clean DBS Check – Trusted for Sensitive Environments<br>
+          ✅ B2B Contracts Available<br><br>
+          With over 20 years of hands-on experience and a reputation built on integrity, attention to detail, and kindness, Handy Ed is your go-to specialist for high-quality, reliable work.
+        </p>
+
+        <div class="services-grid">
+          <div class="service-card"><h3>Indoor Property Maintenance</h3><p>Repairs, installations, and maintenance services to keep your property running smoothly.</p></div>
+          <div class="service-card"><h3>Outdoor Property Care</h3><p>Complete exterior maintenance including lawn care, gutter cleaning, pressure washing, and window cleaning.</p></div>
+          <div class="service-card"><h3>Fast-Response Service</h3><p>Urgent repairs and emergency fixes handled quickly and professionally.</p></div>
+          <div class="service-card"><h3>Commercial Services</h3><p>Trusted by real estate agents, care homes, and businesses for reliable service.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="section-content">
+        <h2>Why Choose Handy Ed?</h2>
+        <ul class="features-list">
+          <li>Clean DBS check for peace of mind</li>
+          <li>18th Edition Wiring Regulation Certified</li>
+          <li>Professional, punctual, and polite</li>
+          <li>20+ years of proven experience</li>
+          <li>Fully insured and reliable</li>
+        </ul>
+        <div class="cta">
+          <h3>Now Accepting New Business Clients</h3>
+          <p>First quote is <span class="highlight">free online</span></p>
+          <p>Home visit assessment: <span class="highlight">£20</span> (deducted from final price)</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-content">
+        <h2>Get Your Free Quote Today</h2>
+        <div class="contact-form">
+          <form action="https://formspree.io/f/mqabvwpw" method="POST">
+            <label for="email">Your Email Address</label>
+            <input type="email" id="email" name="email" required>
+            <label for="phone">Phone Number (Optional)</label>
+            <input type="tel" id="phone" name="phone">
+            <label for="service-type">Type of Service Needed</label>
+            <select id="service-type" name="service-type" required>
+              <option value="">Please select...</option>
+              <option value="indoor-maintenance">Indoor Maintenance & Repairs</option>
+              <option value="outdoor-maintenance">Outdoor Maintenance & Cleaning</option>
+              <option value="lawn-care">Lawn Care & Grass Cutting</option>
+              <option value="gutter-cleaning">Gutter Cleaning</option>
+              <option value="window-cleaning">Window Cleaning</option>
+              <option value="pressure-washing">Pressure Washing</option>
+              <option value="multiple-services">Multiple Services</option>
+              <option value="emergency-repair">Emergency Repair</option>
+              <option value="other">Other</option>
+            </select>
+            <label for="project">Project Description</label>
+            <textarea id="project" name="message" required></textarea>
+            <button type="submit">Get My Free Quote</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Handy Ed | Built on Trust. Powered by Mastery.</p>
+    <p>Complete Indoor & Outdoor Property Maintenance Services</p>
+    <a href="/privacy.html">Privacy Policy</a>
+  </footer>
+
+  <script>
+    // Burger Menu Toggle
+    const toggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+
+    // Smooth scroll
+    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) target.scrollIntoView({behavior: 'smooth', block: 'start'});
+        navLinks.classList.remove('active');
+      });
+    });
+
+    // Form button feedback
+    const form = document.querySelector('form');
+    const button = form.querySelector('button');
+    form.addEventListener('submit', function(e) {
+      button.textContent = 'Sending...';
+      button.disabled = true;
+      setTimeout(() => {button.textContent = 'Get My Free Quote'; button.disabled = false;}, 3000);
+    });
+  </script>
+</body>
+</html
