@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Handy Ed — Plumbing & Electrical (No Gas)</title>
+  <meta name="description" content="Minor plumbing and electrical services (no gas). Small fixes, installations, fault finding. Clean DBS. 18th Edition. B2B friendly." />
+  <style>
+    :root {
+      --bg: #0f172a;        /* slate-900 */
+      --panel: #111827;     /* gray-900  */
+      --muted: #94a3b8;     /* slate-400 */
+      --text: #e5e7eb;      /* gray-200  */
+      --brand: #22c55e;     /* green-500 */
+      --accent: #38bdf8;    /* sky-400   */
+      --ring: rgba(56,189,248,.35);
+      --card: #0b1220;      /* slightly darker */
+    }
+    html,body {margin:0;padding:0;background:var(--bg);color:var(--text);font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";}
+    a {color: var(--accent); text-decoration: none}
+    a:hover {text-decoration: underline}
+    .wrap {max-width: 980px; margin: 0 auto; padding: 24px 16px 48px}
+    header {display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0 24px;border-bottom:1px solid rgba(255,255,255,.06)}
+    .logo{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.5px}
+    .logo-badge{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--brand),#16a34a);display:grid;place-items:center;color:#052e16;font-weight:900}
+    nav a{margin-left:14px;font-weight:600;color:#cbd5e1}
+    nav a:hover{color:#fff}
+
+    h1{font-size: clamp(28px, 3vw, 40px); margin: 24px 0 8px}
+    h2{font-size: clamp(20px, 2.4vw, 28px); margin: 28px 0 12px}
+    h3{font-size: clamp(18px, 2vw, 22px); margin: 22px 0 8px; color:#cbd5e1}
+    p.lead{color:#d1fae5;max-width: 72ch}
+
+    .badges {display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0}
+    .badge{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(148,163,184,.25);color:#e2e8f0;background:rgba(148,163,184,.05);padding:8px 10px;border-radius:999px;font-size:14px}
+
+    .grid{display:grid;grid-template-columns:1fr;gap:16px}
+    @media (min-width: 860px){ .grid{grid-template-columns: 1fr 1fr} }
+    .card{background: var(--card); border:1px solid rgba(148,163,184,.12); border-radius:18px; padding:18px 18px}
+    .list{margin:0;padding:0 0 0 20px}
+    .list li{margin:6px 0}
+
+    .pricegrid{display:grid;grid-template-columns:1fr;gap:12px}
+    @media(min-width:720px){.pricegrid{grid-template-columns: repeat(2, minmax(0,1fr));}}
+    .price{background:linear-gradient(180deg,rgba(56,189,248,.06),transparent);border:1px solid rgba(148,163,184,.15);border-radius:18px;padding:16px}
+    .price h4{margin:0 0 6px;font-size:18px}
+    .muted{color:var(--muted)}
+
+    .estimator{background:var(--panel);border:1px solid rgba(148,163,184,.15);border-radius:18px;padding:16px}
+    .row{display:grid;gap:8px;margin:10px 0}
+    .row label{font-weight:600}
+    input,select,button{font:inherit}
+    input[type="number"],select{width:100%;padding:10px;border-radius:10px;border:1px solid rgba(148,163,184,.25);background:#0a1220;color:#e5e7eb;outline:none}
+    input[type="checkbox"]{transform:scale(1.1)}
+    button.cta{background:linear-gradient(135deg,var(--brand),#16a34a);color:#052e16;border:0;padding:12px 16px;border-radius:12px;font-weight:800;cursor:pointer}
+    button.cta:hover{filter:brightness(1.05)}
+
+    .cta-bar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-top:16px;padding:14px 16px;border-radius:16px;border:1px dashed rgba(56,189,248,.35)}
+    .small{font-size:13px}
+    footer{margin-top:36px;padding-top:16px;border-top:1px solid rgba(148,163,184,.12);color:#9aa7b9}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">
+        <div class="logo-badge" aria-hidden>HE</div>
+        <div>
+          <div style="font-size:14px;opacity:.75;letter-spacing:.12em">Handy Ed</div>
+          <div style="font-size:12px;opacity:.6">Where kindness meets craftsmanship</div>
+        </div>
+      </div>
+      <nav>
+        <a href="/index.html">Home</a>
+        <a href="/painting.html">Painting</a>
+        <a href="/walpaper.html">Wallpaper</a>
+        <a href="/windows-doors.html">Windows & Doors</a>
+        <a href="/leave-a-message.html">Leave a Message</a>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Plumbing & Electrical Services <span class="muted" style="font-size:.7em">(No Gas)</span></h1>
+      <p class="lead">Small fixes that make a big difference — expertly handled, tidy, and safe. I cover <strong>minor plumbing</strong> and <strong>minor electrical (non‑notifiable)</strong> jobs. <strong>No gas work</strong> is undertaken.</p>
+
+      <div class="badges">
+        <div class="badge">UK‑based ✅</div>
+        <div class="badge">Clean DBS Check</div>
+        <div class="badge">18th Edition Wiring Regulations (BS 7671)</div>
+        <div class="badge">Fully Insured</div>
+        <div class="badge">B2B Friendly (Agents, Care Homes, Hotels)</div>
+        <div class="badge">Email: <a href="mailto:info@handyed.co.uk">info@handyed.co.uk</a></div>
+      </div>
+
+      <section class="grid" style="margin-top:22px">
+        <div class="card">
+          <h2>Plumbing — Minor Jobs</h2>
+          <ul class="list">
+            <li>Fixing leaking taps, traps & wastes</li>
+            <li>Replacing flexi hoses & isolation valves</li>
+            <li>Unblocking sinks, basins & showers</li>
+            <li>Toilet repairs (fill/flush valves, seats, seals)</li>
+            <li>Siliconing baths, showers & sinks</li>
+            <li>Installing washing machines & dishwashers</li>
+            <li>Radiator valve swaps & bleeding (no system drain‑downs)</li>
+          </ul>
+          <p class="small muted"><strong>No gas:</strong> I do not work on boilers, cookers, gas fires, or any gas‑related appliances/pipework.</p>
+        </div>
+        <div class="card">
+          <h2>Electrical — Minor Jobs (Non‑Notifiable)</h2>
+          <ul class="list">
+            <li>Replace sockets, switches & spurs</li>
+            <li>Light fittings, pendants & lamps</li>
+            <li>Extractor fans like‑for‑like swaps</li>
+            <li>Appliance connection (hard‑wire hobs/ovens if suitable isolator exists)</li>
+            <li>Fault finding on simple circuits (RCD trips, loose terminations)</li>
+            <li>Replace/fit doorbells, thermostats (non‑smart rewires)</li>
+            <li>Minor repairs to damaged cables/accessories</li>
+          </ul>
+          <p class="small muted">Domestic <em>non‑notifiable</em> works only (Part P). For consumer unit changes, new circuits or extensive rewires I’ll refer a certified electrician.</p>
+        </div>
+      </section>
+
+      <section style="margin-top:16px">
+        <h2>Clear Labour‑Only Pricing</h2>
+        <div class="pricegrid">
+          <div class="price">
+            <h4>Call‑out & First Hour</h4>
+            <div><strong>£60 – £80</strong></div>
+            <div class="muted small">Includes travel within local area and the first 60 minutes on site.</div>
+          </div>
+          <div class="price">
+            <h4>Additional Time</h4>
+            <div><strong>£35 – £45 / half‑hour</strong></div>
+            <div class="muted small">Billed in 30‑minute increments after the first hour.</div>
+          </div>
+          <div class="price">
+            <h4>Small Fixed‑Price Jobs</h4>
+            <div class="muted small">Typical ranges (labour only):</div>
+            <ul class="list">
+              <li>Tap replacement: £60 – £120</li>
+              <li>Toilet fill/flush valve: £70 – £120</li>
+              <li>Light fitting swap: £45 – £90</li>
+              <li>Socket/switch replacement (each): £35 – £55</li>
+              <li>Siliconing bath/shower: £60 – £110</li>
+            </ul>
+          </div>
+          <div class="price">
+            <h4>Materials</h4>
+            <div class="muted small">Labour‑only by default. I can source materials on request at cost + handling. All options agreed upfront.</div>
+          </div>
+        </div>
+      </section>
+
+      <section style="margin-top:18px" class="estimator" id="estimate">
+        <h2>Quick Estimate Calculator</h2>
+        <div class="row">
+          <label for="jobType">Job Type</label>
+          <select id="jobType">
+            <option value="plumbing">Plumbing</option>
+            <option value="electrical">Electrical (minor)</option>
+          </select>
+        </div>
+        <div class="row">
+          <label for="complexity">Complexity</label>
+          <select id="complexity">
+            <option value="1">Simple (≤ 1 hour)</option>
+            <option value="1.5">Standard (1–2 hours)</option>
+            <option value="2.5">Trickier (2–3 hours)</option>
+          </select>
+        </div>
+        <div class="row">
+          <label><input type="checkbox" id="ceilingWork"> Ceiling/awkward access (+15%)</label>
+          <label><input type="checkbox" id="supplyMaterials"> Supply standard materials (+£25)</label>
+        </div>
+        <button class="cta" id="calc">Calculate Estimate</button>
+        <p id="out" class="small muted" style="margin-top:8px">Enter details to see your ballpark estimate.</p>
+      </section>
+
+      <section style="margin-top:18px" class="card">
+        <h2>What’s Included</h2>
+        <ul class="list">
+          <li>Tidy, safe workmanship with dust sheets and cleanup</li>
+          <li>Clear communication and upfront pricing</li>
+          <li>Removal of small packaging/waste (where practical)</li>
+        </ul>
+        <h3>Optional Extras</h3>
+        <ul class="list">
+          <li>Sourcing speciality parts/materials</li>
+          <li>Out‑of‑hours attendance</li>
+          <li>Written job reports for agencies</li>
+        </ul>
+      </section>
+
+      <section class="cta-bar">
+        <div>
+          <strong>Ready to book?</strong>
+          <div class="small muted">Free online quote. Home visit assessment £20 (deducted from final price).</div>
+        </div>
+        <div>
+          <a class="cta" href="mailto:info@handyed.co.uk?subject=Plumbing%20%26%20Electrical%20Enquiry">Get a Quote by Email</a>
+          <a class="cta" style="margin-left:8px" href="https://wa.me/447775877746" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </section>
+
+      <p class="small muted" style="margin-top:10px">For consumer unit changes, new circuits, EV chargers, garden offices, or new bathroom plumbing, I can coordinate with trusted, certified specialists.</p>
+    </main>
+
+    <footer>
+      <div>© 2025 Handy Ed. All rights reserved. | Built on Trust. Powered by Mastery.</div>
+      <div class="small">Email: <a href="mailto:info@handyed.co.uk">info@handyed.co.uk</a> | Website: <a href="/">handyed.co.uk</a></div>
+    </footer>
+  </div>
+
+  <script>
+    (function(){
+      const btn = document.getElementById('calc');
+      const out = document.getElementById('out');
+      const complexity = document.getElementById('complexity');
+      const ceiling = document.getElementById('ceilingWork');
+      const supply = document.getElementById('supplyMaterials');
+
+      function fmt(n){ return new Intl.NumberFormat('en-GB',{style:'currency',currency:'GBP',maximumFractionDigits:0}).format(n); }
+
+      btn.addEventListener('click', ()=>{
+        const baseFirstHour = 70; // middle of range
+        const perHalfHour = 40;   // middle of range
+        const hours = parseFloat(complexity.value);
+        let cost = baseFirstHour + Math.max(0, (hours - 1)) * 2 * perHalfHour / 2; // every extra 30m
+        if (ceiling.checked) cost *= 1.15;
+        if (supply.checked) cost += 25;
+        out.textContent = `Estimated labour: ${fmt(cost)} (ballpark). Materials, parking and special parts extra if needed.`;
+      });
+    })();
+  </script>
+</body>
+</html>
