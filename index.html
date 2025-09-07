@@ -7,62 +7,57 @@
   <meta name="description" content="Professional property maintenance services including plumbing, electrical, painting, and repairs for your home." />
   <style>
     :root{
-      --accent:#0b6efd;
+      --accent:#505050;
       --dark:#0b1b2b;
-      --muted:#6b7280;
-      --bg:#f7f9fc;
-      --card:#ffffff;
+      --muted:#080808;
+      --bg:#e2e3e6;
+      --card:white;
       --radius:12px;
       font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     }
     *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:var(--dark);-webkit-font-smoothing:antialiased}
+    body{margin:0;background:var(--bg);color:var(--dark);-webkit-font-smoothing:antialiased;overflow-x:hidden}
     header{background:linear-gradient(90deg,var(--card),#eef6ff);border-bottom:1px solid rgba(11,27,43,0.04)}
     .container{max-width:1100px;margin:0 auto;padding:24px}
 
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .brand{display:flex;gap:12px;align-items:center}
-    .logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#2db7ff);display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    .brand{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+    .logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#2db7ff);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;flex-shrink:0}
     nav a{margin-left:16px;color:var(--dark);text-decoration:none;font-weight:600}
     .cta{background:var(--accent);color:#fff;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
 
     .hero{display:grid;grid-template-columns:1fr 420px;gap:32px;align-items:center;padding:48px 0}
     .hero h1{font-size:34px;margin:0 0 12px}
     .hero p{color:var(--muted);margin:0 0 20px}
-    .hero .cards{display:flex;gap:12px}
+    .hero .cards{display:flex;gap:12px;flex-wrap:wrap}
     .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(11,27,43,0.06)}
     .small{font-size:13px;color:var(--muted)}
 
-    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:28px 0}
+    .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin:28px 0}
     .service{background:var(--card);padding:18px;border-radius:12px}
     .service h3{margin:8px 0}
 
-    .about{display:flex;gap:24px;align-items:center;margin:28px 0}
-    .about img{width:340px;border-radius:12px;object-fit:cover}
+    .about{display:flex;gap:24px;align-items:center;margin:28px 0;flex-wrap:wrap}
+    .about img{width:100%;max-width:340px;border-radius:12px;object-fit:cover}
 
     .contact{background:linear-gradient(180deg,#fff,#fbfdff);padding:18px;border-radius:12px;margin:28px 0;display:grid;grid-template-columns:1fr 360px;gap:18px}
     form{display:flex;flex-direction:column;gap:12px}
-    input,textarea,select{padding:12px;border-radius:8px;border:1px solid rgba(11,27,43,0.08);font-size:14px}
+    input,textarea,select{padding:12px;border-radius:8px;border:1px solid rgba(11,27,43,0.08);font-size:14px;width:100%}
     button{padding:12px;border-radius:10px;border:0;background:var(--accent);color:#fff;font-weight:700}
 
     footer{padding:28px 0;color:var(--muted);font-size:14px}
 
     @media (max-width:900px){
       .hero{grid-template-columns:1fr;}
-      .services{grid-template-columns:1fr;}
       .contact{grid-template-columns:1fr}
       .about{flex-direction:column}
     }
   </style>
   <!-- Standard favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
-  <!-- For high-resolution displays -->
   <link rel="icon" type="image/png" sizes="192x192" href="favicon.png">
-  <!-- Apple devices -->
   <link rel="apple-touch-icon" href="favicon.png">
-  <!-- Fallback -->
   <link rel="shortcut icon" href="favicon.ico">
-  <link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body>
   <header>
@@ -78,7 +73,6 @@
         <a href="#services">Services</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
-        
       </nav>
     </div>
   </header>
@@ -87,7 +81,7 @@
     <section class="hero">
       <div>
         <h1>Reliable Home Maintenance & Repairs</h1>
-        <p>Turos  offers professional plumbing, electrical, painting, and general property maintenance services.</p>
+        <p>T.U.R.O.S offers professional plumbing, electrical, painting, and general property maintenance services.</p>
         <div class="cards">
           <div class="card">
             <div style="font-weight:700">Plumbing</div>
@@ -95,16 +89,15 @@
           </div>
           <div class="card">
             <div style="font-weight:700">Decorating</div>
-            <div class="small">Painting & Decorating , inside and  out</div>
+            <div class="small">Painting & Decorating, inside and out.</div>
           </div>
           <div class="card">
             <div style="font-weight:700">Electrical</div>
             <div class="small">Electrical work for safety and reliability.</div>
           </div>
         </div>
-        <div style="margin-top:20px;display:flex;gap:12px">
-          <!--<a class="cta" href="#contact">Book a Service</a>-->
-          <a style="padding:10px 14px;border-radius:10px;text-decoration:none;background:transparent;border:1px solid rgba(11,27,43,0.06);font-weight:700" href="#services">See services</a>
+        <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
+          <a style="padding:10px 14px;border-radius:10px;text-decoration:none;background:transparent;border:6px solid rgba(6, 7, 7, 0.06);font-weight:700" href="#services">See services</a>
         </div>
       </div>
 
@@ -112,14 +105,10 @@
         <div class="card" style="display:flex;flex-direction:column;gap:12px">
           <div style="font-size:13px;color:var(--muted)">Contact</div>
           <div style="font-weight:800;font-size:20px">Serving the UK</div>
-          <div class="small">Text to Phone: <a href="tel:07775877746">07775877746</a>
-         </div>
-          <div class="small">Email: <a href="mailto:turosoffice@gmail.com">turosoffice@gmail.com</a>
-         </div>
+          <div class="small">Text to Phone: <a href="tel:07775877746">07775877746</a></div>
+          <div class="small">Email: <a href="mailto:turosoffice@gmail.com">turosoffice@gmail.com</a></div>
           <div style="margin-top:6px"><a href="https://wa.me/447775877746" class="cta" style="display:inline-block">Request callback</a></div>
         </div>
-
-        
       </aside>
     </section>
 
@@ -127,30 +116,27 @@
       <h2 style="margin:8px 0">Our services</h2>
       <div class="services">
         <div class="service">
-          
           <h3>Repairs & Installations</h3>
           <p class="small">Install, repair, or replace taps, sinks, toilets, baths, showers.<br>
                            Replace or install pipework (copper, plastic, etc.) inside the property.<br>
-                           Fit or replace radiators (as long as you’re not touching a gas boiler).<br>
+                           Fit or replace radiators (non-gas boiler).<br>
                            Unblock or repair waste pipes & drains.<br>
                            Install washing machines, dishwashers (water connection only).<br>
                            Work on cold water systems (tanks, storage, supply).</p>
         </div>
         <div class="service">
-          
-          <h3> Electrical Work</h3>
-          <p class="small">Replacing accessories like light switches, sockets, ceiling roses.<br>
-                           Replacing a fused connection unit or plug top.<br>
-                           Replacing or repairing a damaged cable in the same position.<br>
-                           Installing or replacing a light fitting.<br>
-                           Adding a spur from an existing ring or radial circuit (outside special locations).<br>
-                           Minor repairs and maintenance, like changing a lampholder, fuse, or MCB (same rating).</p>
+          <h3>Electrical Work</h3>
+          <p class="small">Replacing light switches, sockets, ceiling roses.<br>
+                           Replacing fused connection units or plug tops.<br>
+                           Repairing a damaged cable in the same position.<br>
+                           Installing or replacing light fittings.<br>
+                           Adding a spur from an existing ring or radial circuit.<br>
+                           Minor repairs & maintenance (lampholder, fuse, or MCB).</p>
         </div>
         <div class="service">
-          
           <h3>Interior & Exterior</h3>
           <p class="small">Interior/exterior painting (walls, ceilings, woodwork, doors, windows).<br>
-                           Wallpapering, lining paper, feature walls.<br>
+                           Wallpapering & feature walls.<br>
                            Decorative finishes (stain, varnish, lacquer).<br>
                            Fence & shed painting, decking oiling.<br>
                            Surface prep: filling, sanding, caulking, priming.</p>
@@ -161,45 +147,24 @@
     <section id="about" class="about">
       <div>
         <h2>About T.U.R.O.S</h2>
-        <p class="small">Provides premium maintenance and repair services tailored for prestigious clients, large organisations, and institutions. We specialise in delivering reliable, high-quality work for corporate facilities, government properties, and private estates that demand excellence.</p>
+        <p class="small">We provide premium maintenance and repair services tailored for prestigious clients, large organisations, and institutions. Specialising in reliable, high-quality work for corporate facilities, government properties, and private estates that demand excellence.</p>
         <p class="small">Our work is built on trust, attention to detail, and respect for your home. We believe in quality, honesty, and ensuring every client is fully satisfied with the results.</p>
       </div>
       <img src="/turos.jpg" alt="Property maintenance"/>
     </section>
 
     <section id="contact" class="contact">
-        <!--
-      <div>
-        <h2>Book a service or get a free quote</h2>
-        <p class="small">Fill in the form and we’ll contact you within 24 hours.</p>
-        <form id="contactForm" onsubmit="handleSubmit(event);">
-          <input type="text" id="name" placeholder="Full name" required />
-          <input type="email" id="email" placeholder="Email address" required />
-          <input type="text" id="phone" placeholder="Phone number" />
-          <select id="interest">
-            <option value="plumbing">Plumbing</option>
-            <option value="electrical">Electrical</option>
-            <option value="painting">Painting & Decorating</option>
-            <option value="general">General Maintenance</option>
-          </select>
-          <textarea id="message" rows="4" placeholder="Tell us what you need"></textarea>
-          <button type="submit">Send enquiry</button>
-        </form>
-        <div id="thankyou" style="display:none;padding:12px;margin-top:10px;background:#f0fff6;border-radius:8px;border:1px solid rgba(0,128,64,0.08)">Thanks — we received your message. We'll be in touch soon.</div>
-      </div>
-      -->
       <aside style="display:flex;flex-direction:column;gap:12px">
         <div class="card">
           <div style="font-size:13px;color:var(--muted)">Office</div>
           <div style="font-weight:700">Rugby, UK</div>
-          <div class="small"> Phone: <a href="tel:07775877746">07775877746</a>
-         </div>
-         <div class="small"> Email: <a href="mailto:turosoffice@gmail.com">turosoffice@gmail.com</a>
-          </div>
+          <div class="small">Phone: <a href="tel:07775877746">07775877746</a></div>
+          <div class="small">Email: <a href="mailto:turosoffice@gmail.com">turosoffice@gmail.com</a></div>
         </div>
         <div class="card">
           <div style="font-size:13px;color:var(--muted)">Hours</div>
-          <div class="small">Mon – Fri, 8:00 – 16:00</div>
+          <div class="small">Mon – Fri, 8:00 – 16:00<br>
+                               Sat – Sun, Open for existing clients</div>
         </div>
       </aside>
     </section>
@@ -207,43 +172,35 @@
     <section style="margin:24px 0">
       <h2 style="margin:6px 0">Frequently Asked Questions</h2>
       <div style="display:flex;gap:12px;flex-wrap:wrap">
-        <div class="card" style="flex:1;min-width:220px">Do you offer emergency callouts? — Yes, we provide 24/7 emergency plumbing and electrical support.</div>
+        <div class="card" style="flex:1;min-width:220px">Do you offer emergency callouts? —For my existing clients: I now offer emergency callouts and weekend availability (Saturday & Sunday).</div>
         <div class="card" style="flex:1;min-width:220px">Are your services insured? — Yes, all our work is fully insured for peace of mind.</div>
         <div class="card" style="flex:1;min-width:220px">Do you work with landlords? — Yes, we provide ongoing maintenance contracts for landlords and businesses.</div>
       </div>
     </section>
+
     <!-- WhatsApp Floating Button -->
-<a href="https://wa.me/447775877746" 
-   class="whatsapp_float" 
-   target="_blank">
-   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
-        alt="WhatsApp" 
-        style="width:35px; height:35px;">
-</a>
+    <a href="https://wa.me/447775877746" class="whatsapp_float" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width:35px; height:35px;">
+    </a>
 
-<style>
-.whatsapp_float {
-    position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 20px;
-    right: 20px;
-    background-color: #25d366;
-    border-radius: 50%;
-    box-shadow: 2px 2px 5px #999;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-}
-
-.whatsapp_float:hover {
-    background-color: #20b858;
-}
-</style>
-
-
+    <style>
+      .whatsapp_float {
+          position: fixed;
+          width: 60px;
+          height: 60px;
+          bottom: 20px;
+          right: 20px;
+          background-color: #25d366;
+          border-radius: 50%;
+          box-shadow: 2px 2px 5px #999;
+          z-index: 100;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-decoration: none;
+      }
+      .whatsapp_float:hover {background-color: #20b858;}
+    </style>
   </main>
 
   <footer>
@@ -251,19 +208,10 @@
       <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
         <div>© <strong>T.U.R.O.S</strong><br>Total Utility Repairs & Outstanding Standards</div>
         <div style="color:var(--muted)">
-  <a href="/privacy.html" style="color:inherit; text-decoration:none;">Privacy & Terms</a> •  • 
- 
-</div>
+          <a href="/privacy.html" style="color:inherit; text-decoration:none;">Privacy & Terms</a>
+        </div>
       </div>
     </div>
   </footer>
-
-  <script>
-    function handleSubmit(e){
-      e.preventDefault();
-      document.getElementById('contactForm').style.display = 'none';
-      document.getElementById('thankyou').style.display = 'block';
-    }
-  </script>
 </body>
 </html>
