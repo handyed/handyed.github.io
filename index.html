@@ -1,553 +1,605 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>T.U.R.O.S </title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary: #0f766e;
-      --primary-light: #14b8a6;
-      --accent: #0891b2;
-      --bg: #f8fafc;
-      --white: #ffffff;
-      --text: #1e293b;
-      --text-light: #64748b;
-      --border: #e2e8f0;
-      --success: #059669;
-      --shadow: 0 10px 30px rgba(15, 118, 110, 0.1);
-      --shadow-lg: 0 20px 40px rgba(15, 118, 110, 0.15);
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareOps - Care Home Management System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    * {
-      box-sizing: border-box;
-    }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
 
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      margin: 0;
-      background: linear-gradient(135deg, var(--bg) 0%, #dddddf 100%);
-      color: var(--text);
-      font-size: 18px;
-      line-height: 1.6;
-      min-height: 100vh;
-    }
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
 
-    .container {
-      max-width: 480px;
-      margin: 0 auto;
-      padding: 20px;
-    }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
 
-    /* Header */
-    .header {
-      text-align: center;
-      margin-bottom: 30px;
-      padding: 25px 0;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      margin: -20px -20px 30px -20px;
-      border-radius: 0 0 25px 25px;
-      box-shadow: var(--shadow);
-    }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
 
-    .logo {
-      display: inline-flex;
-      align-items: center;
-      gap: 15px;
-      margin-bottom: 15px;
-    }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
 
-    .logo-icon {
-      width: 60px;
-      height: 60px;
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 15px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      font-weight: 700;
-      color: white;
-      backdrop-filter: blur(10px);
-      border: 2px solid rgba(255, 255, 255, 0.3);
-    }
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s ease;
+        }
 
-    .logo-text {
-      color: white;
-      text-align: left;
-    }
+        .nav-menu a:hover {
+            opacity: 0.8;
+        }
 
-    .logo-title {
-      font-size: 28px;
-      font-weight: 700;
-      margin: 0;
-      letter-spacing: 2px;
-    }
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+        }
 
-    .logo-subtitle {
-      font-size: 14px;
-      opacity: 0.9;
-      margin: 0;
-    }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="1.5" fill="rgba(255,255,255,0.1)"/></svg>');
+            opacity: 0.3;
+        }
 
-    .header-badges {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 15px;
-    }
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
 
-    .badge {
-      background: rgba(255, 255, 255, 0.2);
-      color: white;
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-size: 14px;
-      font-weight: 500;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-    }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
 
-    /* Main Content */
-    .hero {
-      background: var(--white);
-      border-radius: 20px;
-      padding: 30px 25px;
-      margin-bottom: 25px;
-      box-shadow: var(--shadow);
-      border: 1px solid var(--border);
-    }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
 
-    .hero h1 {
-      font-size: 26px;
-      font-weight: 700;
-      color: var(--primary);
-      margin: 0 0 15px 0;
-      text-align: center;
-      line-height: 1.3;
-    }
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease-out 0.4s both;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
 
-    .hero-subtitle {
-      font-size: 18px;
-      color: var(--text-light);
-      text-align: center;
-      margin-bottom: 25px;
-      line-height: 1.5;
-    }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(0,0,0,0.3);
+        }
 
-    /* Services */
-    .services {
-      margin: 25px 0;
-    }
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
 
-    .service {
-      background: var(--white);
-      border: 2px solid var(--border);
-      border-radius: 15px;
-      padding: 20px;
-      margin-bottom: 15px;
-      transition: all 0.3s ease;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
 
-    .service:hover {
-      border-color: var(--primary-light);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow);
-    }
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
 
-    .service h3 {
-      font-size: 20px;
-      font-weight: 600;
-      color: var(--primary);
-      margin: 0 0 10px 0;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
 
-    .service-icon {
-      width: 35px;
-      height: 35px;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-    }
+        .section-title p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
 
-    .service p {
-      color: var(--text-light);
-      margin: 0;
-      font-size: 16px;
-      line-height: 1.5;
-    }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 60px;
+        }
 
-    /* Features */
-    .features {
-      background: var(--white);
-      border-radius: 15px;
-      padding: 25px;
-      margin: 20px 0;
-      box-shadow: var(--shadow);
-    }
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-    .features h3 {
-      text-align: center;
-      color: var(--primary);
-      margin-bottom: 20px;
-      font-size: 22px;
-    }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
 
-    .feature {
-      display: flex;
-      align-items: flex-start;
-      gap: 15px;
-      margin-bottom: 15px;
-      padding: 10px;
-    }
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+        }
 
-    .feature-icon {
-      width: 40px;
-      height: 40px;
-      background: linear-gradient(135deg, var(--success), #10b981);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 20px;
-      flex-shrink: 0;
-    }
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
 
-    .feature-text {
-      flex: 1;
-    }
+        .feature-card p {
+            color: #666;
+            line-height: 1.8;
+        }
 
-    .feature h4 {
-      margin: 0 0 5px 0;
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--text);
-    }
+        /* Products Section */
+        .products {
+            padding: 80px 0;
+        }
 
-    .feature p {
-      margin: 0;
-      color: var(--text-light);
-      font-size: 16px;
-    }
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-top: 60px;
+        }
 
-    /* WhatsApp Section */
-    .whatsapp-section {
-      background: linear-gradient(135deg, #25d366, #119686);
-      border-radius: 20px;
-      padding: 30px 25px;
-      text-align: center;
-      margin: 25px 0;
-      box-shadow: var(--shadow-lg);
-      color: white;
-    }
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
 
-    .whatsapp-section h2 {
-      font-size: 24px;
-      margin: 0 0 15px 0;
-      font-weight: 700;
-    }
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
 
-    .whatsapp-section p {
-      font-size: 18px;
-      margin-bottom: 25px;
-      opacity: 0.95;
-      line-height: 1.5;
-    }
+        .product-image {
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
 
-    .whatsapp-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      background: rgba(255, 255, 255, 0.2);
-      color: white;
-      padding: 18px 25px;
-      border-radius: 15px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 18px;
-      backdrop-filter: blur(10px);
-      border: 2px solid rgba(255, 255, 255, 0.3);
-      transition: all 0.3s ease;
-      width: 100%;
-      justify-content: center;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-    }
+        .product-content {
+            padding: 2rem;
+        }
 
-    .whatsapp-btn:hover {
-      background: rgba(255, 255, 255, 0.3);
-      transform: translateY(-2px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-    }
+        .product-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
 
-    .whatsapp-icon {
-      width: 24px;
-      height: 24px;
-    }
+        .product-content p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
 
-    .whatsapp-instruction {
-      margin-top: 20px;
-      font-size: 16px;
-      opacity: 0.9;
-      background: rgba(255, 255, 255, 0.1);
-      padding: 15px;
-      border-radius: 10px;
-    }
+        .product-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
 
-    /* Pricing */
-    .pricing {
-      background: var(--white);
-      border-radius: 15px;
-      padding: 25px;
-      text-align: center;
-      margin: 20px 0;
-      box-shadow: var(--shadow);
-      border: 2px solid var(--primary-light);
-    }
+        .product-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
 
-    .pricing h3 {
-      color: var(--primary);
-      margin-bottom: 15px;
-      font-size: 22px;
-    }
+        /* Process Section */
+        .process {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
 
-    .pricing p {
-      color: var(--text-light);
-      margin: 0;
-      font-size: 16px;
-      line-height: 1.5;
-    }
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 60px;
+        }
 
-    /* Footer */
-    .footer {
-      text-align: center;
-      padding: 30px 0;
-      color: var(--text-light);
-      font-size: 16px;
-      border-top: 1px solid var(--border);
-      margin-top: 40px;
-    }
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
 
-    .footer-title {
-      font-weight: 600;
-      color: var(--primary);
-      margin-bottom: 10px;
-    }
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1.5rem;
+        }
 
-    /* Animations */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+        .process-step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
 
-    .service, .features, .whatsapp-section {
-      animation: fadeInUp 0.6s ease forwards;
-    }
+        .process-step p {
+            color: #666;
+            line-height: 1.6;
+        }
 
-    /* Responsive */
-    @media (max-width: 400px) {
-      .container {
-        padding: 15px;
-      }
-      
-      .hero {
-        padding: 25px 20px;
-      }
-      
-      .hero h1 {
-        font-size: 24px;
-      }
-      
-      .service {
-        padding: 18px;
-      }
-    }
-    .blind img {
-    max-width: 100%;  /* image won’t exceed section width */
-    height: auto;     /* keeps aspect ratio */
-    display: block;   /* removes small gaps under image */
-}
-.blind {
-    text-align: center; /* centers inline elements like img */
-}
-.blind {
-    overflow: hidden;  /* hides any overflowing part of the image */
-}
+        /* Footer */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 60px 0 30px;
+        }
 
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
 
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #ecf0f1;
+        }
 
-  </style>
+        .footer-section p,
+        .footer-section a {
+            color: #bdc3c7;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #34495e;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            text-align: center;
+            color: #bdc3c7;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .features-grid,
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
     <!-- Header -->
     <header class="header">
-      <div class="logo">
-        <div class="logo-icon">T</div>
-        <div class="logo-text">
-          <h1 class="logo-title">T.U.R.O.S</h1>
-          <p class="logo-subtitle">Trust • Unique • Reliable • Original Service</p>
+        <div class="nav-container">
+            <a href="#" class="logo">CareOps</a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#process">Process</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-      </div>
-      <div class="header-badges">
-        <div class="badge">✓ Clear DBS Checked</div>
-        <div class="badge">🛡️ Fully Insured</div>
-        <div class="badge">⭐ Trusted Service</div>
-      </div>
     </header>
 
-    <!-- Main Content -->
-    <main>
-      <!-- Hero Section -->
-      <section class="hero">
-        <h1>Safe Home Support for Seniors</h1>
-        <p class="hero-subtitle">Experienced handyman and home support specialist with extensive work in nursing and care homes. Skilled in providing practical, non-medical assistance tailored to the needs of the elderly. Friendly, respectful, and reliable, committed to helping you maintain independence and comfort at home.</p>
-      </section>
-
-      <!-- Services -->
-      <section class="services">
-        <div class="service">
-          <h3>
-            <div class="service-icon">🏠</div>
-            Home Safety Improvements
-          </h3>
-          <p>Grab rails, non-slip surfaces, ramps, and shower adaptations to make your home safer and more comfortable.</p>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Complete Care Home Management Solution</h1>
+            <p>Streamline maintenance schedules, cleaning tasks, and inventory management for nursing homes and care facilities with our comprehensive digital platform.</p>
+            <a href="#contact" class="cta-button">Request Free Demo</a>
         </div>
+    </section>
 
-        <div class="service">
-          <h3>
-            <div class="service-icon">🔧</div>
-            Trusted Handyman Services
-          </h3>
-          <p>Small repairs, furniture assembly, secure shelving, and general maintenance - all done with care and respect.</p>
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose CareOps</h2>
+                <p>Our specialized platform helps care homes maintain the highest standards of cleanliness, safety, and compliance through automated task management and real-time monitoring.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔧</div>
+                    <h3>Maintenance Scheduling</h3>
+                    <p>Automated weekly and monthly maintenance task scheduling with reminders for equipment checks, safety inspections, and facility upkeep to ensure compliance with care home regulations.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧽</div>
+                    <h3>Cleaning Task Management</h3>
+                    <p>Digital checklists for daily cleaning tasks, deep cleaning schedules, and room-by-room hygiene monitoring with photo verification and time-stamped completion records.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📦</div>
+                    <h3>Inventory Control</h3>
+                    <p>Real-time stock monitoring for cleaning supplies, incontinence products, and essential care items with automated reorder alerts and usage tracking by department.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>Staff Management</h3>
+                    <p>Manager dashboard to monitor cleaner and maintenance staff performance, view task completion rates, and ensure all duties are completed to standard.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Mobile App Access</h3>
+                    <p>Easy-to-use mobile application for staff to sign off on completed tasks, update inventory levels, and report issues in real-time from anywhere in the facility.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Compliance Reporting</h3>
+                    <p>Automated compliance reports and audit trails for regulatory inspections, with detailed logs of all maintenance, cleaning, and inventory activities.</p>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="service">
-          <h3>
-            <div class="service-icon">📱</div>
-            Technology & Admin Help
-          </h3>
-          <p>Phone setup, video calling, online tasks, and digital support explained clearly and patiently.</p>
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Care Management Solutions</h2>
+                <p>Choose the perfect solution for your care home, from small residential facilities to large nursing home chains.</p>
+            </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">🏠</div>
+                    <div class="product-content">
+                        <h3>CareOps Essential</h3>
+                        <p>Perfect for small to medium care homes. Includes maintenance scheduling, cleaning checklists, basic inventory tracking, and staff task management. Cloud-based solution with mobile app access for all team members.</p>
+                        <a href="#" class="product-link">Learn More</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">🏥</div>
+                    <div class="product-content">
+                        <h3>CareOps Enterprise</h3>
+                        <p>Comprehensive solution for large nursing homes and care chains. Advanced inventory management, multi-facility oversight, detailed compliance reporting, manager dashboards, and integration with existing care management systems.</p>
+                        <a href="#" class="product-link">Learn More</a>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="service">
-          <h3>
-            <div class="service-icon">🤝</div>
-            Companion Support
-          </h3>
-          <p>Shopping assistance, appointment support, and friendly visits (non-medical care).</p>
+    <!-- Process Section -->
+    <section class="process" id="process">
+        <div class="container">
+            <div class="section-title">
+                <h2>Implementation Process</h2>
+                <p>Our proven 4-step process ensures smooth deployment and maximum adoption across your care facility.</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>System Setup</h3>
+                    <p>We configure CareOps to match your facility's specific maintenance schedules, cleaning protocols, and inventory requirements, ensuring seamless integration with your existing workflows.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Staff Training</h3>
+                    <p>Comprehensive training for managers, cleaning staff, and maintenance teams on using the mobile app, task completion, inventory updates, and reporting features.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Go-Live Support</h3>
+                    <p>Dedicated on-site and remote support during the first weeks of operation to ensure smooth adoption, answer questions, and fine-tune the system based on real-world usage.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Ongoing Success</h3>
+                    <p>Regular check-ins, system updates, and best practice sessions to optimize your care home operations and ensure you're maximizing the benefits of CareOps.</p>
+                </div>
+            </div>
         </div>
-      </section>
-
-      <!-- Features -->
-      <section class="features">
-        <h3>Why Choose TUROS?</h3>
-        
-        <div class="feature">
-          <div class="feature-icon">✓</div>
-          <div class="feature-text">
-            <h4>Clear DBS Checked & Insured</h4>
-            <p>Fully vetted and trusted by local families</p>
-          </div>
-        </div>
-
-        <div class="feature">
-          <div class="feature-icon">⏰</div>
-          <div class="feature-text">
-            <h4>Flexible Scheduling</h4>
-            <p>Evening and weekend appointments available</p>
-          </div>
-        </div>
-
-        <div class="feature">
-          <div class="feature-icon">📍</div>
-          <div class="feature-text">
-            <h4>Local & Reliable</h4>
-            <p>Quick response times and repeat customer discounts</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- WhatsApp Contact -->
-      <section class="whatsapp-section">
-        <h2>📱 Contact TUROS</h2>
-        <p>Quick and easy WhatsApp messaging - no phone calls needed!</p>
-        
-        <!-- IMPORTANT: Replace 44XXXXXXXXX with your actual WhatsApp number -->
-        <a class="whatsapp-btn" href="https://wa.me/447775877746?text=Hello%20TUROS%20-%20I%20need%20help%20with%20home%20support%20services" target="_blank" rel="noopener noreferrer">
-          <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="white">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.149-.672.149-.198.297-.768.967-.942 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.074-.149-.672-1.612-.922-2.214-.242-.577-.487-.5-.672-.51-.173-.008-.372-.01-.57-.01-.198 0-.521.074-.794.372-.273.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-          </svg>
-          Message on WhatsApp
-        </a>
-        
-        <div class="whatsapp-instruction">
-          <strong>Just tap the button above!</strong><br>
-          I usually reply within a few hours with a friendly message.
-        </div>
-      </section>
-
-      <!-- Pricing -->
-      <section class="pricing">
-        <h3>💰 Simple, Fair Pricing</h3>
-        <p><strong>Free initial WhatsApp consultation</strong><br><br>
-        Home visit assessment: £20<br>
-        (Deducted from final quote if you proceed)<br><br>
-        <em>No hidden fees • No call-out charges</em></p>
-      </section>
-      <section class="blind">
-    <img src="/blind.jpg" alt="Blind" />
-</section>
-
-<style>
-.blind {
-    text-align: center;
-}
-
-.blind img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-</style>
-
-      
-    </main>
+    </section>
 
     <!-- Footer -->
-    <footer class="footer">
-      <div class="footer-title">TUROS - Local Senior Home Support – You’re Not Alone.</div>
-      <div>Houlton, Rugby</div>
-      <div style="margin-top: 15px;">&copy; <span id="year"></span> TUROS. All rights reserved.</div>
-      <a href="/privacy.html">Privacy</a>
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p>Ready to streamline your care home operations?</p>
+                    <p>Email: info@careops.co.uk</p>
+                    <p>Phone: +44 (0) 800 123 4567</p>
+                    <p>Support: support@careops.co.uk</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Solutions</h3>
+                    <p><a href="#">CareOps Essential</a></p>
+                    <p><a href="#">CareOps Enterprise</a></p>
+                    <p><a href="#">Mobile App</a></p>
+                    <p><a href="#">API Integration</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <p><a href="#">User Guide</a></p>
+                    <p><a href="#">Training Videos</a></p>
+                    <p><a href="#">Compliance Tools</a></p>
+                    <p><a href="#">Support Center</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <p><a href="#">About CareOps</a></p>
+                    <p><a href="#">Care Home Success Stories</a></p>
+                    <p><a href="#">Careers</a></p>
+                    <p><a href="#">Privacy Policy</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CareOps. All rights reserved. | careops.co.uk | Designed for Care Homes & Nursing Facilities</p>
+            </div>
+        </div>
     </footer>
-  </div>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    
-    // Add smooth scrolling and animations
-    window.addEventListener('load', function() {
-      const elements = document.querySelectorAll('.service, .features, .whatsapp-section');
-      elements.forEach((el, index) => {
-        el.style.animationDelay = (index * 0.1) + 's';
-      });
-    });
-  </script>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(102, 126, 234, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.feature-card, .product-card, .process-step').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
