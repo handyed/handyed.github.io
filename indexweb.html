@@ -520,6 +520,31 @@
                 gap: 2rem;
             }
         }
+
+        .cellpoza {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.cellpoza img {
+    max-width: 50%;
+    height: auto;
+    border-radius: 15px; /* optional, for style */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* optional */
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .cellpoza {
+        margin-top: 1.5rem;
+    }
+
+    .cellpoza img {
+        width: 100%;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -542,6 +567,9 @@
         <div class="hero-buttons">
             <a href="#demo" class="btn-primary">Start Free Trial</a>
             <a href="#features" class="btn-secondary">Learn More</a>
+        </div>
+        <div class="cellpoza">
+            <img src="/cell.jpg">
         </div>
     </section>
 
@@ -587,7 +615,7 @@
     </section>
 
     <section class="section benefits" id="benefits">
-        <h2 class="section-title">Why Care Homes Choose CareTrack Pro</h2>
+        <h2 class="section-title">Why Care Homes Choose NCHM</h2>
         
         <div class="benefit-item">
             <div class="benefit-icon">⚡</div>
