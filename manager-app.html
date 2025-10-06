@@ -626,6 +626,11 @@
     </style>
 </head>
 <body>
+    <!-- Display Maintenance Person Name -->
+<div id="maintenanceInfo" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px; text-align: center; margin-bottom: 20px; border-radius: 10px;">
+    <h3 style="margin: 0; font-size: 18px;">Maintenance Technician: <span id="technicianName">Loading...</span></h3>
+    <p style="margin: 5px 0 0 0; font-size: 12px; opacity: 0.9;" id="loginTime"></p>
+</div>
     <div class="app-container">
         <div class="header no-print">
             <div class="header-content">
@@ -808,9 +813,9 @@
         </div>
 
         <div class="bottom-nav no-print">
-            <button class="nav-btn active" onclick="showView('dashboard')">
-                <div style="font-size: 1.5rem;">🏠</div>
-                <div>Home</div>
+            <button onclick="window.location.href='login.html'">
+                     🏠 Home
+            </button>
             </button>
             <button class="nav-btn" onclick="showView('checklist')">
                 <div style="font-size: 1.5rem;">📝</div>
@@ -1509,5 +1514,25 @@
 
         init();
     </script>
+    <script>
+// Get the maintenance person's name from login
+window.addEventListener('DOMContentLoaded', function() {
+    const maintenanceName = localStorage.getItem('maintenanceName');
+    const loginTime = localStorage.getItem('loginTime');
+    
+    if (maintenanceName) {
+        document.getElementById('technicianName').textContent = maintenanceName;
+        
+        if (loginTime) {
+            const date = new Date(loginTime);
+            document.getElementById('loginTime').textContent = 
+                'Logged in: ' + date.toLocaleDateString() + ' at ' + date.toLocaleTimeString();
+        }
+    } else {
+        // If no name found, redirect back to login
+        window.location.href = 'login.html';
+    }
+});
+</script>
 </body>
 </html>
