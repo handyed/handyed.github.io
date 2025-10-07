@@ -5,6 +5,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NCHM- Maintenance App</title>
     <style>
+
+        /* ADD THIS AT THE TOP OF YOUR <style> SECTION */
+
+/* Prevent horizontal scrolling on mobile */
+
+    /* Prevent horizontal scrolling on mobile */
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+        position: relative;
+    }
+
+    body {
+        max-width: 100vw;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+
+body {
+    max-width: 100vw;
+}
+
+/* Ensure all containers respect viewport width */
+* {
+    max-width: 100%;
+}
+
+.app-container {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 768px;
+}
+
+/* Fix any elements that might be too wide */
+.content,
+.header,
+.bottom-nav,
+.modal-content,
+.manager-card,
+.area-card,
+.check-item-card {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Prevent text from causing overflow */
+.page-title,
+.area-card,
+.manager-card h2,
+.manager-card p,
+.manager-card div {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+/* Fix inputs and textareas */
+input,
+textarea,
+.modal-input,
+.notes-textarea {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Ensure bottom nav doesn't overflow */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    border-top: 1px solid #e2e8f0;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+    max-width: 768px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    z-index: 100;
+}
         * {
             margin: 0;
             padding: 0;
@@ -299,19 +388,6 @@
             color: white;
         }
 
-        .bottom-nav {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: white;
-            border-top: 1px solid #e2e8f0;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
-            max-width: 768px;
-            margin: 0 auto;
-            display: flex;
-            z-index: 100;
-        }
 
         .nav-btn {
             flex: 1;
@@ -398,35 +474,57 @@
             50% { opacity: 0.7; }
         }
 
+        /* ADD THIS CSS - Find the calendar-grid section and replace/add this: */
+
+    .calendar-grid {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 0.5rem;
+        margin-top: 1rem;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    @media (max-width: 640px) {
         .calendar-grid {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 0.5rem;
-            margin-top: 1rem;
+            gap: 0.2rem !important; /* Smaller gap on mobile */
+            width: 100%;
+            max-width: 100%;
         }
-
-        @media (max-width: 640px) {
-            .calendar-grid {
-                gap: 0.25rem;
-            }
-        }
-
+        
         .calendar-day {
-            aspect-ratio: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            font-weight: 500;
+            font-size: 0.65rem !important; /* Smaller text */
+            padding: 0.25rem; /* Less padding */
+            min-width: 0; /* Allow shrinking */
         }
-
-        @media (max-width: 640px) {
-            .calendar-day {
-                font-size: 0.75rem;
-            }
+        
+        /* Reduce padding on manager card with calendar */
+        .manager-card:has(.calendar-grid) {
+            padding: 0.75rem !important;
         }
+    }
 
+    @media (max-width: 400px) {
+        .calendar-grid {
+            gap: 0.1rem !important; /* Even smaller gap on very small screens */
+        }
+        
+        .calendar-day {
+            font-size: 0.6rem !important;
+            padding: 0.2rem;
+        }
+    }
+
+    @media (max-width: 360px) {
+        .calendar-grid {
+            gap: 0.05rem !important; /* Minimal gap on tiny screens */
+        }
+        
+        .calendar-day {
+            font-size: 0.55rem !important;
+            padding: 0.15rem;
+        }
+    }
         .calendar-day.header {
             background: #f7fafc;
             color: #718096;
@@ -623,88 +721,79 @@
         .print-only {
             display: none;
         }
-        /* Mobile fixes for Manager Dashboard */
-@media (max-width: 640px) {
-    /* Reduce large font sizes */
-    #managerTotalPercent {
-        font-size: 1.8rem !important;
-    }
-    
-    #managerCompleted {
-        font-size: 1.2rem !important;
-    }
-    
-    #avgDailyCompletion,
-    #onTrack {
-        font-size: 1.3rem !important;
-    }
-    
-    /* Make "Days Remaining" section wrap better */
-    .manager-card > div:first-child {
-        flex-wrap: wrap;
-        gap: 0.5rem;
-    }
-    
-    /* Smaller calendar grid gap */
-    .calendar-grid {
-        gap: 0.15rem !important;
-    }
-    
-    /* Smaller calendar day text */
-    .calendar-day {
-        font-size: 0.7rem !important;
-    }
-    
-    /* Performance metrics - stack on very small screens */
-    @media (max-width: 400px) {
-        .manager-card > div > div[style*="grid-template-columns"] {
-            grid-template-columns: 1fr !important;
+        
+        @media (max-width: 640px) {
+            #managerTotalPercent {
+                font-size: 1.8rem !important;
+            }
+            
+            #managerCompleted {
+                font-size: 1.2rem !important;
+            }
+            
+            #avgDailyCompletion,
+            #onTrack {
+                font-size: 1.3rem !important;
+            }
+            
+            .manager-card > div:first-child {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+            
+            .calendar-grid {
+                gap: 0.15rem !important;
+            }
+            
+            .calendar-day {
+                font-size: 0.7rem !important;
+            }
+            
+            @media (max-width: 400px) {
+                .manager-card > div > div[style*="grid-template-columns"] {
+                    grid-template-columns: 1fr !important;
+                }
+            }
+            
+            .manager-card > div[style*="flex-wrap"] {
+                font-size: 0.7rem !important;
+            }
+            
+            .manager-card h2,
+            .manager-card p,
+            .manager-card div {
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+            
+            .area-progress-item {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+            
+            .area-progress-item > div:first-child {
+                flex: 1;
+                min-width: 0;
+            }
         }
-    }
-    
-    /* Reduce legend text size */
-    .manager-card > div[style*="flex-wrap"] {
-        font-size: 0.7rem !important;
-    }
-    
-    /* Ensure text wraps and doesn't overflow */
-    .manager-card h2,
-    .manager-card p,
-    .manager-card div {
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-    }
-    
-    /* Adjust area progress items */
-    .area-progress-item {
-        flex-wrap: wrap;
-        gap: 0.5rem;
-    }
-    
-    .area-progress-item > div:first-child {
-        flex: 1;
-        min-width: 0;
-    }
-}
 
-/* Extra small screens */
-@media (max-width: 380px) {
-    #managerTotalPercent {
-        font-size: 1.5rem !important;
-    }
-    
-    .page-title {
-        font-size: 1.1rem !important;
-    }
-}
+        @media (max-width: 380px) {
+            #managerTotalPercent {
+                font-size: 1.5rem !important;
+            }
+            
+            .page-title {
+                font-size: 1.1rem !important;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Display Maintenance Person Name -->
-<div id="maintenanceInfo" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px; text-align: center; margin-bottom: 20px; border-radius: 10px;">
-    <h3 style="margin: 0; font-size: 18px;">Maintenance Technician: <span id="technicianName">Loading...</span></h3>
-    <p style="margin: 5px 0 0 0; font-size: 12px; opacity: 0.9;" id="loginTime"></p>
-</div>
+    <div id="maintenanceInfo" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px; text-align: center; margin-bottom: 20px; border-radius: 10px;">
+        <h3 style="margin: 0; font-size: 18px;">Maintenance Technician: <span id="technicianName">Loading...</span></h3>
+        <p style="margin: 5px 0 0 0; font-size: 12px; opacity: 0.9;" id="loginTime"></p>
+    </div>
+    
     <div class="app-container">
         <div class="header no-print">
             <div class="header-content">
@@ -886,6 +975,20 @@
             </div>
         </div>
 
+        <!-- NEW MANAGER PASSWORD MODAL -->
+        <div id="managerPasswordModal" class="modal">
+            <div class="modal-content">
+                <h2 style="font-size: 1.3rem; font-weight: 600; margin-bottom: 0.5rem;">Manager Access</h2>
+                <p style="color: #718096; font-size: 0.9rem;">Enter manager password to continue</p>
+                <input type="password" id="managerPasswordInput" class="modal-input" placeholder="Enter manager password">
+                <div id="managerErrorMsg" style="color: #ef4444; font-size: 0.9rem; margin-top: 0.5rem; display: none;">❌ Incorrect password!</div>
+                <div class="modal-buttons">
+                    <button class="btn-secondary" onclick="closeManagerPasswordModal()">Cancel</button>
+                    <button class="btn-primary" onclick="verifyManagerPassword()">Access</button>
+                </div>
+            </div>
+        </div>
+
         <div class="bottom-nav no-print">
             <button onclick="window.location.href='login.html'">
                      🏠 Home
@@ -899,13 +1002,16 @@
                 <div style="font-size: 1.5rem;">📊</div>
                 <div>Reports</div>
             </button>
-            <button class="nav-btn" onclick="showView('manager')">
+            <button class="nav-btn" onclick="showManagerPasswordModal()">
                 <div style="font-size: 1.5rem;">👔</div>
                 <div>Manager</div>
             </button>
             <button class="nav-btn" onclick="showView('archive')">
                 <div style="font-size: 1.5rem;">📦</div>
                 <div>Archive</div>
+            </button>
+            <button class="btn btn-primary" onclick="showPhotoArchive()" style="margin-bottom: 1.5rem; width: 100%; background: #10b981;">
+                📷 View Photo Archive
             </button>
         </div>
     </div>
@@ -946,6 +1052,7 @@
         let monthlyArchives = [];
         let pendingUncheck = null;
         const UNCHECK_PASSWORD = 'manager123';
+        const MANAGER_PASSWORD = 'manager123';
 
         function init() {
             renderAreas();
@@ -1149,10 +1256,148 @@
 
         function addPhoto(areaId, item) {
             const key = areaId + '-' + item;
-            photos[key] = (photos[key] || 0) + 1;
-            renderCheckItems();
+            
+            // Check if on mobile or desktop
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            
+            if (isMobile) {
+                // Mobile: Use file input with camera
+                const input = document.createElement('input');
+                input.type = 'file';
+                input.accept = 'image/*';
+                input.capture = 'camera';
+                
+                input.onchange = function(e) {
+                    const file = e.target.files[0];
+                    if (file) {
+                        photos[key] = (photos[key] || 0) + 1;
+                        renderCheckItems();
+                        alert('✅ Photo captured!');
+                    }
+                };
+                
+                input.click();
+            } else {
+                // Desktop: Open webcam
+                openWebcam(key);
+            }
         }
 
+        function openWebcam(key) {
+            // Create modal for webcam
+            const modal = document.createElement('div');
+            modal.className = 'modal show';
+            modal.innerHTML = `
+                <div class="modal-content" style="max-width: 600px;">
+                    <h2 style="margin-bottom: 1rem;">Take Photo</h2>
+                    <video id="webcamVideo" autoplay style="width: 100%; border-radius: 8px; background: #000;"></video>
+                    <canvas id="photoCanvas" style="display: none;"></canvas>
+                    <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
+                        <button class="btn-primary" onclick="capturePhoto('${key}')" style="flex: 1;">
+                            📷 Capture
+                        </button>
+                        <button class="btn-secondary" onclick="closeWebcam()" style="flex: 1;">
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            
+            // Start webcam
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(stream => {
+                    window.currentStream = stream;
+                    document.getElementById('webcamVideo').srcObject = stream;
+                })
+                .catch(err => {
+                    alert('❌ Camera access denied or not available');
+                    closeWebcam();
+                });
+        }
+
+                    function capturePhoto(key) {
+                const video = document.getElementById('webcamVideo');
+                const canvas = document.getElementById('photoCanvas');
+                const context = canvas.getContext('2d');
+                
+                canvas.width = video.videoWidth;
+                canvas.height = video.videoHeight;
+                context.drawImage(video, 0, 0);
+                
+                const photoData = canvas.toDataURL('image/jpeg', 0.8);
+                
+                if (!window.photoArchive) window.photoArchive = [];
+                window.photoArchive.push({
+                    key: key,
+                    data: photoData,
+                    timestamp: new Date().toISOString(),
+                    date: new Date().toLocaleDateString(),
+                    time: new Date().toLocaleTimeString()
+                });
+                
+                photos[key] = (photos[key] || 0) + 1;
+                renderCheckItems();
+                closeWebcam();
+                alert('✅ Photo saved to archive!');
+            }
+
+        function closeWebcam() {
+            if (window.currentStream) {
+                window.currentStream.getTracks().forEach(track => track.stop());
+            }
+            const modal = document.querySelector('.modal.show');
+            if (modal) modal.remove();
+        }
+                        // Initialize photo archive
+            if (!window.photoArchive) window.photoArchive = [];
+
+            function showPhotoArchive() {
+                if (!window.photoArchive || window.photoArchive.length === 0) {
+                    alert('📷 No photos in archive yet. Take some photos first!');
+                    return;
+                }
+                
+                const modal = document.createElement('div');
+                modal.className = 'modal show';
+                
+                let photosHTML = window.photoArchive.map((photo, index) => `
+                    <div style="margin-bottom: 1.5rem; border: 2px solid #e2e8f0; border-radius: 12px; padding: 1rem; background: #f7fafc;">
+                        <img src="${photo.data}" style="width: 100%; border-radius: 8px; margin-bottom: 0.75rem;">
+                        <div style="display: flex; justify-content: space-between;">
+                            <div>
+                                <p style="font-weight: 600;">Photo ${index + 1}</p>
+                                <p style="font-size: 0.85rem; color: #718096;">${photo.date} • ${photo.time}</p>
+                            </div>
+                            <button onclick="deletePhoto(${index})" style="padding: 0.5rem 1rem; background: #fee2e2; color: #dc2626; border: none; border-radius: 6px; cursor: pointer;">
+                                🗑️ Delete
+                            </button>
+                        </div>
+                    </div>
+                `).join('');
+                
+                modal.innerHTML = `
+                    <div class="modal-content" style="max-width: 700px; max-height: 90vh; overflow-y: auto;">
+                        <h2 style="margin-bottom: 1rem;">📷 Photo Archive (${window.photoArchive.length} photos)</h2>
+                        ${photosHTML}
+                        <button class="btn-secondary" onclick="this.closest('.modal').remove()" style="width: 100%;">
+                            Close
+                        </button>
+                    </div>
+                `;
+                
+                document.body.appendChild(modal);
+            }
+
+            function deletePhoto(index) {
+                if (confirm('Delete this photo?')) {
+                    window.photoArchive.splice(index, 1);
+                    document.querySelector('.modal.show').remove();
+                    if (window.photoArchive.length > 0) {
+                        showPhotoArchive();
+                    }
+                }
+            }
         function updateWaterTemp(itemKey, value) {
             waterTemperatures[itemKey + '-waterTemp'] = value;
             document.getElementById('temp-' + itemKey).textContent = value;
@@ -1580,33 +1825,77 @@
             return html;
         }
 
+        // Manager Password Functions
+        function showManagerPasswordModal() {
+            const modal = document.getElementById('managerPasswordModal');
+            const input = document.getElementById('managerPasswordInput');
+            const errorMsg = document.getElementById('managerErrorMsg');
+            
+            if (modal && input && errorMsg) {
+                modal.classList.add('show');
+                input.value = '';
+                errorMsg.style.display = 'none';
+                setTimeout(() => input.focus(), 100);
+            } else {
+                console.error('Manager password modal elements not found');
+                alert('Error: Modal not found. Please refresh the page.');
+            }
+        }
+
+        function closeManagerPasswordModal() {
+            const modal = document.getElementById('managerPasswordModal');
+            const input = document.getElementById('managerPasswordInput');
+            const errorMsg = document.getElementById('managerErrorMsg');
+            
+            if (modal) modal.classList.remove('show');
+            if (input) input.value = '';
+            if (errorMsg) errorMsg.style.display = 'none';
+        }
+
+        function verifyManagerPassword() {
+            const inputPassword = document.getElementById('managerPasswordInput').value;
+            
+            if (inputPassword === MANAGER_PASSWORD) {
+                closeManagerPasswordModal();
+                showView('manager');
+            } else {
+                document.getElementById('managerErrorMsg').style.display = 'block';
+                document.getElementById('managerPasswordInput').value = '';
+                document.getElementById('managerPasswordInput').focus();
+            }
+        }
+
         document.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter' && document.getElementById('passwordModal').classList.contains('show')) {
-                verifyPassword();
+            if (e.key === 'Enter') {
+                if (document.getElementById('passwordModal').classList.contains('show')) {
+                    verifyPassword();
+                }
+                if (document.getElementById('managerPasswordModal').classList.contains('show')) {
+                    verifyManagerPassword();
+                }
             }
         });
 
         init();
     </script>
-    <script>
-// Get the maintenance person's name from login
-window.addEventListener('DOMContentLoaded', function() {
-    const maintenanceName = localStorage.getItem('maintenanceName');
-    const loginTime = localStorage.getItem('loginTime');
     
-    if (maintenanceName) {
-        document.getElementById('technicianName').textContent = maintenanceName;
-        
-        if (loginTime) {
-            const date = new Date(loginTime);
-            document.getElementById('loginTime').textContent = 
-                'Logged in: ' + date.toLocaleDateString() + ' at ' + date.toLocaleTimeString();
-        }
-    } else {
-        // If no name found, redirect back to login
-        window.location.href = 'login.html';
-    }
-});
-</script>
+    <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            const maintenanceName = localStorage.getItem('maintenanceName');
+            const loginTime = localStorage.getItem('loginTime');
+            
+            if (maintenanceName) {
+                document.getElementById('technicianName').textContent = maintenanceName;
+                
+                if (loginTime) {
+                    const date = new Date(loginTime);
+                    document.getElementById('loginTime').textContent = 
+                        'Logged in: ' + date.toLocaleDateString() + ' at ' + date.toLocaleTimeString();
+                }
+            } else {
+                window.location.href = 'login.html';
+            }
+        });
+    </script>
 </body>
 </html>
