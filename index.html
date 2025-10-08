@@ -453,24 +453,23 @@
         <p style="font-size: 20px; color: #ddd; max-width: 700px; margin: 0 auto;">
             Submit your application below. Only the most exceptional candidates will be contacted for interviews. Please include your portfolio, resume, or LinkedIn profile.
         </p>
-        <form class="contact-form">
-            <div class="form-group">
-                <input type="text" placeholder="Full Name" required>
-            </div>
-            <div class="form-group">
-                <input type="email" placeholder="Email Address" required>
-            </div>
-            <div class="form-group">
-                <input type="text" placeholder="Area of Expertise">
-            </div>
-            <div class="form-group">
-                <input type="text" placeholder="LinkedIn / Portfolio URL">
-            </div>
-            <div class="form-group">
-                <textarea placeholder="Tell me why you're exceptional and what value you bring to my ventures..."></textarea>
-            </div>
-            <button type="submit" class="cta-button">Submit Application</button>
-        </form>
+        <!-- modify this form HTML and place wherever you want your form -->
+            <form
+            action="https://formspree.io/f/xrbyaore"
+            method="POST"
+            >
+            <label>
+                Your email:
+                <input type="email" name="email">
+            </label>
+            <label>
+                Your message:
+                <textarea name="message"></textarea>
+            </label>
+            <!-- your other form fields go here -->
+            <button type="submit">Send</button>
+            </form>
+
     </section>
 
     <footer>
