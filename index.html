@@ -752,6 +752,110 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+
+        .side-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    height: 100vh;
+    background: white;
+    box-shadow: -4px 0 20px rgba(0,0,0,0.15);
+    z-index: 2000;
+    transition: right 0.3s ease;
+    overflow-y: auto;
+        }
+
+        .side-menu.open {
+            right: 0;
+        }
+
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1999;
+            display: none;
+            backdrop-filter: blur(2px);
+        }
+
+        .menu-overlay.show {
+            display: block;
+        }
+
+        .menu-header {
+            background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+            color: white;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .menu-close {
+            background: rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.3);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .menu-close:hover {
+            background: rgba(255,255,255,0.3);
+            transform: rotate(90deg);
+        }
+
+        .menu-item {
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .menu-item:hover {
+            background: #f8fafc;
+            padding-left: 2rem;
+        }
+
+        .menu-item-icon {
+            font-size: 1.5rem;
+            width: 32px;
+        }
+
+        .menu-item-text {
+            flex: 1;
+        }
+
+        .menu-item-title {
+            font-weight: 700;
+            color: #0f172a;
+            font-size: 1rem;
+        }
+
+        .menu-item-desc {
+            font-size: 0.85rem;
+            color: #64748b;
+            margin-top: 0.25rem;
+        }
+
+
+
+
+
+
     </style>
 </head>
 <body>
@@ -962,6 +1066,65 @@
                 <div class="modal-buttons">
                     <button class="btn-secondary" onclick="closeManagerPasswordModal()">Cancel</button>
                     <button class="btn-primary" onclick="verifyManagerPassword()">Access</button>
+                </div>
+            </div>
+        </div>
+                <!-- Side Menu -->
+        <div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
+        <div class="side-menu" id="sideMenu">
+            <div class="menu-header">
+                <div>
+                    <h2 style="font-size: 1.3rem; font-weight: 800; margin-bottom: 0.25rem;">Menu</h2>
+                    <p style="font-size: 0.85rem; opacity: 0.95;">Settings & Options</p>
+                </div>
+                <button class="menu-close" onclick="closeMenu()">✕</button>
+            </div>
+
+            <div class="menu-item" onclick="showChangePassword()">
+                <div class="menu-item-icon">🔐</div>
+                <div class="menu-item-text">
+                    <div class="menu-item-title">Change Passwords</div>
+                    <div class="menu-item-desc">Update manager & uncheck passwords</div>
+                </div>
+            </div>
+
+            <div class="menu-item" onclick="showHelp()">
+                <div class="menu-item-icon">❓</div>
+                <div class="menu-item-text">
+                    <div class="menu-item-title">Help & Instructions</div>
+                    <div class="menu-item-desc">How to use this app</div>
+                </div>
+            </div>
+
+            <div class="menu-item" onclick="exportData()">
+                <div class="menu-item-icon">📥</div>
+                <div class="menu-item-text">
+                    <div class="menu-item-title">Export Data</div>
+                    <div class="menu-item-desc">Download backup as JSON</div>
+                </div>
+            </div>
+
+            <div class="menu-item" onclick="importData()">
+                <div class="menu-item-icon">📤</div>
+                <div class="menu-item-text">
+                    <div class="menu-item-title">Import Data</div>
+                    <div class="menu-item-desc">Restore from backup file</div>
+                </div>
+            </div>
+
+            <div class="menu-item" onclick="showAbout()">
+                <div class="menu-item-icon">ℹ️</div>
+                <div class="menu-item-text">
+                    <div class="menu-item-title">About</div>
+                    <div class="menu-item-desc">App version & information</div>
+                </div>
+            </div>
+
+            <div class="menu-item" onclick="clearAllData()" style="border-bottom: none;">
+                <div class="menu-item-icon">🗑️</div>
+                <div class="menu-item-text">
+                    <div class="menu-item-title" style="color: #ef4444;">Clear All Data</div>
+                    <div class="menu-item-desc">Reset app to default state</div>
                 </div>
             </div>
         </div>
@@ -1518,8 +1681,250 @@
         }
 
         function toggleMenu() {
-            alert('Menu functionality - Add settings, help, or other options here');
+    document.getElementById('sideMenu').classList.add('open');
+    document.getElementById('menuOverlay').classList.add('show');
+}
+
+function closeMenu() {
+    document.getElementById('sideMenu').classList.remove('open');
+    document.getElementById('menuOverlay').classList.remove('show');
+}
+
+function showChangePassword() {
+    closeMenu();
+    const modal = document.createElement('div');
+    modal.className = 'modal show';
+    modal.innerHTML = `
+        <div class="modal-content">
+            <h2 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; color: #0f172a;">Change Passwords</h2>
+            
+            <label style="font-weight: 600; color: #475569; font-size: 0.95rem;">Manager Password</label>
+            <input type="password" id="newManagerPass" class="modal-input" placeholder="Enter new manager password" style="margin-bottom: 1rem;">
+            
+            <label style="font-weight: 600; color: #475569; font-size: 0.95rem;">Uncheck Password</label>
+            <input type="password" id="newUncheckPass" class="modal-input" placeholder="Enter new uncheck password">
+            
+            <div style="background: #fef3c7; padding: 1rem; border-radius: 8px; margin-top: 1rem; border-left: 4px solid #f59e0b;">
+                <p style="font-size: 0.9rem; color: #92400e; font-weight: 600;">
+                    ⚠️ Remember your new passwords! They cannot be recovered.
+                </p>
+            </div>
+            
+            <div class="modal-buttons">
+                <button class="btn-secondary" onclick="this.closest('.modal').remove()">Cancel</button>
+                <button class="btn-primary" onclick="saveNewPasswords()">Save Changes</button>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(modal);
+}
+
+function saveNewPasswords() {
+    const managerPass = document.getElementById('newManagerPass').value;
+    const uncheckPass = document.getElementById('newUncheckPass').value;
+    
+    if (managerPass) {
+        localStorage.setItem('MANAGER_PASSWORD', managerPass);
+        MANAGER_PASSWORD = managerPass;
+    }
+    
+    if (uncheckPass) {
+        localStorage.setItem('UNCHECK_PASSWORD', uncheckPass);
+        UNCHECK_PASSWORD = uncheckPass;
+    }
+    
+    if (managerPass || uncheckPass) {
+        alert('✅ Passwords updated successfully!');
+        document.querySelector('.modal').remove();
+    } else {
+        alert('❌ Please enter at least one password');
+    }
+}
+
+function showHelp() {
+    closeMenu();
+    const modal = document.createElement('div');
+    modal.className = 'modal show';
+    modal.style.cssText = 'display: flex !important;';
+    modal.innerHTML = `
+        <div class="modal-content" style="max-width: 500px;">
+            <h2 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem; color: #0f172a;">📱 How to Use NCHM Pro</h2>
+            
+            <div style="background: #f8fafc; padding: 1rem; border-radius: 12px; margin-bottom: 1rem; border-left: 4px solid #0ea5e9;">
+                <h3 style="font-weight: 700; color: #0f172a; margin-bottom: 0.5rem;">🏠 Dashboard</h3>
+                <p style="font-size: 0.9rem; color: #475569;">View your daily progress and select areas to check</p>
+            </div>
+            
+            <div style="background: #f8fafc; padding: 1rem; border-radius: 12px; margin-bottom: 1rem; border-left: 4px solid #10b981;">
+                <h3 style="font-weight: 700; color: #0f172a; margin-bottom: 0.5rem;">✅ Checking Items</h3>
+                <p style="font-size: 0.9rem; color: #475569;">Tap checkboxes to mark items as complete. Add notes and photos as needed.</p>
+            </div>
+            
+            <div style="background: #f8fafc; padding: 1rem; border-radius: 12px; margin-bottom: 1rem; border-left: 4px solid #f59e0b;">
+                <h3 style="font-weight: 700; color: #0f172a; margin-bottom: 0.5rem;">🔐 Passwords</h3>
+                <p style="font-size: 0.9rem; color: #475569;">Default password: <strong>manager123</strong> (for both manager access and unchecking items)</p>
+            </div>
+            
+            <div style="background: #f8fafc; padding: 1rem; border-radius: 12px; margin-bottom: 1.5rem; border-left: 4px solid #ef4444;">
+                <h3 style="font-weight: 700; color: #0f172a; margin-bottom: 0.5rem;">📦 Archives</h3>
+                <p style="font-size: 0.9rem; color: #475569;">Archive completed months and view past records. All data is stored locally on your device.</p>
+            </div>
+            
+            <button class="btn-primary" onclick="this.closest('.modal').remove()" style="width: 100%;">Got it!</button>
+        </div>
+    `;
+    document.body.appendChild(modal);
+}
+
+function exportData() {
+    closeMenu();
+    
+    const exportData = {
+        checks: checks,
+        notes: notes,
+        photos: photos,
+        waterTemperatures: waterTemperatures,
+        monthlyArchives: monthlyArchives,
+        photoArchive: window.photoArchive || [],
+        exportDate: new Date().toISOString(),
+        version: '1.0'
+    };
+    
+    const dataStr = JSON.stringify(exportData, null, 2);
+    const blob = new Blob([dataStr], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `nchm-backup-${new Date().toISOString().split('T')[0]}.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    
+    alert('✅ Data exported successfully!');
+}
+
+function importData() {
+    closeMenu();
+    
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = '.json';
+    
+    input.onchange = function(e) {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            
+            reader.onload = function(event) {
+                try {
+                    const importedData = JSON.parse(event.target.result);
+                    
+                    if (confirm('⚠️ This will replace all current data. Continue?')) {
+                        checks = importedData.checks || {};
+                        notes = importedData.notes || {};
+                        photos = importedData.photos || {};
+                        waterTemperatures = importedData.waterTemperatures || {};
+                        monthlyArchives = importedData.monthlyArchives || [];
+                        window.photoArchive = importedData.photoArchive || [];
+                        
+                        saveData();
+                        updateStats();
+                        renderAreas();
+                        
+                        alert('✅ Data imported successfully!');
+                        location.reload();
+                    }
+                } catch (error) {
+                    alert('❌ Error importing data. Please check the file format.');
+                    console.error(error);
+                }
+            };
+            
+            reader.readAsText(file);
         }
+    };
+    
+    input.click();
+}
+
+function showAbout() {
+    closeMenu();
+    const modal = document.createElement('div');
+    modal.className = 'modal show';
+    modal.innerHTML = `
+        <div class="modal-content" style="text-align: center;">
+            <div style="font-size: 4rem; margin-bottom: 1rem;">🏥</div>
+            <h2 style="font-size: 1.75rem; font-weight: 800; margin-bottom: 0.5rem; color: #0f172a;">NCHM Pro</h2>
+            <p style="color: #64748b; font-size: 1.1rem; font-weight: 600; margin-bottom: 2rem;">Maintenance Tracker</p>
+            
+            <div style="background: #f8fafc; padding: 1.5rem; border-radius: 12px; margin-bottom: 1.5rem;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; text-align: left;">
+                    <div>
+                        <p style="font-size: 0.85rem; color: #64748b; font-weight: 600;">Version</p>
+                        <p style="font-weight: 700; color: #0f172a;">1.0.0</p>
+                    </div>
+                    <div>
+                        <p style="font-size: 0.85rem; color: #64748b; font-weight: 600;">Platform</p>
+                        <p style="font-weight: 700; color: #0f172a;">Web PWA</p>
+                    </div>
+                    <div>
+                        <p style="font-size: 0.85rem; color: #64748b; font-weight: 600;">Storage</p>
+                        <p style="font-weight: 700; color: #0f172a;">Local Device</p>
+                    </div>
+                    <div>
+                        <p style="font-size: 0.85rem; color: #64748b; font-weight: 600;">Offline</p>
+                        <p style="font-weight: 700; color: #0f172a;">✅ Available</p>
+                    </div>
+                </div>
+            </div>
+            
+            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 1.5rem;">
+                Professional maintenance tracking for nursing homes and care facilities
+            </p>
+            
+            <button class="btn-primary" onclick="this.closest('.modal').remove()" style="width: 100%;">Close</button>
+        </div>
+    `;
+    document.body.appendChild(modal);
+}
+
+function clearAllData() {
+    closeMenu();
+    
+    const confirmed = confirm('⚠️ WARNING! This will permanently delete ALL data including:\n\n• All checks\n• All notes\n• All photos\n• All archives\n• All water temperatures\n\nThis action cannot be undone!\n\nAre you absolutely sure?');
+    
+    if (confirmed) {
+        const doubleCheck = prompt('Type "DELETE" in capital letters to confirm:');
+        
+        if (doubleCheck === 'DELETE') {
+            // Clear all data
+            checks = {};
+            notes = {};
+            photos = {};
+            waterTemperatures = {};
+            monthlyArchives = [];
+            window.photoArchive = [];
+            
+            // Clear localStorage
+            localStorage.removeItem('nchmChecks');
+            localStorage.removeItem('nchmNotes');
+            localStorage.removeItem('nchmPhotos');
+            localStorage.removeItem('nchmWaterTemp');
+            localStorage.removeItem('nchmArchives');
+            
+            // Update display
+            updateStats();
+            renderAreas();
+            
+            alert('✅ All data has been cleared!');
+            location.reload();
+        } else {
+            alert('❌ Deletion cancelled - incorrect confirmation');
+        }
+    }
+}
 
         function updateManagerDashboard() {
             let totalChecks = 0;
