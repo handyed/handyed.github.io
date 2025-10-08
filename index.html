@@ -1164,7 +1164,7 @@
             document.getElementById('installPrompt').classList.remove('hidden');
         });
 
-        function installApp() {
+                function installApp() {
             if (deferredPrompt) {
                 deferredPrompt.prompt();
                 deferredPrompt.userChoice.then((choiceResult) => {
@@ -1174,7 +1174,59 @@
                     deferredPrompt = null;
                     document.getElementById('installPrompt').classList.add('hidden');
                 });
+            } else {
+                // Show manual installation instructions
+                showManualInstallInstructions();
             }
+        }
+
+        function showManualInstallInstructions() {
+            const modal = document.createElement('div');
+            modal.className = 'modal show';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <h2 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; color: #0f172a;">📱 Install NCHM Pro</h2>
+                    
+                    <div style="background: #dbeafe; padding: 1rem; border-radius: 12px; margin-bottom: 1rem; border-left: 4px solid #0ea5e9;">
+                        <p style="font-size: 0.95rem; color: #1e40af; font-weight: 600; margin-bottom: 0.5rem;">
+                            To install this app on your device:
+                        </p>
+                    </div>
+                    
+                    <div style="background: #f8fafc; padding: 1.25rem; border-radius: 12px; margin-bottom: 1rem;">
+                        <h3 style="font-weight: 700; color: #0f172a; margin-bottom: 0.75rem;">📱 On iPhone/iPad:</h3>
+                        <ol style="margin-left: 1.25rem; color: #475569; font-size: 0.95rem; line-height: 1.6;">
+                            <li>Tap the <strong>Share</strong> button (square with arrow)</li>
+                            <li>Scroll down and tap <strong>"Add to Home Screen"</strong></li>
+                            <li>Tap <strong>"Add"</strong> to confirm</li>
+                        </ol>
+                    </div>
+                    
+                    <div style="background: #f8fafc; padding: 1.25rem; border-radius: 12px; margin-bottom: 1rem;">
+                        <h3 style="font-weight: 700; color: #0f172a; margin-bottom: 0.75rem;">🤖 On Android:</h3>
+                        <ol style="margin-left: 1.25rem; color: #475569; font-size: 0.95rem; line-height: 1.6;">
+                            <li>Tap the <strong>menu</strong> (three dots) in browser</li>
+                            <li>Tap <strong>"Add to Home screen"</strong> or <strong>"Install app"</strong></li>
+                            <li>Tap <strong>"Add"</strong> or <strong>"Install"</strong> to confirm</li>
+                        </ol>
+                    </div>
+                    
+                    <div style="background: #f8fafc; padding: 1.25rem; border-radius: 12px; margin-bottom: 1.5rem;">
+                        <h3 style="font-weight: 700; color: #0f172a; margin-bottom: 0.75rem;">💻 On Desktop:</h3>
+                        <ol style="margin-left: 1.25rem; color: #475569; font-size: 0.95rem; line-height: 1.6;">
+                            <li>Look for an <strong>install icon</strong> in the address bar</li>
+                            <li>Or use browser menu → <strong>"Install NCHM Pro"</strong></li>
+                            <li>Click <strong>"Install"</strong> to confirm</li>
+                        </ol>
+                    </div>
+                    
+                    <button class="btn-primary" onclick="this.closest('.modal').remove()" style="width: 100%;">Got it!</button>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            
+            // Hide the install prompt banner
+            document.getElementById('installPrompt').classList.add('hidden');
         }
 
         // Service Worker Registration
