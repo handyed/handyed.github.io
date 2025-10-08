@@ -1893,39 +1893,89 @@ function showAbout() {
 function clearAllData() {
     closeMenu();
     
-    const confirmed = confirm('⚠️ WARNING! This will permanently delete ALL data including:\n\n• All checks\n• All notes\n• All photos\n• All archives\n• All water temperatures\n\nThis action cannot be undone!\n\nAre you absolutely sure?');
+    // First, ask for manager password
+    const modal = document.createElement('div');
+    modal.className = 'modal show';
+    modal.innerHTML = `
+        <div class="modal-content">
+            <h2 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem; color: #ef4444;">⚠️ Delete All Data</h2>
+            <p style="color: #64748b; font-size: 0.95rem; font-weight: 500; margin-bottom: 1rem;">This action requires manager authorization</p>
+            
+            <div style="background: #fee2e2; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; border-left: 4px solid #ef4444;">
+                <p style="font-size: 0.9rem; color: #991b1b; font-weight: 600;">
+                    ⚠️ WARNING: This will permanently delete ALL data including checks, notes, photos, and archives!
+                </p>
+            </div>
+            
+            <label style="font-weight: 600; color: #475569; font-size: 0.95rem;">Enter Manager Password</label>
+            <input type="password" id="deletePassword" class="modal-input" placeholder="Manager password required">
+            
+            <div id="deleteErrorMsg" style="color: #ef4444; font-size: 0.95rem; margin-top: 0.5rem; display: none; font-weight: 600;">
+                ❌ Incorrect password!
+            </div>
+            
+            <div class="modal-buttons">
+                <button class="btn-secondary" onclick="this.closest('.modal').remove()">Cancel</button>
+                <button class="btn-primary" onclick="confirmDeleteWithPassword()" style="background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);">
+                    Delete All Data
+                </button>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(modal);
     
-    if (confirmed) {
-        const doubleCheck = prompt('Type "DELETE" in capital letters to confirm:');
-        
-        if (doubleCheck === 'DELETE') {
-            // Clear all data
-            checks = {};
-            notes = {};
-            photos = {};
-            waterTemperatures = {};
-            monthlyArchives = [];
-            window.photoArchive = [];
-            
-            // Clear localStorage
-            localStorage.removeItem('nchmChecks');
-            localStorage.removeItem('nchmNotes');
-            localStorage.removeItem('nchmPhotos');
-            localStorage.removeItem('nchmWaterTemp');
-            localStorage.removeItem('nchmArchives');
-            
-            // Update display
-            updateStats();
-            renderAreas();
-            
-            alert('✅ All data has been cleared!');
-            location.reload();
-        } else {
-            alert('❌ Deletion cancelled - incorrect confirmation');
-        }
-    }
+    // Focus on password input
+    setTimeout(() => document.getElementById('deletePassword').focus(), 100);
 }
 
+function confirmDeleteWithPassword() {
+    const password = document.getElementById('deletePassword').value;
+    const errorMsg = document.getElementById('deleteErrorMsg');
+    
+    // Check if password matches manager password
+    if (password === MANAGER_PASSWORD || password === localStorage.getItem('MANAGER_PASSWORD') || password === 'manager123') {
+        // Close password modal
+        document.querySelector('.modal').remove();
+        
+        // Now show final confirmation
+        const confirmed = confirm('⚠️ FINAL WARNING!\n\nThis will permanently delete ALL data:\n\n• All checks\n• All notes\n• All photos\n• All archives\n• All water temperatures\n\nThis action CANNOT be undone!\n\nAre you absolutely sure?');
+        
+        if (confirmed) {
+            const doubleCheck = prompt('Type "DELETE" in capital letters to confirm:');
+            
+            if (doubleCheck === 'DELETE') {
+                // Clear all data
+                checks = {};
+                notes = {};
+                photos = {};
+                waterTemperatures = {};
+                monthlyArchives = [];
+                window.photoArchive = [];
+                
+                // Clear localStorage
+                localStorage.removeItem('nchmChecks');
+                localStorage.removeItem('nchmNotes');
+                localStorage.removeItem('nchmPhotos');
+                localStorage.removeItem('nchmWaterTemp');
+                localStorage.removeItem('nchmArchives');
+                
+                // Update display
+                updateStats();
+                renderAreas();
+                
+                alert('✅ All data has been cleared!');
+                location.reload();
+            } else {
+                alert('❌ Deletion cancelled - incorrect confirmation');
+            }
+        }
+    } else {
+        // Wrong password
+        errorMsg.style.display = 'block';
+        document.getElementById('deletePassword').value = '';
+        document.getElementById('deletePassword').focus();
+    }
+}
         function updateManagerDashboard() {
             let totalChecks = 0;
             areas.forEach(area => {
