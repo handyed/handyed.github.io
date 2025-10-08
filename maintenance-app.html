@@ -3,155 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NCHM- Maintenance App</title>
+    <meta name="theme-color" content="#0ea5e9">
+    <meta name="description" content="Professional maintenance tracking for nursing homes">
+    <link rel="manifest" href="manifest.json"> 
+    
+    <!-- FIXED FAVICON LINES -->
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+        <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180.png">
+        <link rel="shortcut icon" href="favicon.ico">
+    
+    <title>NCHM Pro - Maintenance Tracker</title>
     <style>
-        html, body {
-            overflow-x: hidden;
-            width: 100%;
-            position: relative;
-            max-width: 100vw;
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            max-width: 100%;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #f7fafc;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
         }
 
         .app-container {
             max-width: 768px;
             margin: 0 auto;
-            background: #f7fafc;
+            background: #f8fafc;
             min-height: 100vh;
             padding-bottom: 80px;
-            width: 100%;
-            overflow-x: hidden;
-        }
-
-        @media (max-width: 640px) {
-            .app-container {
-                padding-bottom: 70px;
-            }
+            box-shadow: 0 0 40px rgba(0,0,0,0.15);
         }
 
         .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
             color: white;
             padding: 1.5rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px rgba(14, 165, 233, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(10px);
         }
 
         @media (max-width: 640px) {
-            .header {
-                padding: 1rem;
-            }
+            .header { padding: 1rem; }
         }
 
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            animation: slideDown 0.5s ease;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
         .header h1 {
-            font-size: 1.3rem;
-            margin-bottom: 0.2rem;
+            font-size: 1.4rem;
+            margin-bottom: 0.25rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
         }
 
         @media (max-width: 640px) {
-            .header h1 {
-                font-size: 1.1rem;
-            }
+            .header h1 { font-size: 1.2rem; }
         }
 
         .header p {
             font-size: 0.85rem;
-            opacity: 0.9;
-        }
-
-        @media (max-width: 640px) {
-            .header p {
-                font-size: 0.75rem;
-            }
+            opacity: 0.95;
+            font-weight: 500;
         }
 
         .menu-btn {
-            background: rgba(255,255,255,0.1);
-            border: none;
-            padding: 0.5rem;
-            border-radius: 8px;
+            background: rgba(255,255,255,0.15);
+            border: 2px solid rgba(255,255,255,0.3);
+            padding: 0.6rem;
+            border-radius: 12px;
             cursor: pointer;
             color: white;
             font-size: 1.5rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .menu-btn:hover {
+            background: rgba(255,255,255,0.25);
+            transform: scale(1.05);
+        }
+
+        .menu-btn:active {
+            transform: scale(0.95);
         }
 
         .content {
             padding: 1.5rem;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @media (max-width: 640px) {
-            .content {
-                padding: 1rem;
-            }
+            .content { padding: 1rem; }
         }
 
         .page-title {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #2d3748;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #0f172a;
             margin-bottom: 0.5rem;
-            word-wrap: break-word;
+            letter-spacing: -0.5px;
         }
 
         @media (max-width: 640px) {
-            .page-title {
-                font-size: 1.25rem;
-            }
+            .page-title { font-size: 1.4rem; }
         }
 
         .progress-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
             color: white;
-            padding: 1.5rem;
-            border-radius: 12px;
+            padding: 1.75rem;
+            border-radius: 16px;
             margin-bottom: 1.5rem;
+            box-shadow: 0 8px 24px rgba(14, 165, 233, 0.25);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .progress-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(14, 165, 233, 0.3);
         }
 
         @media (max-width: 640px) {
-            .progress-card {
-                padding: 1rem;
-            }
+            .progress-card { padding: 1.25rem; }
         }
 
         .progress-number {
-            font-size: 2rem;
-            font-weight: bold;
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
         }
 
         @media (max-width: 640px) {
-            .progress-number {
-                font-size: 1.5rem;
-            }
+            .progress-number { font-size: 2rem; }
         }
 
         .progress-bar {
-            background: rgba(255,255,255,0.2);
-            height: 12px;
-            border-radius: 10px;
+            background: rgba(255,255,255,0.25);
+            height: 14px;
+            border-radius: 12px;
             overflow: hidden;
             margin: 1rem 0 0.5rem 0;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .progress-fill {
             background: white;
             height: 100%;
-            transition: width 0.3s ease;
+            transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 10px rgba(255,255,255,0.5);
         }
 
         .stats-grid {
@@ -161,152 +188,187 @@
             margin-bottom: 1.5rem;
         }
 
-        @media (max-width: 640px) {
-            .stats-grid {
-                gap: 0.75rem;
-            }
-        }
-
         .stat-card {
             padding: 1.5rem;
-            border-radius: 12px;
+            border-radius: 16px;
             border: 2px solid;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+
+        .stat-card:active {
+            transform: translateY(-2px);
         }
 
         @media (max-width: 640px) {
-            .stat-card {
-                padding: 1rem;
-            }
+            .stat-card { padding: 1.25rem; }
         }
 
         .stat-card.completed {
-            background: #f0fdf4;
-            border-color: #bbf7d0;
+            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+            border-color: #6ee7b7;
         }
 
         .stat-card.remaining {
-            background: #fff7ed;
-            border-color: #fed7aa;
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-color: #fcd34d;
         }
 
         .area-card {
             background: white;
-            padding: 1.25rem;
-            border-radius: 12px;
-            margin-bottom: 0.75rem;
-            border: 1px solid #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 16px;
+            margin-bottom: 1rem;
+            border: 2px solid #e2e8f0;
             cursor: pointer;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-            word-wrap: break-word;
-        }
-
-        @media (max-width: 640px) {
-            .area-card {
-                padding: 1rem;
-            }
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .area-card:hover {
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(14, 165, 233, 0.15);
+            border-color: #0ea5e9;
         }
 
-        .area-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .area-card:active {
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 640px) {
+            .area-card { padding: 1.25rem; }
         }
 
         .check-item-card {
             background: white;
-            border-radius: 12px;
+            border-radius: 16px;
             margin-bottom: 1.5rem;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border: 2px solid #e2e8f0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .check-item-card:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
         }
 
         .check-item-header {
-            padding: 1rem;
-            background: #f7fafc;
-        }
-
-        @media (max-width: 640px) {
-            .check-item-header {
-                padding: 0.75rem;
-            }
+            padding: 1.25rem;
+            background: #f8fafc;
+            transition: all 0.3s ease;
         }
 
         .check-item-header.complete {
-            background: #f0fdf4;
-            border-left: 4px solid #16a34a;
+            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+            border-left: 5px solid #10b981;
         }
 
         .checklist-item {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            padding: 0.75rem;
-            border-radius: 8px;
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: 12px;
             cursor: pointer;
             margin: 0.5rem 0;
+            transition: all 0.2s ease;
         }
 
         .checklist-item:hover {
-            background: #f7fafc;
+            background: #f1f5f9;
+            transform: translateX(4px);
+        }
+
+        .checklist-item:active {
+            transform: scale(0.98);
         }
 
         .checkbox {
-            width: 24px;
-            height: 24px;
-            border: 2px solid #cbd5e0;
+            width: 28px;
+            height: 28px;
+            border: 3px solid #cbd5e0;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 16px;
         }
 
         .checkbox.checked {
-            background: #16a34a;
-            border-color: #16a34a;
+            background: #10b981;
+            border-color: #10b981;
             color: white;
+            animation: checkPop 0.3s ease;
+        }
+
+        @keyframes checkPop {
+            0% { transform: scale(0.8); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
         }
 
         .notes-textarea {
             width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #cbd5e0;
-            border-radius: 8px;
+            padding: 1rem;
+            border: 2px solid #cbd5e0;
+            border-radius: 12px;
             font-family: inherit;
             resize: vertical;
-            min-height: 80px;
-            margin-top: 0.5rem;
+            min-height: 100px;
+            margin-top: 0.75rem;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .notes-textarea:focus {
+            outline: none;
+            border-color: #0ea5e9;
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
         }
 
         .btn {
-            padding: 0.75rem 1.25rem;
+            padding: 0.875rem 1.5rem;
             border: none;
-            border-radius: 8px;
+            border-radius: 12px;
             cursor: pointer;
-            font-weight: 500;
+            font-weight: 600;
             margin-top: 1rem;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .btn:active {
+            transform: translateY(0);
         }
 
         @media (max-width: 640px) {
-            .btn {
-                padding: 0.6rem 1rem;
-                font-size: 0.9rem;
-            }
+            .btn { padding: 0.75rem 1.25rem; font-size: 0.9rem; }
         }
 
         .btn-photo {
-            background: #eff6ff;
-            color: #2563eb;
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            color: #1e40af;
             margin-right: 0.5rem;
+            border: 2px solid #93c5fd;
         }
 
         .btn-save {
-            background: #667eea;
+            background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
             color: white;
+            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
         }
 
         .bottom-nav {
@@ -315,113 +377,133 @@
             left: 50%;
             transform: translateX(-50%);
             background: white;
-            border-top: 1px solid #e2e8f0;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+            border-top: 2px solid #e2e8f0;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
             max-width: 768px;
             width: 100%;
             display: flex;
             z-index: 100;
+            backdrop-filter: blur(10px);
+            background: rgba(255,255,255,0.95);
         }
 
         .nav-btn {
             flex: 1;
             border: none;
             background: none;
-            padding: 0.75rem;
+            padding: 1rem 0.5rem;
             cursor: pointer;
-            color: #9ca3af;
+            color: #64748b;
             font-size: 0.7rem;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .nav-btn:hover {
+            background: #f8fafc;
+        }
+
+        .nav-btn:active {
+            transform: scale(0.95);
         }
 
         @media (max-width: 640px) {
             .nav-btn {
-                padding: 0.5rem 0.25rem;
+                padding: 0.75rem 0.25rem;
                 font-size: 0.65rem;
             }
             .nav-btn > div:first-child {
-                font-size: 1.25rem !important;
+                font-size: 1.35rem !important;
             }
         }
 
         .nav-btn.active {
-            color: #667eea;
+            color: #0ea5e9;
+            background: linear-gradient(to top, rgba(14, 165, 233, 0.1) 0%, transparent 100%);
         }
 
-        .hidden {
-            display: none;
-        }
+        .hidden { display: none; }
 
         .back-btn {
-            background: none;
-            border: none;
-            color: #667eea;
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            border: 2px solid #93c5fd;
+            color: #1e40af;
             cursor: pointer;
             margin-bottom: 1rem;
             font-size: 1rem;
+            padding: 0.75rem 1.25rem;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            transform: translateX(-4px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
         }
 
         .manager-card {
             background: white;
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            word-wrap: break-word;
-            overflow-wrap: break-word;
+            border-radius: 16px;
+            padding: 1.75rem;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .manager-card:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            transform: translateY(-2px);
         }
 
         @media (max-width: 640px) {
-            .manager-card {
-                padding: 1rem;
-            }
+            .manager-card { padding: 1.25rem; }
         }
 
         .alert-box {
-            padding: 1rem;
-            border-radius: 8px;
+            padding: 1.25rem;
+            border-radius: 12px;
             margin-bottom: 1rem;
-            border-left: 4px solid;
+            border-left: 5px solid;
+            animation: slideIn 0.5s ease;
         }
 
-        @media (max-width: 640px) {
-            .alert-box {
-                padding: 0.75rem;
-            }
+        @keyframes slideIn {
+            from { transform: translateX(-20px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
         }
 
         .alert-warning {
-            background: #fef3c7;
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
             border-color: #f59e0b;
         }
 
         .alert-danger {
-            background: #fee2e2;
+            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
             border-color: #ef4444;
             animation: pulse 2s infinite;
         }
 
         .alert-success {
-            background: #d1fae5;
+            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
             border-color: #10b981;
         }
 
         @keyframes pulse {
             0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
+            50% { opacity: 0.8; }
         }
 
         .calendar-grid {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-            gap: 0.4rem;
+            gap: 0.5rem;
             margin-top: 1rem;
-            width: 100%;
         }
 
         @media (max-width: 640px) {
-            .calendar-grid {
-                gap: 0.25rem;
-            }
+            .calendar-grid { gap: 0.3rem; }
         }
 
         .calendar-day {
@@ -429,77 +511,59 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 8px;
+            border-radius: 10px;
             font-size: 0.9rem;
-            font-weight: 500;
-            padding: 0.25rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .calendar-day:hover:not(.header) {
+            transform: scale(1.1);
         }
 
         @media (max-width: 640px) {
-            .calendar-day {
-                font-size: 0.7rem;
-                border-radius: 6px;
-                padding: 0.2rem;
-            }
-        }
-
-        @media (max-width: 400px) {
-            .calendar-grid {
-                gap: 0.2rem;
-            }
-            
-            .calendar-day {
-                font-size: 0.65rem;
-                border-radius: 4px;
-            }
-        }
-
-        @media (max-width: 360px) {
-            .calendar-grid {
-                gap: 0.15rem;
-            }
-            
-            .calendar-day {
-                font-size: 0.6rem;
-            }
+            .calendar-day { font-size: 0.75rem; border-radius: 8px; }
         }
 
         .calendar-day.header {
-            background: #f7fafc;
-            color: #718096;
-            font-weight: 600;
+            background: #f8fafc;
+            color: #64748b;
+            font-weight: 700;
         }
 
         .calendar-day.completed {
-            background: #d1fae5;
+            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
             color: #059669;
         }
 
         .calendar-day.partial {
-            background: #fed7aa;
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
             color: #c2410c;
         }
 
         .calendar-day.missed {
-            background: #fee2e2;
+            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
             color: #dc2626;
         }
 
         .calendar-day.today {
-            border: 2px solid #667eea;
+            border: 3px solid #0ea5e9;
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2);
         }
 
         .performance-meter {
-            height: 20px;
+            height: 24px;
             background: #e5e7eb;
-            border-radius: 10px;
+            border-radius: 12px;
             overflow: hidden;
             position: relative;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .performance-fill {
             height: 100%;
-            transition: width 0.5s ease;
+            transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .performance-fill.excellent {
@@ -507,7 +571,7 @@
         }
 
         .performance-fill.good {
-            background: linear-gradient(90deg, #3b82f6, #2563eb);
+            background: linear-gradient(90deg, #0ea5e9, #0284c7);
         }
 
         .performance-fill.warning {
@@ -518,33 +582,6 @@
             background: linear-gradient(90deg, #ef4444, #dc2626);
         }
 
-        .stat-badge {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-
-        @media (max-width: 640px) {
-            .stat-badge {
-                font-size: 0.75rem;
-                padding: 0.2rem 0.5rem;
-            }
-        }
-
-        .area-progress-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.75rem 0;
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        .area-progress-item:last-child {
-            border-bottom: none;
-        }
-
         .modal {
             display: none;
             position: fixed;
@@ -552,168 +589,191 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0,0,0,0.6);
             z-index: 1000;
             align-items: center;
             justify-content: center;
+            backdrop-filter: blur(4px);
         }
 
         .modal.show {
             display: flex;
+            animation: fadeIn 0.3s ease;
         }
 
         .modal-content {
             background: white;
-            border-radius: 12px;
+            border-radius: 20px;
             padding: 2rem;
-            max-width: 400px;
+            max-width: 420px;
             width: 90%;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             max-height: 90vh;
             overflow-y: auto;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
         @media (max-width: 640px) {
-            .modal-content {
-                padding: 1.5rem;
-                width: 95%;
-            }
+            .modal-content { padding: 1.5rem; width: 95%; }
         }
 
         .modal-input {
             width: 100%;
-            padding: 0.75rem;
+            padding: 1rem;
             border: 2px solid #cbd5e0;
-            border-radius: 8px;
+            border-radius: 12px;
             font-size: 1rem;
             margin: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .modal-input:focus {
+            outline: none;
+            border-color: #0ea5e9;
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
         }
 
         .modal-buttons {
             display: flex;
-            gap: 0.5rem;
-            margin-top: 1rem;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
         }
 
         .btn-primary {
             flex: 1;
-            padding: 0.75rem;
-            background: #667eea;
+            padding: 1rem;
+            background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
             color: white;
             border: none;
-            border-radius: 8px;
+            border-radius: 12px;
             cursor: pointer;
-            font-weight: 600;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(14, 165, 233, 0.3);
         }
 
         .btn-secondary {
             flex: 1;
-            padding: 0.75rem;
-            background: #e5e7eb;
-            color: #4b5563;
-            border: none;
-            border-radius: 8px;
+            padding: 1rem;
+            background: #f1f5f9;
+            color: #475569;
+            border: 2px solid #cbd5e0;
+            border-radius: 12px;
             cursor: pointer;
-            font-weight: 600;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: #e2e8f0;
+            transform: translateY(-2px);
         }
 
         .archive-card {
             background: white;
-            border-radius: 12px;
+            border-radius: 16px;
             padding: 1.5rem;
             margin-bottom: 1rem;
-            border: 2px solid #e5e7eb;
+            border: 2px solid #e2e8f0;
             cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        @media (max-width: 640px) {
-            .archive-card {
-                padding: 1rem;
-            }
+            transition: all 0.3s ease;
         }
 
         .archive-card:hover {
-            border-color: #667eea;
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+            border-color: #0ea5e9;
+            box-shadow: 0 8px 24px rgba(14, 165, 233, 0.2);
+            transform: translateY(-4px);
         }
 
         @media print {
-            .no-print {
-                display: none !important;
-            }
-            .app-container {
-                max-width: 100%;
-                padding-bottom: 0;
-            }
-            .print-only {
-                display: block !important;
-            }
-            body {
-                background: white;
-            }
-            .content {
-                padding: 1rem;
-            }
+            .no-print { display: none !important; }
+            .app-container { max-width: 100%; padding-bottom: 0; }
+            .print-only { display: block !important; }
+            body { background: white; }
         }
 
-        .print-only {
-            display: none;
+        .print-only { display: none; }
+
+        .install-prompt {
+            background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+            color: white;
+            padding: 1rem;
+            border-radius: 12px;
+            margin: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+            animation: slideDown 0.5s ease;
         }
-        
+
+        .install-btn {
+            background: white;
+            color: #0ea5e9;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .install-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(255,255,255,0.3);
+        }
+
         @media (max-width: 640px) {
-            #managerTotalPercent {
-                font-size: 1.8rem !important;
-            }
-            
-            #managerCompleted {
-                font-size: 1.2rem !important;
-            }
-            
-            #avgDailyCompletion,
-            #onTrack {
-                font-size: 1.3rem !important;
-            }
-            
-            .manager-card > div:first-child {
-                flex-wrap: wrap;
-                gap: 0.5rem;
-            }
-            
-            .area-progress-item {
-                flex-wrap: wrap;
-                gap: 0.5rem;
-            }
-            
-            .area-progress-item > div:first-child {
-                flex: 1;
-                min-width: 0;
-            }
+            #managerTotalPercent { font-size: 2rem !important; }
+            #managerCompleted { font-size: 1.3rem !important; }
+            #avgDailyCompletion, #onTrack { font-size: 1.4rem !important; }
         }
 
-        @media (max-width: 380px) {
-            #managerTotalPercent {
-                font-size: 1.5rem !important;
-            }
-            
-            .page-title {
-                font-size: 1.1rem !important;
-            }
+        .loading-spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #0ea5e9;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 2rem auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body>
-    <div id="maintenanceInfo" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px; text-align: center; margin-bottom: 20px; border-radius: 10px;">
-        <h3 style="margin: 0; font-size: 18px;">Maintenance Technician: <span id="technicianName">Loading...</span></h3>
-        <p style="margin: 5px 0 0 0; font-size: 12px; opacity: 0.9;" id="loginTime"></p>
+    <div id="installPrompt" class="install-prompt hidden">
+        <div>
+            <div style="font-weight: 700; margin-bottom: 0.25rem;">📱 Install NCHM Pro</div>
+            <div style="font-size: 0.85rem; opacity: 0.95;">Add to home screen for easy access</div>
+        </div>
+        <button class="install-btn" onclick="installApp()">Install</button>
+    </div>
+
+    <div id="maintenanceInfo" style="background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%); color: white; padding: 15px; text-align: center; margin-bottom: 0; border-radius: 0;">
+        <h3 style="margin: 0; font-size: 18px; font-weight: 700;">Maintenance Technician: <span id="technicianName">Loading...</span></h3>
+        <p style="margin: 5px 0 0 0; font-size: 12px; opacity: 0.95;" id="loginTime"></p>
     </div>
     
     <div class="app-container">
         <div class="header no-print">
             <div class="header-content">
                 <div>
-                    <h1>NCHM</h1>
-                    <p>Maintenance Checks</p>
+                    <h1>🏥 NCHM Pro</h1>
+                    <p>Professional Maintenance Tracker</p>
                 </div>
                 <button class="menu-btn" onclick="toggleMenu()">☰</button>
             </div>
@@ -721,79 +781,79 @@
 
         <div id="dashboardView" class="content">
             <h1 class="page-title">Today's Checks</h1>
-            <p style="color: #718096; margin-bottom: 1.5rem;">Monday, October 06, 2025</p>
+            <p style="color: #64748b; margin-bottom: 1.5rem; font-weight: 500;">Monday, October 06, 2025</p>
 
             <div class="progress-card">
-                <p style="opacity: 0.9; font-size: 0.9rem;">Progress Today</p>
+                <p style="opacity: 0.95; font-size: 0.9rem; font-weight: 600;">Daily Progress</p>
                 <p class="progress-number"><span id="completedCount">0</span>/<span id="totalCount">25</span></p>
                 <div class="progress-bar">
                     <div id="progressFill" class="progress-fill" style="width: 0%"></div>
                 </div>
-                <p style="font-size: 0.85rem; opacity: 0.9;"><span id="progressPercent">0</span>% Complete</p>
+                <p style="font-size: 0.9rem; opacity: 0.95; font-weight: 600;"><span id="progressPercent">0</span>% Complete</p>
             </div>
 
             <div class="stats-grid">
                 <div class="stat-card completed">
-                    <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">✓</div>
-                    <p style="font-size: 1.8rem; font-weight: bold; color: #15803d;" id="completedStat">0</p>
-                    <p style="font-size: 0.9rem; color: #16a34a;">Completed</p>
+                    <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">✓</div>
+                    <p style="font-size: 2rem; font-weight: 800; color: #059669;" id="completedStat">0</p>
+                    <p style="font-size: 0.9rem; color: #10b981; font-weight: 600;">Completed</p>
                 </div>
                 <div class="stat-card remaining">
-                    <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">⏰</div>
-                    <p style="font-size: 1.8rem; font-weight: bold; color: #c2410c;" id="remainingStat">25</p>
-                    <p style="font-size: 0.9rem; color: #ea580c;">Remaining</p>
+                    <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">⏰</div>
+                    <p style="font-size: 2rem; font-weight: 800; color: #d97706;" id="remainingStat">25</p>
+                    <p style="font-size: 0.9rem; color: #f59e0b; font-weight: 600;">Remaining</p>
                 </div>
             </div>
 
-            <h2 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem;">Areas to Check</h2>
+            <h2 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem; color: #0f172a;">Areas to Check</h2>
             <div id="areasContainer"></div>
         </div>
 
         <div id="checklistView" class="content hidden">
             <button class="back-btn" onclick="showDashboard()">← Back to Dashboard</button>
-            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
-                <span id="areaIconLarge" style="font-size: 2.5rem;"></span>
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                <span id="areaIconLarge" style="font-size: 3rem;"></span>
                 <h1 class="page-title" id="areaTitle" style="margin: 0;"></h1>
             </div>
-            <p style="color: #718096; margin-bottom: 1.5rem;" id="areaItemCount"></p>
+            <p style="color: #64748b; margin-bottom: 1.5rem; font-weight: 500;" id="areaItemCount"></p>
             <div id="checkItemsContainer"></div>
         </div>
 
         <div id="reportsView" class="content hidden">
             <h1 class="page-title">Reports</h1>
-            <div style="background: white; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0;">
-                <h2 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem;">Today's Summary</h2>
-                <div style="display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid #e2e8f0;">
-                    <span>Total Checks</span>
-                    <span style="font-weight: 600;" id="reportTotal">25</span>
+            <div class="manager-card">
+                <h2 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem; color: #0f172a;">Today's Summary</h2>
+                <div style="display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 2px solid #f1f5f9;">
+                    <span style="font-weight: 600; color: #64748b;">Total Checks</span>
+                    <span style="font-weight: 700; color: #0f172a;" id="reportTotal">25</span>
                 </div>
-                <div style="display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid #e2e8f0;">
-                    <span>Completed</span>
-                    <span style="font-weight: 600; color: #16a34a;" id="reportCompleted">0</span>
+                <div style="display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 2px solid #f1f5f9;">
+                    <span style="font-weight: 600; color: #64748b;">Completed</span>
+                    <span style="font-weight: 700; color: #10b981;" id="reportCompleted">0</span>
                 </div>
                 <div style="display: flex; justify-content: space-between; padding: 0.75rem 0;">
-                    <span>Completion Rate</span>
-                    <span style="font-weight: 600; color: #667eea;" id="reportPercent">0%</span>
+                    <span style="font-weight: 600; color: #64748b;">Completion Rate</span>
+                    <span style="font-weight: 700; color: #0ea5e9;" id="reportPercent">0%</span>
                 </div>
             </div>
         </div>
 
         <div id="managerView" class="content hidden">
             <h1 class="page-title">Manager Dashboard</h1>
-            <p style="color: #718096; margin-bottom: 1.5rem;">Maintenance Performance Overview</p>
+            <p style="color: #64748b; margin-bottom: 1.5rem; font-weight: 500;">Performance Overview</p>
 
             <div id="alertSection"></div>
 
             <div class="manager-card">
-                <h2 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem;">Overall Performance</h2>
+                <h2 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem; color: #0f172a;">Overall Performance</h2>
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
                     <div>
-                        <div style="font-size: 2.5rem; font-weight: bold; color: #667eea;" id="managerTotalPercent">0%</div>
-                        <div style="color: #718096; font-size: 0.9rem;">Completion Rate</div>
+                        <div style="font-size: 3rem; font-weight: 800; color: #0ea5e9;" id="managerTotalPercent">0%</div>
+                        <div style="color: #64748b; font-size: 0.9rem; font-weight: 600;">Completion Rate</div>
                     </div>
                     <div style="text-align: right;">
-                        <div style="font-size: 1.5rem; font-weight: bold; color: #16a34a;" id="managerCompleted">0</div>
-                        <div style="color: #718096; font-size: 0.9rem;">of <span id="managerTotal">25</span> items</div>
+                        <div style="font-size: 1.75rem; font-weight: 800; color: #10b981;" id="managerCompleted">0</div>
+                        <div style="color: #64748b; font-size: 0.9rem; font-weight: 600;">of <span id="managerTotal">25</span> items</div>
                     </div>
                 </div>
                 <div class="performance-meter">
@@ -803,43 +863,43 @@
 
             <div class="manager-card">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-                    <h2 style="font-size: 1.1rem; font-weight: 600;">October 2025</h2>
-                    <div style="font-size: 0.85rem; color: #718096;">
-                        Days Remaining: <span id="daysRemaining" style="font-weight: 600; color: #667eea;">25</span>
+                    <h2 style="font-size: 1.2rem; font-weight: 700; color: #0f172a;">October 2025</h2>
+                    <div style="font-size: 0.9rem; color: #64748b; font-weight: 600;">
+                        Days Left: <span id="daysRemaining" style="font-weight: 800; color: #0ea5e9;">25</span>
                     </div>
                 </div>
                 <div class="calendar-grid" id="calendarGrid"></div>
-                <div style="display: flex; gap: 1rem; margin-top: 1rem; font-size: 0.8rem; flex-wrap: wrap;">
+                <div style="display: flex; gap: 1rem; margin-top: 1rem; font-size: 0.85rem; flex-wrap: wrap; font-weight: 600;">
                     <div style="display: flex; align-items: center; gap: 0.5rem;">
-                        <div style="width: 16px; height: 16px; background: #d1fae5; border-radius: 4px;"></div>
+                        <div style="width: 18px; height: 18px; background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%); border-radius: 6px;"></div>
                         <span>Complete</span>
                     </div>
                     <div style="display: flex; align-items: center; gap: 0.5rem;">
-                        <div style="width: 16px; height: 16px; background: #fed7aa; border-radius: 4px;"></div>
+                        <div style="width: 18px; height: 18px; background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 6px;"></div>
                         <span>Partial</span>
                     </div>
                     <div style="display: flex; align-items: center; gap: 0.5rem;">
-                        <div style="width: 16px; height: 16px; background: #fee2e2; border-radius: 4px;"></div>
+                        <div style="width: 18px; height: 18px; background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%); border-radius: 6px;"></div>
                         <span>Missed</span>
                     </div>
                 </div>
             </div>
 
             <div class="manager-card">
-                <h2 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem;">Progress by Area</h2>
+                <h2 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem; color: #0f172a;">Progress by Area</h2>
                 <div id="areasProgressContainer"></div>
             </div>
 
             <div class="manager-card">
-                <h2 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem;">Performance Metrics</h2>
+                <h2 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem; color: #0f172a;">Performance Metrics</h2>
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                    <div style="text-align: center; padding: 1rem; background: #f0fdf4; border-radius: 8px;">
-                        <div style="font-size: 1.8rem; font-weight: bold; color: #16a34a;" id="avgDailyCompletion">0%</div>
-                        <div style="font-size: 0.85rem; color: #15803d; margin-top: 0.25rem;">Avg Daily Rate</div>
+                    <div style="text-align: center; padding: 1.5rem; background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%); border-radius: 12px;">
+                        <div style="font-size: 2rem; font-weight: 800; color: #059669;" id="avgDailyCompletion">0%</div>
+                        <div style="font-size: 0.85rem; color: #047857; margin-top: 0.25rem; font-weight: 600;">Avg Daily Rate</div>
                     </div>
-                    <div style="text-align: center; padding: 1rem; background: #eff6ff; border-radius: 8px;">
-                        <div style="font-size: 1.8rem; font-weight: bold; color: #2563eb;" id="onTrack">Yes</div>
-                        <div style="font-size: 0.85rem; color: #1e40af; margin-top: 0.25rem;">On Track</div>
+                    <div style="text-align: center; padding: 1.5rem; background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); border-radius: 12px;">
+                        <div style="font-size: 2rem; font-weight: 800; color: #0284c7;" id="onTrack">Yes</div>
+                        <div style="font-size: 0.85rem; color: #0369a1; margin-top: 0.25rem; font-weight: 600;">On Track</div>
                     </div>
                 </div>
             </div>
@@ -847,13 +907,13 @@
 
         <div id="archiveView" class="content hidden">
             <h1 class="page-title">Monthly Archives</h1>
-            <p style="color: #718096; margin-bottom: 1.5rem;">View and print past maintenance records</p>
+            <p style="color: #64748b; margin-bottom: 1.5rem; font-weight: 500;">View and print past records</p>
             
             <button class="btn btn-primary" onclick="archiveCurrentMonth()" style="margin-bottom: 1rem; width: 100%;">
                 📦 Archive Current Month
             </button>
 
-            <button class="btn btn-primary" onclick="showPhotoArchive()" style="margin-bottom: 1.5rem; width: 100%; background: #10b981;">
+            <button class="btn btn-primary" onclick="showPhotoArchive()" style="margin-bottom: 1.5rem; width: 100%; background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
                 📷 View Photo Archive
             </button>
 
@@ -865,10 +925,10 @@
                 <button class="back-btn" onclick="showView('archive')">← Back to Archives</button>
             </div>
             
-            <div style="background: white; padding: 2rem; border-radius: 12px;">
+            <div style="background: white; padding: 2rem; border-radius: 16px;">
                 <div class="print-only" style="text-align: center; margin-bottom: 2rem;">
-                    <h1 style="color: #667eea;">NCHM</h1>
-                    <p>Maintenance Records</p>
+                    <h1 style="color: #0ea5e9; font-weight: 800;">🏥 NCHM Pro</h1>
+                    <p style="font-weight: 600;">Maintenance Records</p>
                 </div>
 
                 <div id="printContent"></div>
@@ -883,8 +943,8 @@
 
         <div id="passwordModal" class="modal">
             <div class="modal-content">
-                <h2 style="font-size: 1.3rem; font-weight: 600; margin-bottom: 0.5rem;">Password Required</h2>
-                <p style="color: #718096; font-size: 0.9rem;">Enter password to uncheck this item</p>
+                <h2 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem; color: #0f172a;">Password Required</h2>
+                <p style="color: #64748b; font-size: 0.95rem; font-weight: 500;">Enter password to uncheck this item</p>
                 <input type="password" id="passwordInput" class="modal-input" placeholder="Enter password">
                 <div class="modal-buttons">
                     <button class="btn-secondary" onclick="closePasswordModal()">Cancel</button>
@@ -895,10 +955,10 @@
 
         <div id="managerPasswordModal" class="modal">
             <div class="modal-content">
-                <h2 style="font-size: 1.3rem; font-weight: 600; margin-bottom: 0.5rem;">Manager Access</h2>
-                <p style="color: #718096; font-size: 0.9rem;">Enter manager password to continue</p>
+                <h2 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem; color: #0f172a;">Manager Access</h2>
+                <p style="color: #64748b; font-size: 0.95rem; font-weight: 500;">Enter manager password to continue</p>
                 <input type="password" id="managerPasswordInput" class="modal-input" placeholder="Enter manager password">
-                <div id="managerErrorMsg" style="color: #ef4444; font-size: 0.9rem; margin-top: 0.5rem; display: none;">❌ Incorrect password!</div>
+                <div id="managerErrorMsg" style="color: #ef4444; font-size: 0.95rem; margin-top: 0.5rem; display: none; font-weight: 600;">❌ Incorrect password!</div>
                 <div class="modal-buttons">
                     <button class="btn-secondary" onclick="closeManagerPasswordModal()">Cancel</button>
                     <button class="btn-primary" onclick="verifyManagerPassword()">Access</button>
@@ -907,8 +967,9 @@
         </div>
 
         <div class="bottom-nav no-print">
-            <button onclick="window.location.href='login.html'">
-                     🏠 Home
+            <button class="nav-btn" onclick="showView('dashboard')">
+                <div style="font-size: 1.5rem;">🏠</div>
+                <div>Home</div>
             </button>
             
             <button class="nav-btn" onclick="showView('checklist')">
@@ -931,6 +992,37 @@
     </div>
 
     <script>
+        // PWA Installation
+        let deferredPrompt;
+        
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            document.getElementById('installPrompt').classList.remove('hidden');
+        });
+
+        function installApp() {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('App installed');
+                    }
+                    deferredPrompt = null;
+                    document.getElementById('installPrompt').classList.add('hidden');
+                });
+            }
+        }
+
+        // Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js').then(() => {
+                console.log('Service Worker registered');
+            }).catch((error) => {
+                console.log('Service Worker registration failed:', error);
+            });
+        }
+
         // Initialize photo archive
         if (!window.photoArchive) window.photoArchive = [];
 
@@ -961,19 +1053,41 @@
             'default': ['General condition good', 'No visible damage', 'Clean and tidy', 'Equipment functioning', 'Safety standards met', 'No hazards present']
         };
 
-        let checks = {};
-        let notes = {};
-        let photos = {};
-        let waterTemperatures = {};
+        // Load from localStorage
+        let checks = JSON.parse(localStorage.getItem('nchmChecks')) || {};
+        let notes = JSON.parse(localStorage.getItem('nchmNotes')) || {};
+        let photos = JSON.parse(localStorage.getItem('nchmPhotos')) || {};
+        let waterTemperatures = JSON.parse(localStorage.getItem('nchmWaterTemp')) || {};
+        let monthlyArchives = JSON.parse(localStorage.getItem('nchmArchives')) || [];
         let selectedArea = null;
-        let monthlyArchives = [];
         let pendingUncheck = null;
         const UNCHECK_PASSWORD = 'manager123';
         const MANAGER_PASSWORD = 'manager123';
 
+        // Save to localStorage
+        function saveData() {
+            localStorage.setItem('nchmChecks', JSON.stringify(checks));
+            localStorage.setItem('nchmNotes', JSON.stringify(notes));
+            localStorage.setItem('nchmPhotos', JSON.stringify(photos));
+            localStorage.setItem('nchmWaterTemp', JSON.stringify(waterTemperatures));
+            localStorage.setItem('nchmArchives', JSON.stringify(monthlyArchives));
+        }
+
         function init() {
             renderAreas();
             updateStats();
+            
+            // Load technician info
+            const maintenanceName = localStorage.getItem('maintenanceName') || 'Demo User';
+            const loginTime = localStorage.getItem('loginTime');
+            
+            document.getElementById('technicianName').textContent = maintenanceName;
+            
+            if (loginTime) {
+                const date = new Date(loginTime);
+                document.getElementById('loginTime').textContent = 
+                    'Logged in: ' + date.toLocaleDateString() + ' at ' + date.toLocaleTimeString();
+            }
         }
 
         function showView(view) {
@@ -1026,15 +1140,15 @@
                 card.className = 'area-card';
                 card.onclick = () => selectArea(area);
                 card.innerHTML = `
-                    <div class="area-content">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
                         <div style="display: flex; align-items: center; gap: 1rem;">
-                            <div style="font-size: 2rem;">${area.icon}</div>
+                            <div style="font-size: 2.5rem;">${area.icon}</div>
                             <div>
-                                <div style="font-weight: 600; color: #2d3748;">${area.name}</div>
-                                <div style="font-size: 0.85rem; color: #718096;">${area.items.length} items</div>
+                                <div style="font-weight: 700; color: #0f172a; font-size: 1.05rem;">${area.name}</div>
+                                <div style="font-size: 0.9rem; color: #64748b; font-weight: 500;">${area.items.length} items</div>
                             </div>
                         </div>
-                        <div style="font-size: 1.5rem; font-weight: bold; color: ${areaPercentage === 100 ? '#16a34a' : '#cbd5e0'};">${areaPercentage}%</div>
+                        <div style="font-size: 1.75rem; font-weight: 800; color: ${areaPercentage === 100 ? '#10b981' : '#cbd5e0'};">${areaPercentage}%</div>
                     </div>
                 `;
                 container.appendChild(card);
@@ -1071,7 +1185,7 @@
                             <div class="checkbox ${isChecked ? 'checked' : ''}">
                                 ${isChecked ? '✓' : ''}
                             </div>
-                            <div style="color: ${isChecked ? '#2d3748' : '#4a5568'};">${checkItem}</div>
+                            <div style="color: ${isChecked ? '#0f172a' : '#64748b'}; font-weight: 500;">${checkItem}</div>
                         </div>
                     `;
                 }).join('');
@@ -1081,15 +1195,15 @@
                     const tempKey = itemKey + '-waterTemp';
                     const currentTemp = waterTemperatures[tempKey] || 40;
                     waterTempHTML = `
-                        <div style="margin-top: 1rem; padding: 1rem; background: #f7fafc; border-radius: 8px;">
-                            <label style="font-size: 0.9rem; font-weight: 500; color: #4a5568; display: block; margin-bottom: 0.5rem;">
+                        <div style="margin-top: 1rem; padding: 1.25rem; background: #f8fafc; border-radius: 12px; border: 2px solid #e2e8f0;">
+                            <label style="font-size: 0.95rem; font-weight: 600; color: #475569; display: block; margin-bottom: 0.75rem;">
                                 🌡️ Water Temperature (°C)
                             </label>
                             <div style="display: flex; align-items: center; gap: 1rem;">
                                 <input type="range" min="30" max="50" value="${currentTemp}" 
                                        style="flex: 1;" 
                                        oninput="updateWaterTemp('${itemKey}', this.value)">
-                                <div style="font-size: 1.2rem; font-weight: bold; color: #667eea; min-width: 60px;">
+                                <div style="font-size: 1.4rem; font-weight: 800; color: #0ea5e9; min-width: 70px;">
                                     <span id="temp-${itemKey}">${currentTemp}</span>°C
                                 </div>
                             </div>
@@ -1099,14 +1213,14 @@
 
                 card.innerHTML = `
                     <div class="check-item-header ${isComplete ? 'complete' : ''}">
-                        <div style="font-weight: 600; color: #2d3748;">${item}</div>
-                        ${isComplete ? '<div style="color: #16a34a; font-size: 0.85rem; margin-top: 0.3rem;">✓ Complete</div>' : ''}
+                        <div style="font-weight: 700; color: #0f172a; font-size: 1.05rem;">${item}</div>
+                        ${isComplete ? '<div style="color: #10b981; font-size: 0.9rem; margin-top: 0.3rem; font-weight: 600;">✓ Complete</div>' : ''}
                     </div>
-                    <div style="padding: 1rem;">
+                    <div style="padding: 1.25rem;">
                         ${checklistHTML}
                         ${waterTempHTML}
-                        <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #e2e8f0;">
-                            <label style="font-size: 0.9rem; font-weight: 500; color: #4a5568;">Notes (optional)</label>
+                        <div style="margin-top: 1.25rem; padding-top: 1.25rem; border-top: 2px solid #f1f5f9;">
+                            <label style="font-size: 0.95rem; font-weight: 600; color: #475569;">Notes (optional)</label>
                             <textarea class="notes-textarea" placeholder="Add any notes or issues found..." onchange="saveNote('${selectedArea.id}', '${item}', this.value)">${notes[itemKey] || ''}</textarea>
                         </div>
                         <button class="btn btn-photo" onclick="addPhoto('${selectedArea.id}', '${item}')">
@@ -1130,6 +1244,7 @@
             }
             
             checks[key] = true;
+            saveData();
             updateStats();
             renderCheckItems();
             renderAreas();
@@ -1151,6 +1266,7 @@
             if (inputPassword === UNCHECK_PASSWORD) {
                 if (pendingUncheck) {
                     checks[pendingUncheck] = false;
+                    saveData();
                     updateStats();
                     renderCheckItems();
                     renderAreas();
@@ -1169,6 +1285,7 @@
 
         function saveNote(areaId, item, value) {
             notes[areaId + '-' + item] = value;
+            saveData();
         }
 
         function addPhoto(areaId, item) {
@@ -1185,13 +1302,9 @@
                 input.onchange = function(e) {
                     const file = e.target.files[0];
                     if (file) {
-                        console.log('File selected:', file.name);
-                        
                         const reader = new FileReader();
                         
                         reader.onload = function(event) {
-                            console.log('Photo loaded');
-                            
                             if (!window.photoArchive) window.photoArchive = [];
                             
                             window.photoArchive.push({
@@ -1202,15 +1315,13 @@
                                 time: new Date().toLocaleTimeString()
                             });
                             
-                            console.log('Total photos:', window.photoArchive.length);
-                            
                             photos[key] = (photos[key] || 0) + 1;
+                            saveData();
                             renderCheckItems();
                             alert('✅ Photo saved! Total: ' + window.photoArchive.length);
                         };
                         
                         reader.onerror = function() {
-                            console.error('Error reading file');
                             alert('❌ Error saving photo');
                         };
                         
@@ -1229,10 +1340,10 @@
             modal.className = 'modal show';
             modal.innerHTML = `
                 <div class="modal-content" style="max-width: 600px;">
-                    <h2 style="margin-bottom: 1rem;">Take Photo</h2>
-                    <video id="webcamVideo" autoplay style="width: 100%; border-radius: 8px; background: #000;"></video>
+                    <h2 style="margin-bottom: 1rem; font-weight: 700; color: #0f172a;">Take Photo</h2>
+                    <video id="webcamVideo" autoplay style="width: 100%; border-radius: 12px; background: #000;"></video>
                     <canvas id="photoCanvas" style="display: none;"></canvas>
-                    <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
+                    <div style="display: flex; gap: 0.75rem; margin-top: 1rem;">
                         <button class="btn-primary" onclick="capturePhoto('${key}')" style="flex: 1;">
                             📷 Capture
                         </button>
@@ -1276,6 +1387,7 @@
             });
             
             photos[key] = (photos[key] || 0) + 1;
+            saveData();
             renderCheckItems();
             closeWebcam();
             alert('✅ Photo saved to archive!');
@@ -1290,9 +1402,6 @@
         }
 
         function showPhotoArchive() {
-            console.log('Opening photo archive...');
-            console.log('Photos stored:', window.photoArchive ? window.photoArchive.length : 0);
-            
             if (!window.photoArchive || window.photoArchive.length === 0) {
                 alert('📷 No photos in archive yet. Take some photos first!');
                 return;
@@ -1300,20 +1409,20 @@
             
             const modal = document.createElement('div');
             modal.className = 'modal show';
-            modal.style.cssText = 'display: flex !important; overflow-y: auto; -webkit-overflow-scrolling: touch;';
+            modal.style.cssText = 'display: flex !important; overflow-y: auto;';
             
             let photosHTML = '';
             for (let i = 0; i < window.photoArchive.length; i++) {
                 const photo = window.photoArchive[i];
                 photosHTML += `
-                    <div style="margin-bottom: 1.5rem; border: 2px solid #e2e8f0; border-radius: 12px; padding: 1rem; background: white;">
-                        <img src="${photo.data}" style="width: 100%; border-radius: 8px; margin-bottom: 0.75rem; display: block;">
+                    <div style="margin-bottom: 1.5rem; border: 2px solid #e2e8f0; border-radius: 16px; padding: 1rem; background: white; transition: all 0.3s ease;">
+                        <img src="${photo.data}" style="width: 100%; border-radius: 12px; margin-bottom: 0.75rem; display: block;">
                         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
                             <div style="flex: 1; min-width: 150px;">
-                                <p style="font-weight: 600; color: #2d3748; margin-bottom: 0.25rem;">Photo ${i + 1}</p>
-                                <p style="font-size: 0.85rem; color: #718096;">${photo.date} • ${photo.time}</p>
+                                <p style="font-weight: 700; color: #0f172a; margin-bottom: 0.25rem;">Photo ${i + 1}</p>
+                                <p style="font-size: 0.85rem; color: #64748b; font-weight: 500;">${photo.date} • ${photo.time}</p>
                             </div>
-                            <button onclick="deletePhoto(${i}); event.stopPropagation();" style="padding: 0.5rem 1rem; background: #fee2e2; color: #dc2626; border: none; border-radius: 6px; cursor: pointer; font-weight: 600;">
+                            <button onclick="deletePhoto(${i}); event.stopPropagation();" style="padding: 0.6rem 1.25rem; background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%); color: #dc2626; border: 2px solid #fca5a5; border-radius: 8px; cursor: pointer; font-weight: 700; transition: all 0.3s ease;">
                                 🗑️ Delete
                             </button>
                         </div>
@@ -1322,30 +1431,28 @@
             }
             
             modal.innerHTML = `
-                <div class="modal-content" style="max-width: 700px; width: 95%; max-height: 90vh; overflow-y: auto; -webkit-overflow-scrolling: touch;">
+                <div class="modal-content" style="max-width: 700px; width: 95%; max-height: 90vh; overflow-y: auto;">
                     <div style="position: sticky; top: 0; background: white; padding-bottom: 1rem; margin-bottom: 1rem; border-bottom: 2px solid #e2e8f0; z-index: 10;">
-                        <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.5rem;">📷 Photo Archive</h2>
-                        <p style="color: #718096; font-size: 0.9rem;">Total Photos: ${window.photoArchive.length}</p>
+                        <h2 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem; color: #0f172a;">📷 Photo Archive</h2>
+                        <p style="color: #64748b; font-size: 0.95rem; font-weight: 500;">Total Photos: ${window.photoArchive.length}</p>
                     </div>
                     
                     <div style="margin-bottom: 1rem;">
                         ${photosHTML}
                     </div>
                     
-                    <button onclick="closePhotoArchive()" class="btn-secondary" style="width: 100%; padding: 0.75rem; font-weight: 600;">
+                    <button onclick="closePhotoArchive()" class="btn-secondary" style="width: 100%; padding: 1rem; font-weight: 700;">
                         Close
                     </button>
                 </div>
             `;
             
             document.body.appendChild(modal);
-            document.body.style.overflow = 'hidden';
         }
 
         function closePhotoArchive() {
             const modal = document.querySelector('.modal.show');
             if (modal) modal.remove();
-            document.body.style.overflow = '';
         }
 
         function deletePhoto(index) {
@@ -1364,6 +1471,7 @@
         function updateWaterTemp(itemKey, value) {
             waterTemperatures[itemKey + '-waterTemp'] = value;
             document.getElementById('temp-' + itemKey).textContent = value;
+            saveData();
         }
 
         function updateStats() {
@@ -1518,20 +1626,20 @@
                 const areaPercentage = areaTotal > 0 ? Math.round((areaChecks.length / areaTotal) * 100) : 0;
 
                 const item = document.createElement('div');
-                item.className = 'area-progress-item';
+                item.style.cssText = 'display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 2px solid #f1f5f9;';
                 item.innerHTML = `
-                    <div style="display: flex; align-items: center; gap: 0.75rem;">
-                        <span style="font-size: 1.5rem;">${area.icon}</span>
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <span style="font-size: 1.75rem;">${area.icon}</span>
                         <div>
-                            <div style="font-weight: 500; color: #2d3748;">${area.name}</div>
-                            <div style="font-size: 0.85rem; color: #718096;">${area.items.length} items</div>
+                            <div style="font-weight: 600; color: #0f172a;">${area.name}</div>
+                            <div style="font-size: 0.85rem; color: #64748b; font-weight: 500;">${area.items.length} items</div>
                         </div>
                     </div>
                     <div style="text-align: right;">
-                        <div style="font-size: 1.2rem; font-weight: bold; color: ${areaPercentage >= 80 ? '#16a34a' : areaPercentage >= 50 ? '#f59e0b' : '#ef4444'};">
+                        <div style="font-size: 1.3rem; font-weight: 800; color: ${areaPercentage >= 80 ? '#10b981' : areaPercentage >= 50 ? '#f59e0b' : '#ef4444'};">
                             ${areaPercentage}%
                         </div>
-                        <span class="stat-badge" style="background: ${areaPercentage >= 80 ? '#d1fae5' : areaPercentage >= 50 ? '#fef3c7' : '#fee2e2'}; color: ${areaPercentage >= 80 ? '#059669' : areaPercentage >= 50 ? '#d97706' : '#dc2626'};">
+                        <span style="display: inline-block; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; font-weight: 700; background: ${areaPercentage >= 80 ? 'linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%)' : areaPercentage >= 50 ? 'linear-gradient(135deg, #fef3c7 0%, #fde68a 100%)' : 'linear-gradient(135deg, #fee2e2 0%, #fecaca 100%)'}; color: ${areaPercentage >= 80 ? '#059669' : areaPercentage >= 50 ? '#d97706' : '#dc2626'};">
                             ${areaPercentage >= 80 ? 'Excellent' : areaPercentage >= 50 ? 'Fair' : 'Needs Work'}
                         </span>
                     </div>
@@ -1554,11 +1662,11 @@
                 const alert = document.createElement('div');
                 alert.className = 'alert-box alert-danger';
                 alert.innerHTML = `
-                    <div style="display: flex; align-items: center; gap: 0.75rem;">
-                        <div style="font-size: 1.5rem;">🚨</div>
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div style="font-size: 1.75rem;">🚨</div>
                         <div>
-                            <div style="font-weight: 600; margin-bottom: 0.25rem;">Critical: End of Month Alert</div>
-                            <div style="font-size: 0.9rem;">Only ${daysRemaining} days remaining with ${percentage}% completion. Immediate discussion with maintenance required!</div>
+                            <div style="font-weight: 700; margin-bottom: 0.25rem;">Critical: End of Month Alert</div>
+                            <div style="font-size: 0.95rem; font-weight: 500;">Only ${daysRemaining} days remaining with ${percentage}% completion. Immediate discussion required!</div>
                         </div>
                     </div>
                 `;
@@ -1567,11 +1675,11 @@
                 const alert = document.createElement('div');
                 alert.className = 'alert-box alert-warning';
                 alert.innerHTML = `
-                    <div style="display: flex; align-items: center; gap: 0.75rem;">
-                        <div style="font-size: 1.5rem;">⚠️</div>
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div style="font-size: 1.75rem;">⚠️</div>
                         <div>
-                            <div style="font-weight: 600; margin-bottom: 0.25rem;">Warning: Below Target</div>
-                            <div style="font-size: 0.9rem;">Only ${daysRemaining} days left. Current completion: ${percentage}%. Consider accelerating maintenance schedule.</div>
+                            <div style="font-weight: 700; margin-bottom: 0.25rem;">Warning: Below Target</div>
+                            <div style="font-size: 0.95rem; font-weight: 500;">Only ${daysRemaining} days left. Current: ${percentage}%. Consider accelerating schedule.</div>
                         </div>
                     </div>
                 `;
@@ -1582,11 +1690,11 @@
                 const alert = document.createElement('div');
                 alert.className = 'alert-box alert-warning';
                 alert.innerHTML = `
-                    <div style="display: flex; align-items: center; gap: 0.75rem;">
-                        <div style="font-size: 1.5rem;">📉</div>
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div style="font-size: 1.75rem;">📉</div>
                         <div>
-                            <div style="font-weight: 600; margin-bottom: 0.25rem;">Behind Schedule</div>
-                            <div style="font-size: 0.9rem;">Expected ${Math.round(expectedProgress)}% by day ${currentDay}, but only ${percentage}% completed.</div>
+                            <div style="font-weight: 700; margin-bottom: 0.25rem;">Behind Schedule</div>
+                            <div style="font-size: 0.95rem; font-weight: 500;">Expected ${Math.round(expectedProgress)}% by day ${currentDay}, but only ${percentage}% completed.</div>
                         </div>
                     </div>
                 `;
@@ -1597,11 +1705,11 @@
                 const alert = document.createElement('div');
                 alert.className = 'alert-box alert-success';
                 alert.innerHTML = `
-                    <div style="display: flex; align-items: center; gap: 0.75rem;">
-                        <div style="font-size: 1.5rem;">✅</div>
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div style="font-size: 1.75rem;">✅</div>
                         <div>
-                            <div style="font-weight: 600; margin-bottom: 0.25rem;">Excellent Performance!</div>
-                            <div style="font-size: 0.9rem;">Maintenance team is performing exceptionally well with ${percentage}% completion.</div>
+                            <div style="font-weight: 700; margin-bottom: 0.25rem;">Excellent Performance!</div>
+                            <div style="font-size: 0.95rem; font-weight: 500;">Team performing exceptionally with ${percentage}% completion.</div>
                         </div>
                     </div>
                 `;
@@ -1618,7 +1726,7 @@
             const onTrack = percentage >= expectedProgress - 5;
             
             document.getElementById('onTrack').textContent = onTrack ? 'Yes' : 'No';
-            document.getElementById('onTrack').style.color = onTrack ? '#2563eb' : '#ef4444';
+            document.getElementById('onTrack').style.color = onTrack ? '#0284c7' : '#ef4444';
         }
 
         function archiveCurrentMonth() {
@@ -1646,12 +1754,14 @@
             archive.completionRate = totalChecks > 0 ? Math.round((completedChecks / totalChecks) * 100) : 0;
             
             monthlyArchives.unshift(archive);
+            saveData();
             
-            if (confirm('Archive created! Do you want to reset all checks for the new month?')) {
+            if (confirm('Archive created! Reset all checks for new month?')) {
                 checks = {};
                 notes = {};
                 photos = {};
                 waterTemperatures = {};
+                saveData();
                 updateStats();
                 renderAreas();
             }
@@ -1665,10 +1775,10 @@
             
             if (monthlyArchives.length === 0) {
                 container.innerHTML = `
-                    <div style="text-align: center; padding: 3rem; color: #9ca3af;">
-                        <div style="font-size: 3rem; margin-bottom: 1rem;">📦</div>
-                        <p>No archived months yet</p>
-                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Archive the current month to save records</p>
+                    <div style="text-align: center; padding: 3rem; color: #64748b;">
+                        <div style="font-size: 3.5rem; margin-bottom: 1rem;">📦</div>
+                        <p style="font-weight: 600; font-size: 1.1rem;">No archived months yet</p>
+                        <p style="font-size: 0.95rem; margin-top: 0.5rem; font-weight: 500;">Archive the current month to save records</p>
                     </div>
                 `;
                 return;
@@ -1690,27 +1800,27 @@
                 card.innerHTML = `
                     <div style="display: flex; justify-content: space-between; align-items: center;">
                         <div>
-                            <div style="font-size: 1.2rem; font-weight: 600; color: #2d3748; margin-bottom: 0.25rem;">
+                            <div style="font-size: 1.25rem; font-weight: 700; color: #0f172a; margin-bottom: 0.25rem;">
                                 📅 ${archive.month}
                             </div>
-                            <div style="font-size: 0.9rem; color: #718096;">
+                            <div style="font-size: 0.95rem; color: #64748b; font-weight: 500;">
                                 Archived: ${formattedDate}
                             </div>
                         </div>
                         <div style="text-align: right;">
-                            <div style="font-size: 1.8rem; font-weight: bold; color: ${archive.completionRate >= 80 ? '#16a34a' : archive.completionRate >= 50 ? '#f59e0b' : '#ef4444'};">
+                            <div style="font-size: 2rem; font-weight: 800; color: ${archive.completionRate >= 80 ? '#10b981' : archive.completionRate >= 50 ? '#f59e0b' : '#ef4444'};">
                                 ${archive.completionRate}%
                             </div>
-                            <div style="font-size: 0.85rem; color: #718096;">Complete</div>
+                            <div style="font-size: 0.85rem; color: #64748b; font-weight: 600;">Complete</div>
                         </div>
                     </div>
-                    <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #e5e7eb; display: flex; gap: 0.5rem;">
+                    <div style="margin-top: 1rem; padding-top: 1rem; border-top: 2px solid #f1f5f9; display: flex; gap: 0.75rem;">
                         <button onclick="event.stopPropagation(); viewArchive(${index})" 
-                                style="flex: 1; padding: 0.5rem; background: #667eea; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.9rem;">
+                                style="flex: 1; padding: 0.75rem; background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 0.95rem; font-weight: 700; transition: all 0.3s ease;">
                             👁️ View
                         </button>
                         <button onclick="event.stopPropagation(); printArchive(${index})" 
-                                style="flex: 1; padding: 0.5rem; background: #10b981; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.9rem;">
+                                style="flex: 1; padding: 0.75rem; background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 0.95rem; font-weight: 700; transition: all 0.3s ease;">
                             🖨️ Print
                         </button>
                     </div>
@@ -1740,41 +1850,41 @@
         function generatePrintHTML(archive) {
             let html = `
                 <div style="margin-bottom: 2rem;">
-                    <h2 style="font-size: 1.5rem; font-weight: bold; color: #2d3748; margin-bottom: 0.5rem;">${archive.month}</h2>
-                    <p style="color: #718096;">Completion Rate: <strong style="color: ${archive.completionRate >= 80 ? '#16a34a' : archive.completionRate >= 50 ? '#f59e0b' : '#ef4444'};">${archive.completionRate}%</strong></p>
+                    <h2 style="font-size: 1.75rem; font-weight: 800; color: #0f172a; margin-bottom: 0.5rem;">${archive.month}</h2>
+                    <p style="color: #64748b; font-weight: 600;">Completion Rate: <strong style="color: ${archive.completionRate >= 80 ? '#10b981' : archive.completionRate >= 50 ? '#f59e0b' : '#ef4444'};">${archive.completionRate}%</strong></p>
                 </div>
             `;
 
             archive.areas.forEach(area => {
                 html += `<div style="margin-bottom: 2rem; page-break-inside: avoid;">
-                    <h3 style="font-size: 1.2rem; font-weight: 600; color: #2d3748; margin-bottom: 1rem;">${area.icon} ${area.name}</h3>
+                    <h3 style="font-size: 1.3rem; font-weight: 700; color: #0f172a; margin-bottom: 1rem;">${area.icon} ${area.name}</h3>
                 `;
 
                 area.items.forEach(item => {
                     const itemKey = area.id + '-' + item;
                     const currentCheckItems = checkItemsByArea[area.id] || checkItemsByArea['default'];
                     
-                    html += `<div style="margin-bottom: 1.5rem; padding: 1rem; background: #f7fafc; border-radius: 8px;">
-                        <h4 style="font-weight: 600; margin-bottom: 0.75rem;">${item}</h4>
+                    html += `<div style="margin-bottom: 1.5rem; padding: 1.25rem; background: #f8fafc; border-radius: 12px; border: 2px solid #e2e8f0;">
+                        <h4 style="font-weight: 700; margin-bottom: 0.75rem; color: #0f172a;">${item}</h4>
                         <ul style="list-style: none; padding-left: 0;">
                     `;
 
                     currentCheckItems.forEach(checkItem => {
                         const checkKey = itemKey + '-' + checkItem;
                         const isChecked = archive.checks[checkKey];
-                        html += `<li style="margin-bottom: 0.5rem;">${isChecked ? '✅' : '❌'} ${checkItem}</li>`;
+                        html += `<li style="margin-bottom: 0.5rem; font-weight: 500;">${isChecked ? '✅' : '❌'} ${checkItem}</li>`;
                     });
 
                     html += `</ul>`;
 
                     if (archive.notes[itemKey]) {
-                        html += `<div style="margin-top: 0.75rem; padding: 0.75rem; background: white; border-radius: 6px;">
-                            <strong>Notes:</strong> ${archive.notes[itemKey]}
+                        html += `<div style="margin-top: 0.75rem; padding: 1rem; background: white; border-radius: 8px; border: 2px solid #e2e8f0;">
+                            <strong style="font-weight: 700;">Notes:</strong> ${archive.notes[itemKey]}
                         </div>`;
                     }
 
                     if (archive.photos[itemKey]) {
-                        html += `<div style="margin-top: 0.5rem; color: #667eea;">
+                        html += `<div style="margin-top: 0.5rem; color: #0ea5e9; font-weight: 600;">
                             📷 ${archive.photos[itemKey]} photo(s) attached
                         </div>`;
                     }
@@ -1798,9 +1908,6 @@
                 input.value = '';
                 errorMsg.style.display = 'none';
                 setTimeout(() => input.focus(), 100);
-            } else {
-                console.error('Manager password modal elements not found');
-                alert('Error: Modal not found. Please refresh the page.');
             }
         }
 
@@ -1839,25 +1946,6 @@
         });
 
         init();
-    </script>
-    
-    <script>
-        window.addEventListener('DOMContentLoaded', function() {
-            const maintenanceName = localStorage.getItem('maintenanceName');
-            const loginTime = localStorage.getItem('loginTime');
-            
-            if (maintenanceName) {
-                document.getElementById('technicianName').textContent = maintenanceName;
-                
-                if (loginTime) {
-                    const date = new Date(loginTime);
-                    document.getElementById('loginTime').textContent = 
-                        'Logged in: ' + date.toLocaleDateString() + ' at ' + date.toLocaleTimeString();
-                }
-            } else {
-                window.location.href = 'login.html';
-            }
-        });
     </script>
 </body>
 </html>
