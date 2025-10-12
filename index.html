@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <title>Mark Turos - AI Research Scientist</title>
     <style>
         * {
@@ -13,912 +13,219 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #ffffff;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
         }
 
-        /* Navigation */
-        nav {
-            background: white;
-            padding: 20px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            position: sticky;
+        /* Animated gradient background */
+        .background {
+            position: fixed;
             top: 0;
-            z-index: 100;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #0f0c29, #302b63, #24243e, #0f0c29);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            z-index: -2;
         }
 
-        .nav-container {
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Floating particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: float linear infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        /* Content */
+        .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
         }
 
-        .logo {
-            font-size: 1.2em;
-            font-weight: 500;
-            color: #1a1a1a;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: #666;
-            text-decoration: none;
-            font-size: 0.95em;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #1a1a1a;
-        }
-
-        /* Sections */
-        section {
-            min-height: 100vh;
-            padding: 80px 40px;
-            display: none;
-        }
-
-        section.active {
-            display: block;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        /* Home Section */
-        #home {
-            display: flex;
-            align-items: center;
+        header {
+            text-align: center;
+            padding: 100px 20px 50px;
         }
 
         h1 {
-            font-size: 3em;
-            font-weight: 300;
-            margin-bottom: 20px;
-            color: #1a1a1a;
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: fadeInDown 1s ease;
         }
 
-        .title {
-            font-size: 1.3em;
-            color: #667eea;
-            font-weight: 500;
+        .subtitle {
+            font-size: 1.5em;
+            color: #a0a0ff;
             margin-bottom: 30px;
+            animation: fadeInUp 1s ease 0.3s both;
         }
 
-        .intro {
-            font-size: 1.15em;
-            color: #555;
-            margin-bottom: 40px;
-            line-height: 1.8;
-            max-width: 700px;
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .last-updated {
-            font-size: 0.9em;
-            color: #999;
-            margin-bottom: 40px;
-            letter-spacing: 1px;
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .achievements {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
-            margin-bottom: 50px;
-            padding: 30px 0;
-            border-top: 1px solid #eee;
-            border-bottom: 1px solid #eee;
+        .content-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: fadeIn 1s ease;
         }
 
-        .achievement {
-            text-align: center;
-        }
-
-        .achievement-number {
-            font-size: 2em;
-            font-weight: 600;
-            color: #667eea;
-            display: block;
-        }
-
-        .achievement-label {
-            font-size: 0.85em;
-            color: #999;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         h2 {
-            font-size: 0.9em;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #999;
-            margin-bottom: 20px;
-            font-weight: 500;
-            margin-top: 50px;
-        }
-
-        .expertise-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            margin-bottom: 50px;
-        }
-
-        .expertise-item {
-            font-size: 1em;
-            color: #444;
-            padding: 5px 0;
-        }
-
-        .expertise-item::before {
-            content: "▸ ";
-            color: #667eea;
-            font-weight: bold;
-        }
-
-        /* Publications */
-        .publication-item {
-            margin-bottom: 30px;
-            padding: 25px;
-            background: white;
-            border-radius: 8px;
-            border-left: 3px solid #667eea;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-
-        .publication-title {
-            font-size: 1.1em;
-            color: #1a1a1a;
-            margin-bottom: 10px;
-            font-weight: 500;
-        }
-
-        .publication-meta {
-            font-size: 0.9em;
-            color: #666;
-            margin-bottom: 8px;
-        }
-
-        .publication-venue {
-            font-style: italic;
-            color: #667eea;
-        }
-
-        /* About Section */
-        .about-content {
-            max-width: 700px;
-        }
-
-        .about-content p {
-            font-size: 1.1em;
-            color: #555;
-            margin-bottom: 25px;
-            line-height: 1.8;
-        }
-
-        .credentials {
-            display: grid;
-            gap: 20px;
-            margin-top: 40px;
-        }
-
-        .credential-item {
-            padding: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            display: flex;
-            gap: 15px;
-            align-items: flex-start;
-        }
-
-        .credential-icon {
             font-size: 2em;
-            min-width: 50px;
-        }
-
-        .credential-content h3 {
-            font-size: 1.1em;
-            color: #1a1a1a;
-            margin-bottom: 5px;
-        }
-
-        .credential-content p {
-            font-size: 0.95em;
-            color: #666;
-            margin: 0;
-        }
-
-        .process-grid {
-            display: grid;
-            gap: 40px;
-            margin-top: 50px;
-        }
-
-        .process-item {
-            padding: 30px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        .process-item h3 {
-            font-size: 1.2em;
-            color: #1a1a1a;
-            margin-bottom: 15px;
-            font-weight: 500;
-        }
-
-        .process-item p {
-            color: #666;
-            line-height: 1.7;
-        }
-
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            gap: 40px;
-            margin-top: 40px;
-        }
-
-        .project-card {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-        }
-
-        .project-image {
-            width: 100%;
-            height: 280px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4em;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-image::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.1);
-        }
-
-        .project-content {
-            padding: 30px;
-        }
-
-        .project-meta {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 15px;
-            font-size: 0.85em;
-            color: #999;
-        }
-
-        .project-title {
-            font-size: 1.5em;
-            color: #1a1a1a;
-            margin-bottom: 15px;
-            font-weight: 500;
-        }
-
-        .project-description {
-            color: #666;
-            line-height: 1.7;
-            margin-bottom: 15px;
-        }
-
-        .project-impact {
-            padding: 15px;
-            background: #f8f9ff;
-            border-radius: 5px;
-            border-left: 3px solid #667eea;
-            margin: 15px 0;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .project-tags {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-
-        .tag {
-            padding: 6px 14px;
-            background: #f0f0f0;
-            border-radius: 15px;
-            font-size: 0.85em;
-            color: #666;
-            transition: all 0.3s;
-        }
-
-        .tag:hover {
-            background: #667eea;
-            color: white;
-        }
-
-        /* Contact Section */
-        .contact-content {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .contact-content h1 {
             margin-bottom: 20px;
+            color: #a0a0ff;
         }
 
-        .contact-content p {
+        p {
+            line-height: 1.8;
             font-size: 1.1em;
-            color: #666;
-            margin-bottom: 40px;
+            margin-bottom: 15px;
         }
 
         .contact-links {
             display: flex;
-            flex-direction: column;
-            gap: 20px;
-            align-items: center;
-        }
-
-        .contact-link {
-            display: inline-block;
-            padding: 15px 40px;
-            background: #667eea;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: all 0.3s;
-            font-size: 1em;
-        }
-
-        .contact-link:hover {
-            background: #5568d3;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
-        }
-
-        .contact-link.secondary {
-            background: white;
-            color: #1a1a1a;
-            border: 2px solid #1a1a1a;
-        }
-
-        .contact-link.secondary:hover {
-            background: #f5f5f5;
-            transform: translateY(-2px);
-        }
-
-        .social-links {
-            display: flex;
             gap: 20px;
             justify-content: center;
             margin-top: 30px;
+            flex-wrap: wrap;
         }
 
-        .social-link {
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: white;
-            border: 2px solid #e0e0e0;
-            border-radius: 50%;
-            color: #666;
+        .btn {
+            padding: 12px 30px;
+            background: rgba(160, 160, 255, 0.3);
+            border: 2px solid #a0a0ff;
+            color: white;
             text-decoration: none;
-            font-size: 1.3em;
-            transition: all 0.3s;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            font-weight: bold;
         }
 
-        .social-link:hover {
-            border-color: #667eea;
-            color: #667eea;
+        .btn:hover {
+            background: rgba(160, 160, 255, 0.5);
             transform: translateY(-3px);
-        }
-
-        .location {
-            margin-top: 50px;
-            font-size: 0.9em;
-            color: #999;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-container {
-                padding: 0 20px;
-            }
-
-            .nav-links {
-                gap: 15px;
-                font-size: 0.9em;
-            }
-
-            section {
-                padding: 60px 20px;
-            }
-
-            h1 {
-                font-size: 2em;
-            }
-
-            .expertise-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .achievements {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            box-shadow: 0 5px 20px rgba(160, 160, 255, 0.4);
         }
     </style>
 </head>
 <body>
-    <nav>
-        <div class="nav-container">
-            <div class="logo">Mark Turos</div>
-            <ul class="nav-links">
-                <li><a href="#" onclick="showSection('home')">Home</a></li>
-                <li><a href="#" onclick="showSection('about')">About</a></li>
-                <li><a href="#" onclick="showSection('research')">Research</a></li>
-                <li><a href="#" onclick="showSection('projects')">Projects</a></li>
-                <li><a href="#" onclick="showSection('contact')">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+    <div class="background"></div>
+    <div class="particles" id="particles"></div>
 
-    <!-- Home Section -->
-    <section id="home" class="active">
-        <div class="container">
+    <div class="container">
+        <header>
             <h1>Mark Turos</h1>
-            <div class="title">AI Research Scientist & Machine Learning Engineer</div>
-            
-            <p class="intro">
-                Specializing in advanced machine learning architectures, deep neural networks, and cutting-edge 
-                AI research. Expertise in developing state-of-the-art models for natural language understanding, 
-                computer vision, and reinforcement learning. Committed to pushing the boundaries of artificial 
-                intelligence through rigorous research and innovative engineering solutions.
-            </p>
+            <p class="subtitle">AI Research Scientist</p>
+        </header>
 
-            <div class="last-updated">
-                Last updated<br>
-                10 - 12 - 2025
+        <section class="content-section">
+            <h2>About Me</h2>
+            <p>Welcome to my research page. I specialize in artificial intelligence, machine learning, and deep learning systems. My work focuses on developing innovative approaches to complex computational problems.</p>
+            <p>I am passionate about pushing the boundaries of what's possible with AI and contributing to the advancement of intelligent systems.</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Research Interests</h2>
+            <p>• Machine Learning & Deep Learning</p>
+            <p>• Natural Language Processing</p>
+            <p>• Computer Vision</p>
+            <p>• Reinforcement Learning</p>
+            <p>• Neural Network Architecture</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Contact</h2>
+            <div class="contact-links">
+                <a href="mailto:contact@example.com" class="btn">Email</a>
+                <a href="#" class="btn">LinkedIn</a>
+                <a href="#" class="btn">Google Scholar</a>
+                <a href="#" class="btn">GitHub</a>
             </div>
-
-            <div class="achievements">
-                <div class="achievement">
-                    <span class="achievement-number">10+</span>
-                    <span class="achievement-label">Research Papers</span>
-                </div>
-                <div class="achievement">
-                    <span class="achievement-number">15+</span>
-                    <span class="achievement-label">AI Projects</span>
-                </div>
-                <div class="achievement">
-                    <span class="achievement-number">50K+</span>
-                    <span class="achievement-label">Lines of Code</span>
-                </div>
-                <div class="achievement">
-                    <span class="achievement-number">98%</span>
-                    <span class="achievement-label">Model Accuracy</span>
-                </div>
-            </div>
-
-            <h2>Core Competencies</h2>
-            <div class="expertise-grid">
-                <div class="expertise-item">Large Language Models (LLMs)</div>
-                <div class="expertise-item">Transformer Architectures</div>
-                <div class="expertise-item">Deep Reinforcement Learning</div>
-                <div class="expertise-item">Computer Vision & CNNs</div>
-                <div class="expertise-item">Natural Language Processing</div>
-                <div class="expertise-item">Generative AI & GANs</div>
-                <div class="expertise-item">Neural Architecture Search</div>
-                <div class="expertise-item">Distributed Training Systems</div>
-                <div class="expertise-item">Model Compression & Quantization</div>
-                <div class="expertise-item">MLOps & Model Deployment</div>
-                <div class="expertise-item">PyTorch, TensorFlow, JAX</div>
-                <div class="expertise-item">CUDA & GPU Optimization</div>
-            </div>
-
-            <p class="intro" style="margin-top: 30px;">
-                My research focuses on developing efficient, scalable AI systems that bridge the gap between 
-                theoretical advances and practical applications. I am particularly interested in few-shot learning, 
-                neural architecture optimization, and building AI systems that are both powerful and interpretable.
-            </p>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <h1>About</h1>
-            
-            <div class="about-content">
-                <p>
-                    I hold a Master's degree in Computer Science with specialization in Artificial Intelligence, 
-                    where I focused on advanced topics including deep learning theory, probabilistic graphical models, 
-                    and autonomous systems. My thesis work centered on novel attention mechanisms for sequence-to-sequence 
-                    models, achieving significant improvements in translation quality and computational efficiency.
-                </p>
-
-                <p>
-                    Throughout my academic and professional journey, I have contributed to cutting-edge research in 
-                    machine learning, collaborating with researchers and engineers to develop next-generation AI 
-                    systems. My work spans multiple domains including natural language understanding, computer vision, 
-                    and multimodal learning, with a consistent focus on both theoretical rigor and practical impact.
-                </p>
-
-                <p>
-                    I am deeply committed to responsible AI development, ensuring that the systems I build are not 
-                    only performant but also fair, transparent, and aligned with human values. I actively participate 
-                    in the AI research community through peer review, conference presentations, and open-source 
-                    contributions.
-                </p>
-
-                <h2>Credentials & Recognition</h2>
-                
-                <div class="credentials">
-                    <div class="credential-item">
-                        <div class="credential-icon">🎓</div>
-                        <div class="credential-content">
-                            <h3>Master's in Computer Science - AI</h3>
-                            <p>Specialized in Deep Learning, NLP, and Neural Architecture Design | GPA: 3.9/4.0</p>
-                        </div>
-                    </div>
-
-                    <div class="credential-item">
-                        <div class="credential-icon">🏆</div>
-                        <div class="credential-content">
-                            <h3>Research Excellence Award</h3>
-                            <p>Best Paper Award at AI Conference for novel transformer architecture research</p>
-                        </div>
-                    </div>
-
-                    <div class="credential-item">
-                        <div class="credential-icon">🎤</div>
-                        <div class="credential-content">
-                            <h3>Conference Speaker</h3>
-                            <p>Presented research at NeurIPS, ICML workshops, and regional AI symposiums</p>
-                        </div>
-                    </div>
-
-                    <div class="credential-item">
-                        <div class="credential-icon">💻</div>
-                        <div class="credential-content">
-                            <h3>Open Source Contributor</h3>
-                            <p>Active contributor to PyTorch, Hugging Face, and various ML research repositories</p>
-                        </div>
-                    </div>
-                </div>
-
-                <h2>Research Philosophy</h2>
-                
-                <div class="process-grid">
-                    <div class="process-item">
-                        <h3>Rigorous Experimentation</h3>
-                        <p>
-                            Every project begins with thorough literature review and hypothesis formation. I employ 
-                            systematic ablation studies, statistical significance testing, and comprehensive benchmarking 
-                            to validate findings and ensure reproducibility.
-                        </p>
-                    </div>
-
-                    <div class="process-item">
-                        <h3>Innovation Through Iteration</h3>
-                        <p>
-                            I believe in rapid prototyping and iterative refinement. Using state-of-the-art frameworks 
-                            and distributed computing resources, I experiment with novel architectures, loss functions, 
-                            and training strategies to push performance boundaries.
-                        </p>
-                    </div>
-
-                    <div class="process-item">
-                        <h3>Production-Ready Solutions</h3>
-                        <p>
-                            Research must translate to real-world impact. I focus on model optimization, efficient 
-                            inference, and robust deployment pipelines. Every model is thoroughly tested for edge cases, 
-                            computational efficiency, and production scalability.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Research Section -->
-    <section id="research">
-        <div class="container">
-            <h1>Research & Publications</h1>
-            <p class="intro">
-                Selected publications and research contributions in machine learning and artificial intelligence.
-            </p>
-
-            <div style="margin-top: 40px;">
-                <div class="publication-item">
-                    <div class="publication-title">
-                        "Efficient Attention Mechanisms for Long-Context Transformers"
-                    </div>
-                    <div class="publication-meta">
-                        M. Turos, et al.
-                    </div>
-                    <div class="publication-meta">
-                        <span class="publication-venue">Neural Information Processing Systems (NeurIPS) Workshop, 2025</span>
-                    </div>
-                    <div class="project-tags" style="margin-top: 15px;">
-                        <span class="tag">Transformers</span>
-                        <span class="tag">Attention Mechanisms</span>
-                        <span class="tag">NLP</span>
-                    </div>
-                </div>
-
-                <div class="publication-item">
-                    <div class="publication-title">
-                        "Few-Shot Learning with Meta-Learned Initializations for Medical Image Classification"
-                    </div>
-                    <div class="publication-meta">
-                        M. Turos, J. Smith
-                    </div>
-                    <div class="publication-meta">
-                        <span class="publication-venue">International Conference on Machine Learning (ICML) Workshop, 2024</span>
-                    </div>
-                    <div class="project-tags" style="margin-top: 15px;">
-                        <span class="tag">Few-Shot Learning</span>
-                        <span class="tag">Computer Vision</span>
-                        <span class="tag">Medical AI</span>
-                    </div>
-                </div>
-
-                <div class="publication-item">
-                    <div class="publication-title">
-                        "Optimizing Neural Architecture Search with Reinforcement Learning"
-                    </div>
-                    <div class="publication-meta">
-                        M. Turos
-                    </div>
-                    <div class="publication-meta">
-                        <span class="publication-venue">Master's Thesis, 2025</span>
-                    </div>
-                    <div class="project-tags" style="margin-top: 15px;">
-                        <span class="tag">AutoML</span>
-                        <span class="tag">Reinforcement Learning</span>
-                        <span class="tag">NAS</span>
-                    </div>
-                </div>
-
-                <div class="publication-item">
-                    <div class="publication-title">
-                        "Multimodal Fusion Strategies for Video Understanding Tasks"
-                    </div>
-                    <div class="publication-meta">
-                        M. Turos, A. Chen, L. Williams
-                    </div>
-                    <div class="publication-meta">
-                        <span class="publication-venue">Computer Vision and Pattern Recognition (CVPR) Workshop, 2024</span>
-                    </div>
-                    <div class="project-tags" style="margin-top: 15px;">
-                        <span class="tag">Multimodal Learning</span>
-                        <span class="tag">Video Understanding</span>
-                        <span class="tag">Deep Learning</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects">
-        <div class="container">
-            <h1>Featured Projects</h1>
-            <p class="intro">
-                Cutting-edge AI projects demonstrating expertise across multiple domains and technologies.
-            </p>
-
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                        🧠
-                    </div>
-                    <div class="project-content">
-                        <div class="project-meta">
-                            <span>Year: 2025</span>
-                            <span>Type: Research</span>
-                            <span>Status: Published</span>
-                        </div>
-                        <h3 class="project-title">Advanced Transformer Architecture for Long-Context NLU</h3>
-                        <p class="project-description">
-                            Designed and implemented a novel attention mechanism that reduces computational complexity 
-                            from O(n²) to O(n log n) for processing long sequences. The architecture incorporates 
-                            hierarchical attention patterns and learned sparse attention masks, enabling efficient 
-                            processing of documents with 32K+ tokens while maintaining state-of-the-art performance.
-                        </p>
-                        <div class="project-impact">
-                            <strong>Impact:</strong> 40% reduction in training time, 3.2% improvement in GLUE benchmark 
-                            scores, deployed in production serving 100K+ daily users
-                        </div>
-                        <div class="project-tags">
-                            <span class="tag">Transformers</span>
-                            <span class="tag">Attention Mechanisms</span>
-                            <span class="tag">PyTorch</span>
-                            <span class="tag">CUDA</span>
-                            <span class="tag">Distributed Training</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-                        👁️
-                    </div>
-                    <div class="project-content">
-                        <div class="project-meta">
-                            <span>Year: 2024</span>
-                            <span>Type: Research</span>
-                            <span>Status: Published</span>
-                        </div>
-                        <h3 class="project-title">Few-Shot Medical Image Diagnosis System</h3>
-                        <p class="project-description">
-                            Developed a meta-learning framework for medical image classification that achieves expert-level 
-                            performance with only 5-10 labeled examples per class. Implemented MAML and Prototypical 
-                            Networks with custom data augmentation strategies tailored for medical imaging. The system 
-                            incorporates uncertainty quantification and attention visualization for interpretability.
-                        </p>
-                        <div class="project-impact">
-                            <strong>Impact:</strong> 94.5% accuracy with 5-shot learning, 85% reduction in labeling 
-                            requirements, deployed in 3 clinical research institutions
-                        </div>
-                        <div class="project-tags">
-                            <span class="tag">Meta-Learning</span>
-                            <span class="tag">Computer Vision</span>
-                            <span class="tag">Medical AI</span>
-                            <span class="tag">TensorFlow</span>
-                            <span class="tag">Few-Shot Learning</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-                        🎮
-                    </div>
-                    <div class="project-content">
-                        <div class="project-meta">
-                            <span>Year: 2024</span>
-                            <span>Type: Academic</span>
-                            <span>Status: Open Source</span>
-                        </div>
-                        <h3 class="project-title">Deep RL Agent for Complex Strategy Games</h3>
-                        <p class="project-description">
-                            Built a reinforcement learning agent using PPO and soft actor-critic algorithms that 
-                            achieved superhuman performance in complex strategy environments. Implemented custom 
-                            reward shaping, curriculum learning, and self-play mechanisms. The architecture combines 
-                            convolutional networks for spatial understanding with LSTM layers for temporal reasoning.
-                        </p>
-                        <div class="project-impact">
-                            <strong>Impact:</strong> Defeated 95% of human players, 1.5M+ timesteps trained, 
-                            contributed framework to open-source community (2K+ GitHub stars)
-                        </div>
-                        <div class="project-tags">
-                            <span class="tag">Reinforcement Learning</span>
-                            <span class="tag">PPO</span>
-                            <span class="tag">Self-Play</span>
-                            <span class="tag">PyTorch</span>
-                            <span class="tag">Multi-Agent Systems</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
-                        🎨
-                    </div>
-                    <div class="project-content">
-                        <div class="project-meta">
-                            <span>Year: 2024</span>
-                            <span>Type: Research</span>
-                            <span>Status: In Progress</span>
-                        </div>
-                        <h3 class="project-title">Multimodal Generative AI Framework</h3>
-                        <p class="project-description">
-                            Developing a unified framework for multimodal generation combining text, image, and audio 
-                            modalities. Implements diffusion models, VAE-GANs, and cross-modal attention mechanisms. 
-                            Features include controllable generation, style transfer across modalities, and efficient 
-                            inference through model distillation and quantization.
-                        </p>
-                        <div class="project-impact">
-                            <strong>Impact:</strong> FID score of 8.2 on image generation, supports real-time inference 
-                            on consumer GPUs, preparing for conference submission
-                        </div>
-                        <div class="project-tags">
-                            <span class="tag">Generative AI</span>
-                            <span class="tag">Diffusion Models</span>
-                            <span class="tag">Multimodal</span>
-                            <span class="tag">VAE-GAN</span>
-                            <span class="tag">JAX</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <div class="contact-content">
-                <h1>Let's Connect</h1>
-                <p>
-                    Interested in collaboration, research opportunities, or consulting? 
-                    I'm always open to discussing innovative AI projects and partnerships.
-                </p>
-
-                <div class="contact-links">
-                    <a href="mailto:mark.turos@research.edu" class="contact-link">Email Me</a>
-                    <a href="#" class="contact-link secondary">Download CV</a>
-                </div>
-
-                <div class="social-links">
-                    <a href="https://github.com/markturos" class="social-link" target="_blank" title="GitHub">
-                        💻
-                    </a>
-                    <a href="https://linkedin.com/in/markturos" class="social-link" target="_blank" title="LinkedIn">
-                        💼
-                    </a>
-                    <a href="https://scholar.google.com" class="social-link" target="_blank" title="Google Scholar">
-                        🎓
-                    </a>
-                    <a href="https://twitter.com/markturos" class="social-link" target="_blank" title="Twitter">
-                        🐦
-                    </a>
-                </div>
-
-                <div class="location">
-                    📍 Available for remote collaboration worldwide
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
     <script>
-        function showSection(sectionId) {
-            // Hide all sections
-            document.querySelectorAll('section').forEach(section => {
-                section.classList.remove('active');
-            });
-            
-            // Show selected section
-            document.getElementById(sectionId).classList.add('active');
-            
-            // Scroll to top
-            window.scrollTo(0, 0);
+        // Generate floating particles
+        const particlesContainer = document.getElementById('particles');
+        const particleCount = 50;
+
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            particle.style.animationDelay = Math.random() * 5 + 's';
+            particlesContainer.appendChild(particle);
         }
     </script>
 </body>
