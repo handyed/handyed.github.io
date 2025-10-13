@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark Turos - University Diploma</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 60px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: color 0.3s;
+        }
+
+        .back-button:hover {
+            color: #1a1a1a;
+        }
+
+        .back-button::before {
+            content: "← ";
+        }
+
+        h1 {
+            font-size: 2.5em;
+            font-weight: 300;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 50px;
+        }
+
+        .diploma-frame {
+            border: 3px solid #e0e0e0;
+            padding: 40px;
+            background: #fafafa;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .diploma-image {
+            width: 100%;
+            max-width: 700px;
+            height: auto;
+            margin: 0 auto;
+            display: block;
+            border: 1px solid #ddd;
+            background: white;
+        }
+
+        .diploma-placeholder {
+            width: 100%;
+            height: 500px;
+            background: white;
+            border: 2px dashed #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 1.1em;
+        }
+
+        .credentials-section {
+            margin-top: 50px;
+        }
+
+        .credential-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .credential-item {
+            text-align: center;
+        }
+
+        .credential-label {
+            font-size: 0.85em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #999;
+            margin-bottom: 8px;
+        }
+
+        .credential-value {
+            font-size: 1.2em;
+            color: #1a1a1a;
+            font-weight: 500;
+        }
+
+        .divider {
+            height: 1px;
+            background: #e0e0e0;
+            margin: 50px 0;
+        }
+
+        .details {
+            line-height: 2;
+        }
+
+        .details-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .details-label {
+            font-weight: 500;
+            color: #666;
+            min-width: 200px;
+        }
+
+        .details-value {
+            color: #1a1a1a;
+            text-align: right;
+        }
+
+        .verification {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 5px;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .verification h3 {
+            font-size: 1.1em;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .verification p {
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 20px;
+        }
+
+        .verification-code {
+            font-family: monospace;
+            background: white;
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 3px;
+            display: inline-block;
+            font-size: 1em;
+            letter-spacing: 2px;
+            color: #1a1a1a;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .diploma-frame {
+                padding: 20px;
+            }
+
+            .details-row {
+                flex-direction: column;
+            }
+
+            .details-label {
+                margin-bottom: 5px;
+            }
+
+            .details-value {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-button">Back to Portfolio</a>
+
+        <h1>University Diploma</h1>
+        <p class="subtitle">Master of Science in Computer Science - Artificial Intelligence</p>
+
+        <div class="diploma-frame">
+            <!-- Replace this placeholder with your actual diploma image -->
+             <img src="/master (1).png" alt="University Diploma" class="diploma-image"> 
+            
+        </div>
+
+        <div class="credential-grid">
+            <div class="credential-item">
+                <div class="credential-label">Degree</div>
+                <div class="credential-value">Master of Science</div>
+            </div>
+            <div class="credential-item">
+                <div class="credential-label">Field of Study</div>
+                <div class="credential-value">Computer Science - AI</div>
+            </div>
+            <div class="credential-item">
+                <div class="credential-label">Year</div>
+                <div class="credential-value">2025</div>
+            </div>
+            <div class="credential-item">
+                <div class="credential-label">GPA</div>
+                <div class="credential-value">3.9/4.0</div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="credentials-section">
+            <h2 style="font-size: 1.5em; font-weight: 400; color: #1a1a1a; margin-bottom: 30px;">Diploma Details</h2>
+            
+            <div class="details">
+                <div class="details-row">
+                    <span class="details-label">Full Name</span>
+                    <span class="details-value">Mark Turos</span>
+                </div>
+                <div class="details-row">
+                    <span class="details-label">Degree Type</span>
+                    <span class="details-value">Master of Science (M.Sc.)</span>
+                </div>
+                <div class="details-row">
+                    <span class="details-label">Major</span>
+                    <span class="details-value">Computer Science</span>
+                </div>
+                <div class="details-row">
+                    <span class="details-label">Specialization</span>
+                    <span class="details-value">Artificial Intelligence</span>
+                </div>
+                <div class="details-row">
+                    <span class="details-label">University</span>
+                    <span class="details-value">Coventry University </span>
+                </div>
+                <div class="details-row">
+                    <span class="details-label">Date of Graduation</span>
+                    <span class="details-value">May 2025</span>
+                </div>
+                <div class="details-row">
+                    <span class="details-label">Honors</span>
+                    <span class="details-value">Magna Cum Laude</span>
+                </div>
+                <div class="details-row">
+                    <span class="details-label">Thesis Title</span>
+                    <span class="details-value">Optimizing Neural Architecture Search with Reinforcement Learning</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="verification">
+            <h3>Diploma Verification</h3>
+            <p>This diploma can be verified through the university's official verification system</p>
+            
+        </div>
+    </div>
+</body>
+</html>
