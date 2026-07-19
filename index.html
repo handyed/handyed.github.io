@@ -1,232 +1,140 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <title>Mark Turos - AI Research Scientist</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #ffffff;
-            overflow-x: hidden;
-            position: relative;
-            min-height: 100vh;
-        }
-
-        /* Animated gradient background */
-        .background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, #0f0c29, #302b63, #24243e, #0f0c29);
-            background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
-            z-index: -2;
-        }
-
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* Floating particles */
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-
-        .particle {
-            position: absolute;
-            width: 3px;
-            height: 3px;
-            background: rgba(255, 255, 255, 0.5);
-            border-radius: 50%;
-            animation: float linear infinite;
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(100vh) translateX(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100px) translateX(100px);
-                opacity: 0;
-            }
-        }
-
-        /* Content */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            position: relative;
-            z-index: 1;
-        }
-
-        header {
-            text-align: center;
-            padding: 100px 20px 50px;
-        }
-
-        h1 {
-            font-size: 3.5em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            animation: fadeInDown 1s ease;
-        }
-
-        .subtitle {
-            font-size: 1.5em;
-            color: #a0a0ff;
-            margin-bottom: 30px;
-            animation: fadeInUp 1s ease 0.3s both;
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .content-section {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px;
-            margin: 30px 0;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            animation: fadeIn 1s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        h2 {
-            font-size: 2em;
-            margin-bottom: 20px;
-            color: #a0a0ff;
-        }
-
-        p {
-            line-height: 1.8;
-            font-size: 1.1em;
-            margin-bottom: 15px;
-        }
-
-        .contact-links {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            margin-top: 30px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 12px 30px;
-            background: rgba(160, 160, 255, 0.3);
-            border: 2px solid #a0a0ff;
-            color: white;
-            text-decoration: none;
-            border-radius: 30px;
-            transition: all 0.3s ease;
-            font-weight: bold;
-        }
-
-        .btn:hover {
-            background: rgba(160, 160, 255, 0.5);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 20px rgba(160, 160, 255, 0.4);
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TUROS | Digitalne IT rešitve za podjetja</title>
+<meta name="description" content="TUROS je IT podjetje s sedežem v Združenem kraljestvu. Nudimo razvoj programske opreme, AI rešitve, avtomatizacijo in digitalne storitve za podjetja.">
+<meta name="keywords" content="IT Slovenija, AI rešitve, razvoj programske opreme, digitalizacija podjetij">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <div class="background"></div>
-    <div class="particles" id="particles"></div>
 
-    <div class="container">
-        <header>
-            <h1>Mark Turos</h1>
-            <p class="subtitle">AI Research Scientist</p>
-        </header>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#home" class="logo">TUROS<span class="logo-dot">.</span></a>
 
-        <section class="content-section">
-            <h2>About Me</h2>
-            <p>Welcome to my research page. I specialize in artificial intelligence, machine learning, and deep learning systems. My work focuses on developing innovative approaches to complex computational problems.</p>
-            <p>I am passionate about pushing the boundaries of what's possible with AI and contributing to the advancement of intelligent systems.</p>
-        </section>
+    <nav class="nav" id="primary-nav">
+      <a href="#home" data-i18n="nav_home">Domov</a>
+      <a href="#services" data-i18n="nav_services">Storitve</a>
+      <a href="#about" data-i18n="nav_about">O nas</a>
+      <a href="#contact" data-i18n="nav_contact">Kontakt</a>
+    </nav>
 
-        <section class="content-section">
-            <h2>Research Interests</h2>
-            <p>• Machine Learning & Deep Learning</p>
-            <p>• Natural Language Processing</p>
-            <p>• Computer Vision</p>
-            <p>• Reinforcement Learning</p>
-            <p>• Neural Network Architecture</p>
-        </section>
+    <div class="header-controls">
+      <select id="language" aria-label="Language">
+        <option value="sl">SL</option>
+        <option value="en">EN</option>
+        <option value="de">DE</option>
+        <option value="it">IT</option>
+        <option value="hr">HR</option>
+      </select>
 
-        <section class="content-section">
-            <h2>Contact</h2>
-            <div class="contact-links">
-                <a href="mailto:m.turos@outlook.com" class="btn">Email</a>
-                <a href="https://www.linkedin.com/in/markturos/" class="btn">LinkedIn</a>
-                <a href="/diploma1.html" class="btn">Master</a>
-                <a href="https://GitHub.com/mturos19" class="btn">GitHub</a>
-            </div>
-        </section>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobile-nav">
+  <a href="#home" data-i18n="nav_home">Domov</a>
+  <a href="#services" data-i18n="nav_services">Storitve</a>
+  <a href="#about" data-i18n="nav_about">O nas</a>
+  <a href="#contact" data-i18n="nav_contact">Kontakt</a>
+</div>
+
+<main>
+
+<section id="home" class="hero">
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="hero-content">
+    <p class="eyebrow" data-i18n="hero_eyebrow">IT PARTNER · ZDRUŽENO KRALJESTVO</p>
+    <h1 data-i18n="hero_title">Digitalne IT rešitve<br>za prihodnost</h1>
+    <p class="hero-lead" data-i18n="hero_lead">
+      TUROS je tehnološko podjetje s sedežem v Združenem kraljestvu,
+      ki pomaga podjetjem izboljšati poslovanje z modernimi digitalnimi rešitvami.
+    </p>
+    <div class="hero-actions">
+      <a class="button button-primary" href="#contact" data-i18n="hero_cta">Kontaktirajte nas</a>
+      <a class="button button-ghost" href="#services" data-i18n="hero_cta_secondary">Naše storitve</a>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="services">
+  <p class="eyebrow" data-i18n="services_eyebrow">KAJ POČNEMO</p>
+  <h2 data-i18n="services_title">Naše storitve</h2>
+
+  <div class="cards">
+    <div class="card card-amber">
+      <span class="card-mark">/dev</span>
+      <h3 data-i18n="service1_title">Razvoj programske opreme</h3>
+      <p data-i18n="service1_desc">Izdelava spletnih aplikacij in rešitev po meri za podjetja.</p>
     </div>
 
-    <script>
-        // Generate floating particles
-        const particlesContainer = document.getElementById('particles');
-        const particleCount = 50;
+    <div class="card card-teal">
+      <span class="card-mark">/ai</span>
+      <h3 data-i18n="service2_title">AI rešitve</h3>
+      <p data-i18n="service2_desc">Uporaba umetne inteligence za izboljšanje poslovnih procesov.</p>
+    </div>
 
-        for (let i = 0; i < particleCount; i++) {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
-            particle.style.animationDelay = Math.random() * 5 + 's';
-            particlesContainer.appendChild(particle);
-        }
-    </script>
+    <div class="card card-amber">
+      <span class="card-mark">/auto</span>
+      <h3 data-i18n="service3_title">Avtomatizacija poslovanja</h3>
+      <p data-i18n="service3_desc">Digitalizacija ponavljajočih se opravil in optimizacija dela.</p>
+    </div>
+
+    <div class="card card-teal">
+      <span class="card-mark">/consult</span>
+      <h3 data-i18n="service4_title">IT svetovanje</h3>
+      <p data-i18n="service4_desc">Pomagamo podjetjem izbrati prave tehnološke rešitve.</p>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div class="about-inner">
+    <p class="eyebrow" data-i18n="about_eyebrow">KDO SMO</p>
+    <h2 data-i18n="about_title">O podjetju TUROS</h2>
+    <p data-i18n="about_text">
+      TUROS je IT podjetje, usmerjeno v razvoj programske opreme,
+      digitalizacijo in sodobne tehnološke rešitve. Naš cilj je pomagati
+      podjetjem uporabljati tehnologijo na enostaven in učinkovit način.
+    </p>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <p class="eyebrow" data-i18n="contact_eyebrow">POVEŽIVA SE</p>
+  <h2 data-i18n="contact_title">Kontakt</h2>
+
+  <div class="contact-card">
+    <p class="contact-name">MARK</p>
+    <p class="contact-label" data-i18n="contact_whatsapp_label">WhatsApp</p>
+    <a class="whatsapp" href="https://wa.me/447397636766" target="_blank" rel="noopener">
+      <span class="whatsapp-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.9C21.96 6.45 17.5 2 12.04 2Zm5.8 14.13c-.24.68-1.4 1.3-1.93 1.36-.49.06-1.1.08-1.78-.11-.41-.12-.94-.3-1.62-.6-2.85-1.23-4.71-4.1-4.86-4.29-.14-.19-1.16-1.55-1.16-2.96s.73-2.1 1-2.39c.24-.26.53-.32.71-.32h.5c.16 0 .38-.03.58.44.24.57.8 1.97.87 2.11.07.14.11.31.02.5-.09.19-.14.31-.28.47-.14.16-.29.36-.42.48-.14.13-.28.28-.12.55.16.28.71 1.18 1.53 1.91 1.05.94 1.94 1.24 2.21 1.38.28.14.44.12.6-.07.16-.19.68-.79.86-1.06.18-.28.36-.23.6-.14.24.09 1.55.73 1.81.86.26.14.44.2.5.32.06.13.06.71-.18 1.39Z"/></svg>
+      </span>
+      +44 7397 636766
+    </a>
+    <p class="contact-country" data-i18n="contact_country">Združeno kraljestvo</p>
+  </div>
+</section>
+
+</main>
+
+<a class="whatsapp-float" href="https://wa.me/447397636766" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.9C21.96 6.45 17.5 2 12.04 2Zm5.8 14.13c-.24.68-1.4 1.3-1.93 1.36-.49.06-1.1.08-1.78-.11-.41-.12-.94-.3-1.62-.6-2.85-1.23-4.71-4.1-4.86-4.29-.14-.19-1.16-1.55-1.16-2.96s.73-2.1 1-2.39c.24-.26.53-.32.71-.32h.5c.16 0 .38-.03.58.44.24.57.8 1.97.87 2.11.07.14.11.31.02.5-.09.19-.14.31-.28.47-.14.16-.29.36-.42.48-.14.13-.28.28-.12.55.16.28.71 1.18 1.53 1.91 1.05.94 1.94 1.24 2.21 1.38.28.14.44.12.6-.07.16-.19.68-.79.86-1.06.18-.28.36-.23.6-.14.24.09 1.55.73 1.81.86.26.14.44.2.5.32.06.13.06.71-.18 1.39Z"/></svg>
+</a>
+
+<footer class="site-footer">
+  <p>© 2026 TUROS. <span data-i18n="footer_rights">Vse pravice pridržane.</span></p>
+</footer>
+
+<script src="/language.js"></script>
 </body>
 </html>
